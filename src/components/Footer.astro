@@ -1,0 +1,39 @@
+---
+import A5cBar from './A5cBar.astro';
+---
+
+<footer class="hlv-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">© 2026 Hudson Lab Ventures</span>
+    <div class="footer-links">
+      <a href="/">Program</a>
+      <a href="/">Cities</a>
+      <a href="/alumni">Alumni</a>
+      <a href="/admissions">Admissions</a>
+      <a href="/">Parents</a>
+      <a href="/">Contact</a>
+    </div>
+  </div>
+  <A5cBar />
+</footer>
+
+<style>
+  .hlv-footer {
+    padding: 64px 80px 48px;
+    background: var(--dark);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .footer-brand {
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a {
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.3); text-decoration: none;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.6); }
+</style>

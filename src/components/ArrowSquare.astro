@@ -1,0 +1,33 @@
+---
+interface Props {
+  size?: 'standard' | 'small';
+}
+const { size = 'standard' } = Astro.props;
+const dim = size === 'small' ? '28px' : '36px';
+const iconDim = size === 'small' ? '11px' : '14px';
+---
+
+<span class="arrow-sq" style={`width: ${dim}; height: ${dim};`}>
+  <svg viewBox="0 0 14 14" style={`width: ${iconDim}; height: ${iconDim};`}>
+    <line x1="3" y1="7" x2="11" y2="7"/>
+    <line x1="7.5" y1="3.5" x2="11" y2="7"/>
+    <line x1="7.5" y1="10.5" x2="11" y2="7"/>
+  </svg>
+</span>
+
+<style>
+  .arrow-sq {
+    background: var(--pop);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .arrow-sq svg {
+    stroke: var(--navy);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+  }
+</style>

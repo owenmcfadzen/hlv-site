@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<div class:list={['a5c-bar', className]}>
+  <div class="seg" style="flex: 6; background: var(--violet);"></div>
+  <div class="seg" style="flex: 5; background: var(--blue);"></div>
+  <div class="seg" style="flex: 4; background: var(--coral);"></div>
+  <div class="seg" style="flex: 3; background: var(--pop);"></div>
+  <div class="seg" style="flex: 2; background: var(--green);"></div>
+  <div class="seg" style="flex: 2; background: var(--navy);"></div>
+</div>
+
+<style>
+  .a5c-bar {
+    display: flex;
+    height: 4px;
+    width: 100%;
+    margin-top: 48px;
+  }
+</style>

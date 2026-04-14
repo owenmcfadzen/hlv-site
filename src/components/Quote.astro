@@ -1,0 +1,54 @@
+---
+interface Props {
+  text: string;
+  attribution: string;
+  variant?: 'warm' | 'navy';
+  accentColors?: [string, string];
+}
+const { text, attribution, variant = 'warm', accentColors = ['violet', 'pop'] } = Astro.props;
+---
+
+<section class:list={['hlv-quote', `quote-${variant}`]}>
+  <div class="q-marks" style="justify-content: center; margin-bottom: 28px;">
+    <span style={`width: 28px; background: var(--${accentColors[0]});`}></span>
+    <span style={`width: 16px; background: var(--${accentColors[1]});`}></span>
+  </div>
+  <blockquote>{text}</blockquote>
+  <span class="attr">{attribution}</span>
+</section>
+
+<style>
+  .hlv-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .quote-warm {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+  .quote-warm blockquote {
+    font-size: 24px; line-height: 1.5;
+    color: var(--navy); margin-bottom: 20px;
+  }
+  .quote-warm .attr {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em; color: var(--text-light);
+  }
+  .quote-navy {
+    background: var(--navy);
+    padding: 88px 80px;
+  }
+  .quote-navy blockquote {
+    font-size: 26px; line-height: 1.45;
+    color: white; max-width: 640px; margin-bottom: 20px;
+  }
+  .quote-navy .attr {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.04em; color: rgba(255,255,255,0.4);
+  }
+</style>

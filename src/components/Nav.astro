@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+}
+const { variant = 'light' } = Astro.props;
+---
+
+<nav class:list={['hlv-nav', `nav-${variant}`]}>
+  <a href="/" class="nav-logo">Hudson Lab <span>Ventures</span></a>
+  <div class="nav-links">
+    <a href="/program/nyc">Program</a>
+    <a href="/">Cities</a>
+    <a href="/alumni">Alumni</a>
+    <a href="/">Parents</a>
+    <a href="/admissions" class="nav-cta">Apply</a>
+  </div>
+</nav>
+
+<style>
+  .hlv-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 56px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .nav-light {
+    background: rgba(250,249,247,0.95);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .nav-dark {
+    background: rgba(24,24,27,0.92);
+  }
+  .nav-logo {
+    font-weight: 600; font-size: 15px;
+    letter-spacing: 0.02em; text-decoration: none;
+  }
+  .nav-light .nav-logo { color: var(--navy); }
+  .nav-dark .nav-logo { color: white; }
+  .nav-logo span { color: var(--violet); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 14px; font-weight: 500; text-decoration: none;
+  }
+  .nav-light .nav-links a { color: var(--text-mid); }
+  .nav-light .nav-links a:hover { color: var(--navy); }
+  .nav-dark .nav-links a { color: rgba(255,255,255,0.6); }
+  .nav-dark .nav-links a:hover { color: white; }
+  .nav-cta {
+    padding: 7px 20px !important;
+    border-radius: 1px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+  }
+  .nav-light .nav-cta { background: var(--navy); color: white !important; }
+  .nav-light .nav-cta:hover { background: var(--violet); }
+  .nav-dark .nav-cta { background: var(--violet); color: white !important; }
+</style>

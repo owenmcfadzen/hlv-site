@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "name": "HLV Design System",
+    "version": "1.0.0",
+    "updated": "2026-04-14",
+    "description": "Source of truth for Hudson Lab Ventures brand identity. Use across web (CSS), slides (Google Slides), and print (PDF/worksheets)."
+  },
+  "color": {
+    "palette": {
+      "violet-600": { "hex": "#7B4FDB", "role": "Primary identity. Section marks. Quote accents. Cross-track/Alumni.", "track": "cross-track" },
+      "blue-600": { "hex": "#3B7DD8", "role": "Primary CTA, links. GTM track.", "track": "gtm" },
+      "coral-600": { "hex": "#E46C41", "role": "Energy, action. Product track.", "track": "product" },
+      "pop-400": { "hex": "#FFD43B", "role": "Highlights, attention. Step numbers on dark. Arrow squares. Use dark text on this.", "track": null },
+      "green-400": { "hex": "#34C759", "role": "Business track. Contextual use only.", "track": "business" },
+      "navy-800": { "hex": "#182D53", "role": "Text color, dark backgrounds, authority anchor.", "track": null }
+    },
+    "signature_order": ["violet-600", "blue-600", "coral-600", "pop-400", "green-400", "navy-800"],
+    "signature_proportions": [6, 5, 4, 3, 2, 2],
+    "backgrounds": {
+      "warm-white": "#faf9f7",
+      "subtle": "#f0eee8",
+      "dark": "#18181b",
+      "dark-card": "#1e1e22"
+    },
+    "text": {
+      "primary": "#182D53",
+      "secondary": "#4a5568",
+      "tertiary": "#7a8599",
+      "on-dark": "#ffffff",
+      "on-dark-secondary": "rgba(255,255,255,0.6)",
+      "on-dark-tertiary": "rgba(255,255,255,0.35)"
+    },
+    "border": "#e2e0dc",
+    "rules": [
+      "Colors used sparingly but at full saturation when they appear",
+      "Violet and blue must NOT appear adjacent in highlighted text blocks — not enough contrast",
+      "On dark backgrounds, navy drops from the A5c signature (it IS the background)",
+      "Pop (yellow) always uses dark text, never white"
+    ]
+  },
+  "typography": {
+    "families": {
+      "primary": { "name": "Barlow", "google_fonts": true, "weights": [400, 500, 600] },
+      "label": { "name": "Barlow Semi Condensed", "google_fonts": true, "weights": [500, 600] },
+      "accent": { "name": "Literata", "google_fonts": true, "weights": ["400 italic"], "usage": "ONLY blockquotes and testimonials. Never in headings, buttons, cards, or UI." }
+    },
+    "scale": {
+      "hero-title": { "size": "56px", "weight": 600, "line-height": 1.08, "letter-spacing": "-0.01em", "family": "primary" },
+      "page-title": { "size": "52px", "weight": 600, "line-height": 1.1, "family": "primary" },
+      "section-title": { "size": "36px", "weight": 600, "line-height": 1.15, "family": "primary" },
+      "highlighted-text": { "size": "48px", "weight": 600, "line-height": 1.1, "padding": "8px 24px", "family": "primary" },
+      "card-title": { "size": "22px", "weight": 600, "family": "primary" },
+      "subsection-title": { "size": "19px", "weight": 600, "family": "primary" },
+      "body": { "size": "17px", "weight": 400, "line-height": 1.62, "family": "primary" },
+      "body-large": { "size": "18px", "weight": 400, "line-height": 1.65, "family": "primary" },
+      "lead-sentence": { "size": "17-18px", "weight": 500, "color": "navy", "note": "Apple-style first sentence emphasis" },
+      "quote": { "size": "24-26px", "weight": "400 italic", "line-height": 1.5, "family": "accent" },
+      "label": { "size": "12px", "weight": 600, "letter-spacing": "0.08em", "text-transform": "uppercase", "family": "label" },
+      "label-small": { "size": "11px", "weight": 600, "letter-spacing": "0.06em", "text-transform": "uppercase", "family": "label" },
+      "nav": { "size": "14px", "weight": 500, "family": "primary" }
+    },
+    "rules": [
+      "600 max for headings. Never 700 except possibly hero over photography (unresolved).",
+      "Lead sentences: weight 500 + navy color in body text",
+      "Barlow Semi Condensed ONLY for labels, tags, and small uppercase text",
+      "Literata ONLY for blockquotes. Never elsewhere."
+    ]
+  },
+  "spacing": {
+    "section-padding-top": "120px",
+    "section-padding-bottom": "100-120px",
+    "page-margin": "80px",
+    "section-header-gap": "20px",
+    "section-mark": { "width": "6px", "height": "48px" },
+    "grid-gap": "2px (for adjacent cards), 0 (for bordered grids)"
+  },
+  "radius": {
+    "sharp": "0px — icons, tags, dividers, arrow squares",
+    "small": "1px — buttons, inputs, CTAs",
+    "medium": "2px — cards, containers",
+    "rules": ["No exceptions. No pills. No rounded corners beyond 2px at any scale."]
+  },
+  "icons": {
+    "style": "Carbon (IBM Carbon Icons)",
+    "stroke_width": "1.5px",
+    "stroke_linecap": "square",
+    "stroke_linejoin": "miter",
+    "container": "square, 0px radius",
+    "color": "track-colored per context"
+  },
+  "components": {
+    "a5c_bar": {
+      "height": "4-5px",
+      "usage": "Below hero (if hero is dark), above footer. NOT between every section.",
+      "segments": "violet:6 blue:5 coral:4 pop:3 green:2 navy:2"
+    },
+    "section_mark": {
+      "width": "6px",
+      "height": "48px",
+      "usage": "Beside section headings. Color rotates per section.",
+      "rotation": ["violet", "blue", "coral", "pop", "green", "navy"]
+    },
+    "arrow_square": {
+      "size": "36px (standard), 28px (small)",
+      "background": "pop-400 (#FFD43B)",
+      "icon": "right arrow, navy stroke, square linecap",
+      "usage": "CTA accent. The geometric identity mark. Used consistently on apply buttons and key links."
+    },
+    "highlighted_text_blocks": {
+      "usage": "Hero headlines and CTA headlines on DARK backgrounds only",
+      "colors": "Use contrasting pairs. Good: violet → pop → navy. Bad: violet → blue (too close).",
+      "stagger": "Each line offset 0-48px from the one above",
+      "rules": ["Only on dark backgrounds", "Max 3 lines", "Never violet + blue adjacent"]
+    },
+    "quote_accent_marks": {
+      "format": "2-3 small colored bars, 4px tall, decreasing width",
+      "example": "violet 28px, pop 16px",
+      "usage": "Above blockquotes"
+    },
+    "photo_sections": {
+      "full_width": "520px tall, edge to edge",
+      "pair": "2:1 grid ratio, 400px tall, 1px gap or hairline",
+      "rules": ["Always edge-to-edge, no internal padding", "Use warm-white placeholder bg (#f0eee8), not grey"]
+    }
+  },
+  "layout_patterns": {
+    "editorial_grid": "Three equal columns with 1px borders. 48px padding per cell.",
+    "split": "1:1 grid with photo one side, text other. Alternating direction.",
+    "ascending_blocks": "Three full-color panels, each stepping upward with ghost numbers.",
+    "facilitator_rows": "Square photo left (280px), info right, separated by 1px border.",
+    "logistics_grid": "3-column bordered grid. Label/value/detail per cell.",
+    "faq_narrow": "780px max-width, simple question/answer stack.",
+    "process_steps": "Large ghost number (42px, 12% opacity) left, content right."
+  },
+  "page_principles": {
+    "landing": "The quietest page. Almost entirely warm white. One dark moment (CTA). Color by mark and icon only.",
+    "program": "Dark hero with highlighted text. Editorial content on warm white. Ascending tracks on dark.",
+    "alumni": "Quiet typographic hero. Stats bar. Magazine-style profiles. ALL profiles on light backgrounds.",
+    "admissions": "Split hero. Qualities grid. Process steps. Conversion-focused, not salesy."
+  }
+}
