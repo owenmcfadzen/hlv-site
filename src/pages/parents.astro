@@ -7,115 +7,131 @@ import ArrowSquare from '../components/ArrowSquare.astro';
 
 <Base title="For Parents" navVariant="light" navActive="parents">
 
-  <!-- HERO — warm, direct, no flash -->
+  <!-- HERO — split with photo -->
   <section class="par-hero">
-    <div class="par-label"><span class="dot"></span> For Parents & Families</div>
-    <h1>The Questions You're Asking Are the Right Ones</h1>
-    <div class="par-hero-body">
-      <div class="par-hero-text">
-        <p><span class="lead">You're wondering if this is real, if it's safe, and if it's worth the investment.</span> We'd be worried if you weren't. This page is for you — not a pitch, just the information you need to make a confident decision.</p>
-        <p>Hudson Lab Ventures is a two-week summer program where high school students work on real business challenges with guidance from experienced practitioners. The work is serious. The environment is supportive. And the outcomes are things your child can show — a portfolio, not a certificate.</p>
-      </div>
+    <div class="par-hero-text">
+      <div class="par-label"><span class="dot"></span> For Parents & Families</div>
+      <h1>The Questions You're Asking Are the Right Ones</h1>
+      <p><span class="lead">You're wondering if this is real, if it's safe, and if it's worth the investment.</span> We'd be worried if you weren't. This page is for you — not a pitch, just the information you need to make a confident decision.</p>
+    </div>
+    <div class="par-hero-photo">
+      <div class="edge" style="background:var(--violet);"></div>
+      <span class="photo-placeholder">Parent and student at program event — candid, warm</span>
     </div>
   </section>
 
-  <!-- WHAT YOUR CHILD WILL DO — clear, concrete -->
-  <section class="par-section"><div class="mw">
+  <!-- WHAT YOUR CHILD WILL DO — with photo -->
+  <section class="par-what"><div class="mw">
     <SectionHeader title="What Your Child Will Actually Do" color="coral" />
-    <div class="par-prose">
-      <p><span class="lead">Every day from 9:00 to 17:00, students work in small teams on a real challenge.</span> Not a simulation — an actual problem that a real company needs solved. They research, prototype, test, and present their work to executives who take it seriously.</p>
-      <p>Students choose one of three tracks — Product (design & build), Business (model & validate), or Go-to-Market (launch & grow). They work within their track but learn from all three through daily cross-track critiques. By the end, they have tangible work they can show anyone.</p>
-      <p>The program is led by facilitators — experienced practitioners, not teachers. They coach rather than lecture. They ask hard questions rather than give answers. And they hold students to a professional standard, because that's what makes the experience meaningful.</p>
+    <div class="what-layout">
+      <div class="what-text">
+        <p><span class="lead">Every day from 9:00 to 17:00, students work in small teams on a real challenge.</span> Not a simulation — an actual problem that a real company needs solved. They research, prototype, test, and present their work to executives who take it seriously.</p>
+        <p>Students choose one of three tracks. They work within their track but learn from all three through daily cross-track critiques. By the end, they have tangible work they can show anyone.</p>
+      </div>
+      <div class="what-tracks">
+        <div class="what-track"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="20" height="20" class="c-icon"><rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/></svg><div><strong>Product</strong><span>Design & Build</span></div></div>
+        <div class="what-track"><svg viewBox="0 0 24 24" stroke="var(--green)" width="20" height="20" class="c-icon"><path d="M4 20 L12 4 L20 20 Z"/><line x1="8" y1="14" x2="16" y2="14"/></svg><div><strong>Business</strong><span>Model & Validate</span></div></div>
+        <div class="what-track"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="20" height="20" class="c-icon"><polyline points="4 17 10 11 14 15 20 9"/><line x1="15" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="14"/></svg><div><strong>Go-to-Market</strong><span>Launch & Grow</span></div></div>
+      </div>
     </div>
   </div></section>
+
+  <!-- PHOTO BREAK -->
+  <div class="photo-full"><span class="photo-placeholder">Students presenting to executives — the "adults take you seriously" moment</span></div>
 
   <!-- PARENT QUOTE -->
   <Quote text="When it came time for college applications, my child's experience at Hudson Lab Ventures was a true point of distinction. But honestly, the bigger change was in how she carried herself afterward." attribution="Parent, NYC 2024" />
 
-  <!-- SAFETY & SUPERVISION — the section parents actually came for -->
+  <!-- SAFETY & SUPERVISION -->
   <section class="par-section"><div class="mw">
     <SectionHeader title="Safety & Supervision" color="navy" />
-    <div class="par-prose" style="margin-bottom:48px;">
-      <p><span class="lead">We take duty of care seriously. Here's exactly how supervision works.</span></p>
-    </div>
+    <p class="par-intro"><span class="lead">We take duty of care seriously. Here's exactly how it works.</span></p>
     <div class="safety-grid bordered-grid">
       <div class="safety-item">
-        <h3>During Program Hours</h3>
-        <p>Adult facilitators are present from 9:00 to 17:00 every day. We maintain a small student-to-facilitator ratio so every student gets individual attention. All program activities are supervised.</p>
+        <div class="s-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="22" height="22"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14"/></svg></div>
+        <h3>Program Hours</h3>
+        <p>Adult facilitators present 9:00–17:00 daily. Small student-to-facilitator ratio. All activities supervised.</p>
       </div>
       <div class="safety-item">
+        <div class="s-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="22" height="22"><rect x="3" y="6" width="18" height="14"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 6 L8 3 M16 6 L16 3"/></svg></div>
         <h3>Housing</h3>
-        <p>In NYC, students stay in Columbia University residence halls with 24/7 security and live-in Resident Advisors. International programs use vetted local housing with on-site support staff. Day-student options are available at every location.</p>
+        <p>NYC: Columbia University dorms with 24/7 security and Resident Advisors. International: vetted local partners with on-site staff. Day-student option at every location.</p>
       </div>
       <div class="safety-item">
-        <h3>Evenings & Free Time</h3>
-        <p>Evenings are free but structured. HLV-organized activities are always supervised. When students go out independently, we use a buddy system and require check-ins. Curfews are enforced at all residential programs.</p>
+        <div class="s-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="22" height="22"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/></svg></div>
+        <h3>Evenings</h3>
+        <p>HLV activities are supervised. Independent outings use a buddy system with check-ins. Curfews enforced at all residential programs.</p>
       </div>
       <div class="safety-item">
+        <div class="s-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="22" height="22"><rect x="4" y="4" width="16" height="16"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
         <h3>Communication</h3>
-        <p>Parents receive a welcome packet with emergency contacts, daily schedules, and facilitator information before the program starts. We're reachable by phone and email throughout — and we respond like humans, not form letters.</p>
+        <p>Welcome packet with emergency contacts before the program. Phone and email access throughout. We respond like humans, not form letters.</p>
       </div>
     </div>
   </div></section>
 
-  <!-- OUTCOMES — what parents actually care about -->
-  <section class="par-section"><div class="mw">
+  <!-- OUTCOMES — with icons -->
+  <section class="par-section outcomes-section"><div class="mw">
     <SectionHeader title="What Students Leave With" color="violet" />
-    <div class="outcomes-grid bordered-grid">
-      <div class="outcome">
-        <div class="outcome-num">1</div>
+    <div class="outcomes-row">
+      <div class="outcome-card">
+        <div class="o-icon" style="background:rgba(228,108,65,0.08);"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="22" height="22"><rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div>
         <h3>A Portfolio of Real Work</h3>
-        <p>Not a participation trophy. Prototypes, business models, campaign strategies — work they built themselves that they can show to colleges, employers, or anyone who asks "what did you do this summer?"</p>
+        <p>Prototypes, business models, campaign strategies — work they built that they can show colleges, employers, or anyone who asks.</p>
       </div>
-      <div class="outcome">
-        <div class="outcome-num">2</div>
-        <h3>Confidence That Comes From Being Taken Seriously</h3>
-        <p>When professionals and executives take your ideas seriously, it changes how you see yourself. Parents tell us this is the change they notice most.</p>
+      <div class="outcome-card">
+        <div class="o-icon" style="background:rgba(123,79,219,0.08);"><svg viewBox="0 0 24 24" stroke="var(--violet)" width="22" height="22"><circle cx="12" cy="8" r="4"/><path d="M4 20 C4 16 8 14 12 14 C16 14 20 16 20 20"/></svg></div>
+        <h3>Confidence From Being Taken Seriously</h3>
+        <p>When executives take your ideas seriously, it changes how you see yourself. Parents notice this more than anything.</p>
       </div>
-      <div class="outcome">
-        <div class="outcome-num">3</div>
-        <h3>Skills That Transfer Everywhere</h3>
-        <p>Judgment, communication, collaboration, creative problem-solving — the human skills that matter most as technology accelerates. These don't come from a textbook.</p>
+      <div class="outcome-card">
+        <div class="o-icon" style="background:rgba(59,125,216,0.08);"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="22" height="22"><polyline points="4 12 9 17 20 6"/></svg></div>
+        <h3>Skills AI Won't Replace</h3>
+        <p>Judgment, communication, collaboration, creative problem-solving — the human skills that matter most as technology accelerates.</p>
       </div>
-      <div class="outcome">
-        <div class="outcome-num">4</div>
+      <div class="outcome-card">
+        <div class="o-icon" style="background:rgba(52,199,89,0.08);"><svg viewBox="0 0 24 24" stroke="var(--green)" width="22" height="22"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg></div>
         <h3>A Global Network</h3>
-        <p>Friends and collaborators from different countries and cultures, connected by a shared experience of doing real work together. The network continues long after the program ends.</p>
+        <p>Friends from different countries, connected by real work. The network grows every cohort — and opens doors for years.</p>
       </div>
     </div>
   </div></section>
 
-  <!-- ANOTHER PARENT QUOTE -->
-  <Quote text="We were not expecting this level of rigor for this age. They were structured and so innovative. This has to be because of the methodology." attribution="Corporate Partner Executive" />
+  <!-- PHOTO PAIR -->
+  <div class="photo-pair">
+    <div class="photo-pair-item"><span class="photo-placeholder">Students collaborating in studio</span></div>
+    <div class="photo-pair-item"><span class="photo-placeholder">City exploration / cultural moment</span></div>
+  </div>
 
-  <!-- COST — total transparency -->
+  <!-- EXEC QUOTE -->
+  <Quote variant="navy" text="The quality of the final presentations is what I would expect from a top tier consulting firm. The students were standing there pitching to real executives and owning the room." attribution="Corporate Partner Executive" accentColors={['violet', 'pop']} />
+
+  <!-- COST -->
   <section class="par-section"><div class="mw">
     <SectionHeader title="Cost & Financial Aid" color="green" />
-    <div class="par-prose">
+    <div class="cost-prose">
       <p><span class="lead">We believe cost should never be the reason a qualified student can't participate.</span></p>
-      <p>Program tuition covers all sessions, materials, facilitation, daily lunch, city activities, and alumni network access. Housing is separate and optional — arranged through vetted partners at each location. Day-student pricing is available for families who prefer to arrange their own accommodation.</p>
-      <p>Financial aid is need-based and applied for during the enrollment process — no separate application. Both tuition and housing support are available. Aid recipients participate fully alongside all other students with no distinction.</p>
-      <p>Full cost details are provided upon acceptance. If you have questions about affordability before applying, email us directly — we'll give you a straight answer.</p>
+      <p>Tuition covers all sessions, materials, facilitation, daily lunch, city activities, and alumni network access. Housing is separate and optional. Day-student pricing available at every location.</p>
+      <p>Financial aid is need-based — applied for during enrollment, no separate application. Both tuition and housing support available. Full cost details provided upon acceptance.</p>
+    </div>
+    <div class="cost-note">
+      <span class="lead">Questions about affordability before applying?</span> Email us directly at <strong>hello@hudsonlabventures.com</strong> — we'll give you a straight answer.
     </div>
   </div></section>
 
-  <!-- FAQ — parent-specific questions -->
+  <!-- FAQ -->
   <section class="par-faq"><div class="par-faq-inner">
-    <SectionHeader title="Common Questions from Parents" color="blue" />
-    <div class="faq-item"><div class="faq-q">What ages is this designed for?</div><div class="faq-a"><span class="lead">High school students ages 14–19.</span> The NYC program at Columbia admits students from rising 9th graders through graduated seniors. International programs admit rising 10th graders and older.</div></div>
-    <div class="faq-item"><div class="faq-q">Is this academically rigorous or more of a summer camp?</div><div class="faq-a"><span class="lead">It's rigorous — but not in the way school is.</span> Students don't sit exams. They build things, present to real executives, and get honest feedback. The methodology is adapted from an MBA-style innovation framework used by Fortune 500 companies. The rigor comes from the work being real.</div></div>
-    <div class="faq-item"><div class="faq-q">Will this help with college applications?</div><div class="faq-a"><span class="lead">Yes — but not because of the name on a résumé.</span> Students leave with a portfolio of real work, a compelling story about initiative and growth, and the ability to articulate what they learned. Admissions officers notice when a student can speak with genuine depth about an experience.</div></div>
-    <div class="faq-item"><div class="faq-q">How are teams formed?</div><div class="faq-a"><span class="lead">Deliberately.</span> As part of the application, students share their work styles and preferences. We use this to build diverse, complementary teams — mixing strengths, backgrounds, and perspectives.</div></div>
-    <div class="faq-item"><div class="faq-q">What if my child has never done anything like this before?</div><div class="faq-a"><span class="lead">Good — that's who this is for.</span> We're looking for curiosity and initiative, not experience. The program is designed to meet students where they are. Many of our strongest alumni had never built a business model or run a campaign before walking in on day one.</div></div>
-    <div class="faq-item last"><div class="faq-q">Can I talk to someone before deciding?</div><div class="faq-a"><span class="lead">Absolutely.</span> Email <strong>hello@hudsonlabventures.com</strong> or call us. You'll speak with a real person — usually Cate or a member of our team — who can answer your specific questions. We encourage it.</div></div>
+    <SectionHeader title="Common Questions" color="blue" />
+    <div class="faq-item"><div class="faq-q">What ages is this designed for?</div><div class="faq-a"><span class="lead">High school students ages 14–19.</span> NYC at Columbia admits rising 9th graders through graduated seniors. International programs: rising 10th graders and older.</div></div>
+    <div class="faq-item"><div class="faq-q">Is this academically rigorous or more of a summer camp?</div><div class="faq-a"><span class="lead">Rigorous — but not in the way school is.</span> The methodology is adapted from an MBA-style framework used by Fortune 500 companies. The rigor comes from the work being real, not from tests.</div></div>
+    <div class="faq-item"><div class="faq-q">Will this help with college applications?</div><div class="faq-a"><span class="lead">Yes — because the experience is genuine.</span> Students leave with real work, a compelling growth story, and the ability to articulate what they learned with depth that admissions officers notice.</div></div>
+    <div class="faq-item"><div class="faq-q">What if my child has never done anything like this?</div><div class="faq-a"><span class="lead">That's who this is for.</span> We're looking for curiosity and initiative, not experience. Many of our strongest alumni walked in on day one having never built a business model or run a campaign.</div></div>
+    <div class="faq-item last"><div class="faq-q">Can I talk to someone before deciding?</div><div class="faq-a"><span class="lead">Please do.</span> Email <strong>hello@hudsonlabventures.com</strong> or call us. You'll speak with Cate or a team member who can answer your specific questions.</div></div>
   </div></section>
 
-  <!-- CTA — measured, not salesy -->
+  <!-- CTA -->
   <section class="par-cta"><div class="mw par-cta-inner">
-    <div>
-      <h2>Ready to Learn More?</h2>
-      <p>Start with an application — it takes 15 minutes and there's no commitment. Or reach out directly. We're happy to talk.</p>
-    </div>
+    <div><h2>Ready to Learn More?</h2><p>Start with an application — 15 minutes, no commitment. Or reach out directly.</p></div>
     <div class="par-cta-btns">
       <a href="/admissions" class="btn-dark"><ArrowSquare /> Start an Application</a>
       <a href="mailto:hello@hudsonlabventures.com" class="btn-outline">Email Us</a>
@@ -125,31 +141,61 @@ import ArrowSquare from '../components/ArrowSquare.astro';
 </Base>
 
 <style>
-  .par-hero{padding:160px 80px 80px;max-width:1200px;margin:0 auto;}
+  /* HERO — split */
+  .par-hero{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;padding-top:56px;}
+  .par-hero-text{padding:120px 80px 80px;display:flex;flex-direction:column;justify-content:center;max-width:560px;margin-left:auto;}
   .par-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
   .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
-  .par-hero h1{font-size:44px;font-weight:600;line-height:1.12;color:var(--navy);max-width:620px;margin-bottom:32px;}
-  .par-hero-text{max-width:600px;}
-  .par-hero-text p{font-size:18px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .par-hero h1{font-size:40px;font-weight:600;line-height:1.12;color:var(--navy);margin-bottom:24px;}
+  .par-hero-text p{font-size:17px;line-height:1.7;color:var(--text-mid);}
+  .par-hero-photo{position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}
+  .par-hero-photo .edge{position:absolute;left:0;top:0;bottom:0;width:6px;}
+
+  /* WHAT — text + track list */
+  .par-what{padding:100px 0;border-top:1px solid var(--border);}
+  .par-what :global(.section-header){margin-bottom:32px;}
+  .what-layout{display:grid;grid-template-columns:1fr 280px;gap:64px;align-items:start;}
+  .what-text p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .what-tracks{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:2px;}
+  .what-track{display:flex;align-items:center;gap:16px;padding:20px;border-bottom:1px solid var(--border);}
+  .what-track:last-child{border-bottom:none;}
+  .what-track svg{flex-shrink:0;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;fill:none;}
+  .what-track strong{display:block;font-size:15px;font-weight:600;color:var(--navy);}
+  .what-track span{font-size:13px;color:var(--text-light);}
+
+  /* Photo sections */
+  .photo-full{width:100%;height:400px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;}
+  .photo-full span{border:1px solid var(--border);padding:16px 32px;}
+  .photo-pair{display:grid;grid-template-columns:2fr 1fr;gap:1px;height:360px;}
+  .photo-pair-item{display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}
+  .photo-pair-item:nth-child(2){background:#e2e0dc;}
 
   /* Sections */
   .par-section{padding:80px 0;border-top:1px solid var(--border);}
   .par-section :global(.section-header){margin-bottom:32px;}
-  .par-prose{max-width:640px;}
-  .par-prose p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .par-intro{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:40px;max-width:480px;}
 
   /* Safety grid */
   .safety-grid{display:grid;grid-template-columns:1fr 1fr;}
-  .safety-item{padding:36px 32px;}
-  .safety-item h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .safety-item{padding:32px;}
+  .s-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .s-icon svg{stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;fill:none;}
+  .safety-item h3{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:8px;}
   .safety-item p{font-size:15px;line-height:1.6;color:var(--text-mid);}
 
   /* Outcomes */
-  .outcomes-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:32px;}
-  .outcome{padding:36px 32px;}
-  .outcome-num{font-size:32px;font-weight:600;color:var(--border);line-height:1;margin-bottom:12px;}
-  .outcome h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:8px;}
-  .outcome p{font-size:15px;line-height:1.6;color:var(--text-mid);}
+  .outcomes-section :global(.section-header){margin-bottom:40px;}
+  .outcomes-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border);}
+  .outcome-card{padding:32px 28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .o-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border-radius:0;}
+  .o-icon svg{stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;fill:none;}
+  .outcome-card h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .outcome-card p{font-size:14px;line-height:1.55;color:var(--text-mid);}
+
+  /* Cost */
+  .cost-prose{max-width:600px;}
+  .cost-prose p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .cost-note{margin-top:32px;padding:28px 32px;background:rgba(52,199,89,0.04);border-left:4px solid var(--green);font-size:16px;line-height:1.6;color:var(--text-mid);max-width:600px;}
 
   /* FAQ */
   .par-faq{border-top:1px solid var(--border);padding:80px 0;}
@@ -169,13 +215,19 @@ import ArrowSquare from '../components/ArrowSquare.astro';
 
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    .par-hero{padding:120px 24px 60px;}
-    .par-hero h1{font-size:32px;}
-    .par-hero-text p{font-size:16px;}
-    .par-section{padding:60px 0;}
+    .par-hero{grid-template-columns:1fr;min-height:auto;}
+    .par-hero-text{padding:100px 24px 40px;max-width:100%;margin:0;}
+    .par-hero h1{font-size:30px;}
+    .par-hero-photo{height:280px;}
+    .par-what{padding:60px 0;}
+    .par-what .mw{padding:0 24px;}
+    .what-layout{grid-template-columns:1fr;gap:32px;}
     .par-section .mw{padding:0 24px;}
-    .par-prose p{font-size:16px;}
-    .safety-grid, .outcomes-grid{grid-template-columns:1fr;}
+    .photo-full{height:240px;}
+    .photo-pair{grid-template-columns:1fr;height:auto;}
+    .photo-pair-item{height:200px;}
+    .safety-grid{grid-template-columns:1fr;}
+    .outcomes-row{grid-template-columns:1fr 1fr;}
     .par-faq{padding:60px 0;}
     .par-faq-inner{padding:0 24px;}
     .faq-q{font-size:16px;}
@@ -185,5 +237,8 @@ import ArrowSquare from '../components/ArrowSquare.astro';
     .par-cta h2{font-size:26px;}
     .par-cta-btns{flex-direction:column;width:100%;}
     .par-cta-btns a{text-align:center;}
+  }
+  @media (max-width: 480px) {
+    .outcomes-row{grid-template-columns:1fr;}
   }
 </style>
