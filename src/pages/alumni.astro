@@ -1,8 +1,158 @@
 ---
 import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quote from '../components/Quote.astro';
 ---
-<Base title="Alumni">
-  <div style="padding: 200px 80px; text-align: center; color: var(--text-light);">
-    <p class="label-sm">Alumni Page — Coming Next</p>
-  </div>
+
+<Base title="Alumni" navVariant="light">
+
+  <!-- HERO — quiet, typographic -->
+  <section class="al-hero">
+    <div class="al-label"><span class="dot"></span> Alumni Network</div>
+    <h1>The Program Ends. The Network Doesn't.</h1>
+    <p class="al-sub"><span class="lead">Hudson Lab alumni are building things.</span> Startups, research projects, design studios, careers in venture capital — connected by a shared language for how to think about making something from nothing.</p>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-val">148</div><div class="stat-label label-xs">Alumni</div></div>
+      <div class="stat-item"><div class="stat-val">4</div><div class="stat-label label-xs">Cities</div></div>
+      <div class="stat-item"><div class="stat-val">23</div><div class="stat-label label-xs">Countries</div></div>
+      <div class="stat-item"><div class="stat-val">12</div><div class="stat-label label-xs">Ventures Founded</div></div>
+      <div class="stat-item"><div class="stat-val">3</div><div class="stat-label label-xs">Cohorts</div></div>
+    </div>
+  </section>
+
+  <!-- PROFILES -->
+  <section class="al-profiles"><div class="mw">
+    <SectionHeader title="Where They Are Now" color="violet" />
+
+    <div class="al-profile">
+      <div class="al-photo"><div class="edge-r" style="background:var(--coral);"></div><span class="photo-placeholder" style="color:var(--text-light);">Portrait</span></div>
+      <div class="al-story">
+        <span class="label-sm al-meta" style="color:var(--coral);">Product Track · NYC 2024</span>
+        <h3>Sofia Morales</h3>
+        <p class="al-now">Product Design Intern → Full-time at a Series B health-tech startup</p>
+        <blockquote>The two weeks didn't teach me product design. They taught me how to think about problems before I open Figma.</blockquote>
+        <p><span class="lead">Sofia came in wanting to be a UX designer.</span> She left understanding that product thinking starts upstream of the interface. Her Hudson Lab project became the portfolio piece that landed her an internship before senior year.</p>
+      </div>
+    </div>
+
+    <div class="al-profile reverse">
+      <div class="al-story">
+        <span class="label-sm al-meta" style="color:var(--green);">Business Track · Lisbon 2024</span>
+        <h3>Daniel Kwon</h3>
+        <p class="al-now">Co-founder, a DTC food brand. Currently raising pre-seed.</p>
+        <blockquote>Takeshi made me redo my unit economics four times. I hated it. Then I used that model to raise my first check.</blockquote>
+        <p><span class="lead">Daniel didn't come from a business background.</span> He was a biology major who liked cooking. The Business track gave him the language to turn a passion project into something fundable.</p>
+      </div>
+      <div class="al-photo"><div class="edge-l" style="background:var(--green);"></div><span class="photo-placeholder" style="color:var(--text-light);">Portrait</span></div>
+    </div>
+
+    <div class="al-profile">
+      <div class="al-photo"><div class="edge-r" style="background:var(--blue);"></div><span class="photo-placeholder" style="color:var(--text-light);">Portrait</span></div>
+      <div class="al-story">
+        <span class="label-sm al-meta" style="color:var(--blue);">GTM Track · Seoul 2025</span>
+        <h3>Anika Ramirez</h3>
+        <p class="al-now">Marketing Associate at a venture studio. Applying to MBA programs.</p>
+        <blockquote>I learned more about how companies actually grow in two weeks than in three years of marketing courses.</blockquote>
+        <p><span class="lead">Anika's launch campaign got real traction.</span> She ran paid acquisition for a student wellness app and tracked the funnel end-to-end. The case study became the thing interviewers wanted to talk about.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- QUOTE -->
+  <Quote variant="navy" text="The people I met at Hudson Lab think about building the same way I do. That matters more than any certificate." attribution="Alumni, NYC 2024" accentColors={['violet', 'coral']} />
+
+  <!-- NETWORK -->
+  <section class="network-section"><div class="mw">
+    <SectionHeader title="What the Network Gives You" subtitle="The program is two weeks. The network is permanent." color="blue" />
+    <div class="net-grid">
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--violet)" width="24" height="24"><rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div><h3>Alumni Directory</h3><p><span class="lead">Find anyone from any cohort.</span> Searchable by city, track, industry, and role.</p></div>
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="24" height="24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14"/></svg></div><h3>Monthly Sessions</h3><p><span class="lead">Live workshops and AMAs with operators.</span> Topics rotate. Alumni-only.</p></div>
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="24" height="24"><polyline points="4 17 10 11 14 15 20 9"/><line x1="14" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div><h3>Mentorship Matching</h3><p><span class="lead">Paired with practitioners in your field.</span> Matched by track and interest. Quarterly check-ins.</p></div>
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--green)" width="24" height="24"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><h3>Venture Support</h3><p><span class="lead">Building something?</span> Office hours with founders, pitch feedback, investor introductions.</p></div>
+    </div>
+  </div></section>
+
+  <!-- EVENTS -->
+  <section class="events-section"><div class="mw">
+    <SectionHeader title="Upcoming" color="green" />
+    <div class="ev-row"><div><span class="label-xs ev-month">May</span><div class="ev-day">8</div></div><div class="ev-info"><h3>Founder Office Hours: Pre-Seed Fundraising</h3><p>Virtual · All alumni</p></div><span class="label-xs ev-tag" style="background:rgba(123,79,219,0.08);color:var(--violet);">Virtual</span></div>
+    <div class="ev-row"><div><span class="label-xs ev-month">May</span><div class="ev-day">22</div></div><div class="ev-info"><h3>NYC Alumni Dinner</h3><p>In-person · Manhattan · Hosted by Cate Han</p></div><span class="label-xs ev-tag" style="background:rgba(228,108,65,0.08);color:var(--coral);">NYC</span></div>
+    <div class="ev-row"><div><span class="label-xs ev-month">Jun</span><div class="ev-day">5</div></div><div class="ev-info"><h3>Portfolio Review Workshop</h3><p>Virtual · Product track alumni</p></div><span class="label-xs ev-tag" style="background:rgba(59,125,216,0.08);color:var(--blue);">Virtual</span></div>
+    <div class="ev-row last"><div><span class="label-xs ev-month">Jun</span><div class="ev-day">27</div></div><div class="ev-info"><h3>Summer 2026 Kick-Off — Alumni Welcome Panel</h3><p>In-person · NYC studio</p></div><span class="label-xs ev-tag" style="background:rgba(255,212,59,0.15);color:#8a7000;">In-Person</span></div>
+  </div></section>
+
+  <!-- CTA — light, measured -->
+  <section class="al-cta"><div class="mw">
+    <div class="al-cta-inner">
+      <div><h2>Ready to Join Them?</h2><p>Summer 2026 applications are open. Rolling admissions.</p></div>
+      <div class="al-cta-btns"><a href="/admissions" class="btn-dark" style="background:var(--violet);">Apply Now</a><a href="/" class="btn-outline">View Programs</a></div>
+    </div>
+  </div></section>
+
 </Base>
+
+<style>
+  /* HERO */
+  .al-hero{padding:180px 80px 120px;max-width:1200px;margin:0 auto;}
+  .al-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .al-hero h1{font-size:52px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:24px;}
+  .al-sub{font-size:19px;line-height:1.6;color:var(--text-mid);max-width:540px;}
+
+  /* STATS */
+  .stats-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .stats-inner{max-width:1200px;margin:0 auto;padding:0 80px;display:grid;grid-template-columns:repeat(5,1fr);}
+  .stat-item{padding:40px 0;text-align:center;}
+  .stat-item+.stat-item{border-left:1px solid var(--border);}
+  .stat-val{font-size:36px;font-weight:600;color:var(--navy);line-height:1;margin-bottom:6px;}
+  .stat-label{color:var(--text-light);}
+
+  /* PROFILES */
+  .al-profiles{padding:120px 0;}
+  .al-profiles :global(.section-header){margin-bottom:72px;}
+  .al-profile{display:grid;grid-template-columns:400px 1fr;margin-bottom:1px;min-height:480px;}
+  .al-profile.reverse{grid-template-columns:1fr 400px;direction:rtl;}
+  .al-profile.reverse>*{direction:ltr;}
+  .al-photo{position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}
+  .edge-r{position:absolute;right:0;top:0;bottom:0;width:5px;}
+  .edge-l{position:absolute;left:0;top:0;bottom:0;width:5px;}
+  .al-story{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;}
+  .al-meta{margin-bottom:6px;display:block;}
+  .al-story h3{font-size:28px;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:6px;}
+  .al-now{font-size:15px;color:var(--text-light);margin-bottom:20px;}
+  .al-story blockquote{font-size:20px;line-height:1.5;color:var(--navy);margin-bottom:20px;padding-left:20px;border-left:3px solid var(--border);}
+  .al-story p{font-size:16px;line-height:1.65;color:var(--text-mid);max-width:480px;}
+
+  /* NETWORK */
+  .network-section{background:var(--dark);padding:120px 0;}
+  .network-section :global(.section-header h2){color:white;}
+  .network-section :global(.section-header .sub){color:rgba(255,255,255,0.5);}
+  .net-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:64px;}
+  .net-card{background:#1e1e22;padding:48px 44px;border-radius:2px;}
+  .nc-icon{margin-bottom:24px;}
+  .net-card h3{font-size:20px;font-weight:600;color:white;margin-bottom:10px;}
+  .net-card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,0.5);}
+  .net-card p :global(.lead){font-weight:500;color:rgba(255,255,255,0.8);}
+
+  /* EVENTS */
+  .events-section{padding:120px 0;}
+  .events-section :global(.section-header){margin-bottom:48px;}
+  .ev-row{display:grid;grid-template-columns:140px 1fr auto;padding:28px 0;border-top:1px solid var(--border);align-items:baseline;}
+  .ev-row.last{border-bottom:1px solid var(--border);}
+  .ev-month{color:var(--text-light);}
+  .ev-day{font-size:28px;font-weight:600;color:var(--navy);line-height:1.1;}
+  .ev-info h3{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+  .ev-info p{font-size:14px;color:var(--text-mid);}
+  .ev-tag{display:inline-block;padding:4px 12px;align-self:center;}
+
+  /* CTA */
+  .al-cta{padding:100px 0;border-top:1px solid var(--border);}
+  .al-cta-inner{display:flex;justify-content:space-between;align-items:center;}
+  .al-cta h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .al-cta p{font-size:17px;color:var(--text-mid);max-width:400px;}
+  .al-cta-btns{display:flex;gap:16px;}
+</style>

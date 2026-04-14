@@ -1,8 +1,191 @@
 ---
 import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quote from '../components/Quote.astro';
+import ArrowSquare from '../components/ArrowSquare.astro';
 ---
-<Base title="Admissions">
-  <div style="padding: 200px 80px; text-align: center; color: var(--text-light);">
-    <p class="label-sm">Admissions Page — Coming Next</p>
-  </div>
+
+<Base title="Admissions" navVariant="light">
+
+  <!-- HERO — split, warm, inviting -->
+  <section class="ad-hero">
+    <div class="ad-hero-text">
+      <div class="ad-label"><span class="dot"></span> Summer 2026 Admissions</div>
+      <h1>Show Us What You're Curious About</h1>
+      <p class="ad-sub"><span class="lead">No test scores. No transcripts. No essays about your greatest weakness.</span> We want to know what you'd build if you had two weeks, expert guidance, and a city to work in.</p>
+      <div class="ad-facts">
+        <div class="ad-fact"><div class="v">15 min</div><div class="l">Application</div></div>
+        <div class="ad-fact"><div class="v">5 days</div><div class="l">Decision</div></div>
+        <div class="ad-fact"><div class="v">Rolling</div><div class="l">Admissions</div></div>
+      </div>
+      <a href="#" class="btn-dark"><ArrowSquare /> Start Your Application</a>
+      <p class="ad-note">Open for NYC, Lisbon, Porto, and Seoul.</p>
+    </div>
+    <div class="ad-hero-photo">
+      <div class="edge"></div>
+      <span class="photo-placeholder">Students collaborating — candid</span>
+    </div>
+  </section>
+
+  <!-- A5c bar -->
+  <div class="a5c-inline"><div style="flex:6;background:var(--violet);"></div><div style="flex:5;background:var(--blue);"></div><div style="flex:4;background:var(--coral);"></div><div style="flex:3;background:var(--pop);"></div><div style="flex:2;background:var(--green);"></div><div style="flex:2;background:var(--navy);"></div></div>
+
+  <!-- WHAT WE LOOK FOR -->
+  <section class="look-for">
+    <div class="mw">
+      <SectionHeader title="What We Look For" color="coral" />
+      <p class="look-intro"><span class="lead">We're not selecting for polish.</span> We're looking for students who have a genuine itch to understand how things get built — and the initiative to start figuring it out before anyone tells them to.</p>
+
+      <div class="qual-grid bordered-grid">
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--violet)" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M12 2 L12 5 M12 19 L12 22 M2 12 L5 12 M19 12 L22 12"/></svg></div><h3>Curiosity</h3><p>You ask questions that don't have obvious answers. You've gone down a rabbit hole or two.</p></div>
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="22" height="22"><rect x="4" y="4" width="16" height="16"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div><h3>Initiative</h3><p>You've started something. It doesn't need to have succeeded. It needs to have been yours.</p></div>
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="22" height="22"><polyline points="4 12 9 17 20 6"/></svg></div><h3>Self-Awareness</h3><p>You can name what you're good at and what you're not. Honest about where you are.</p></div>
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--green)" width="22" height="22"><path d="M4 20 L12 4 L20 20"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div><h3>Resilience</h3><p>Two weeks of real work involves real failure. You get back up and try differently.</p></div>
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="22" height="22"><circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/></svg></div><h3>Generosity</h3><p>You make people around you better. You give honest feedback. You share credit.</p></div>
+        <div class="qual"><div class="q-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--text-light)" width="22" height="22"><path d="M12 3 L20 8 L20 16 L12 21 L4 16 L4 8 Z"/></svg></div><h3>Range</h3><p>You don't fit neatly into one box. We value the unexpected combination.</p></div>
+      </div>
+
+      <div class="look-note"><span class="lead">We do not require prior experience in product, business, or marketing.</span> Some students arrive with side projects; others arrive with questions. Both are welcome.</div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <Quote variant="navy" text="I almost didn't apply because I didn't think I was 'business enough.' Turns out that's exactly what they were looking for." attribution="Accepted student, Lisbon 2025" accentColors={['violet', 'pop']} />
+
+  <!-- HOW IT WORKS -->
+  <section class="process"><div class="mw">
+    <SectionHeader title="How It Works" color="blue" />
+    <div class="proc-steps">
+      <div class="proc-step"><div class="proc-num" style="color:var(--violet);">01</div><div class="proc-content"><div class="proc-top"><h3>Apply Online</h3><span class="proc-time label-xs" style="background:rgba(123,79,219,0.08);color:var(--violet);">15 Minutes</span></div><p><span class="lead">A short form about you, your interests, and which city and track.</span> No essays. You can save and return.</p></div></div>
+      <div class="proc-step"><div class="proc-num" style="color:var(--blue);">02</div><div class="proc-content"><div class="proc-top"><h3>We Review</h3><span class="proc-time label-xs" style="background:rgba(59,125,216,0.08);color:var(--blue);">5 Business Days</span></div><p><span class="lead">Our team reads every application — no algorithms.</span> If we have questions, we'll reach out directly.</p></div></div>
+      <div class="proc-step"><div class="proc-num" style="color:var(--coral);">03</div><div class="proc-content"><div class="proc-top"><h3>Accept & Enroll</h3><span class="proc-time label-xs" style="background:rgba(228,108,65,0.08);color:var(--coral);">Deposit Secures Spot</span></div><p><span class="lead">Enrollment agreement and invoice.</span> A deposit secures your place. Financial aid decisions communicated at this stage.</p></div></div>
+      <div class="proc-step last"><div class="proc-num" style="color:var(--green);">04</div><div class="proc-content"><div class="proc-top"><h3>Get Ready</h3><span class="proc-time label-xs" style="background:rgba(52,199,89,0.08);color:var(--green);">2 Weeks Before</span></div><p><span class="lead">Track brief, city guide, cohort introduction.</span> Light pre-reading. You'll arrive ready.</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- COST -->
+  <section class="cost-section"><div class="mw">
+    <SectionHeader title="Tuition & Aid" color="green" />
+    <div class="cost-layout">
+      <div class="cost-col">
+        <span class="label-sm" style="color:var(--blue);display:block;margin-bottom:16px;">Program Tuition</span>
+        <div class="cost-price">$X,XXX</div>
+        <div class="cost-per">Per student · Two weeks</div>
+        <ul class="cost-list">
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--blue)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>All sessions, materials, facilitation</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--blue)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>Lunch daily</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--blue)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>City activities and cultural programming</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--blue)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>Alumni network access</li>
+        </ul>
+      </div>
+      <div class="cost-div"></div>
+      <div class="cost-col">
+        <span class="label-sm" style="color:var(--green);display:block;margin-bottom:16px;">Housing (Optional)</span>
+        <div class="cost-price" style="font-size:30px;">Varies by City</div>
+        <div class="cost-per">Supervised · Near venue</div>
+        <ul class="cost-list">
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--green)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>Vetted local housing partners</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--green)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>24/7 on-site support</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--green)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>Walking distance to studio</li>
+          <li><span class="cost-check"><svg viewBox="0 0 14 14" stroke="var(--green)" width="14" height="14"><polyline points="2 7 5.5 10.5 12 4"/></svg></span>Day-student option available</li>
+        </ul>
+      </div>
+      <div class="cost-aid"><span class="lead">Financial aid is available and need-based.</span> No separate application. Both tuition and housing support offered. Aid recipients participate fully alongside all other students.</div>
+    </div>
+  </div></section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <SectionHeader title="Questions" color="navy" />
+      <div class="faq-item"><div class="faq-q">Is there an age requirement?</div><div class="faq-a"><span class="lead">Designed for students ages 16–19.</span> Younger applicants with exceptional initiative considered case-by-case.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I apply to multiple cities?</div><div class="faq-a"><span class="lead">Yes.</span> Select a first-choice and optional second-choice city on the application.</div></div>
+      <div class="faq-item"><div class="faq-q">What if I don't know which track to choose?</div><div class="faq-a"><span class="lead">That's normal.</span> Tell us what interests you. Track selection isn't final until day one.</div></div>
+      <div class="faq-item"><div class="faq-q">Is the application competitive?</div><div class="faq-a"><span class="lead">Selective, not competitive.</span> We're building a cohort, not ranking individuals.</div></div>
+      <div class="faq-item"><div class="faq-q">What's the refund policy?</div><div class="faq-a"><span class="lead">Full refund (minus deposit) if cancelled 30+ days before.</span> We handle edge cases like humans — talk to us.</div></div>
+      <div class="faq-item last"><div class="faq-q">I have more questions.</div><div class="faq-a"><span class="lead">Good.</span> Email <strong>admissions@hudsonlabventures.com</strong> — a real person replies within 24 hours.</div></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="hl-stack" style="align-items:center;">
+      <span class="hl-block" style="background:var(--violet);">Two weeks. One project.</span>
+      <span class="hl-block" style="background:var(--pop);color:var(--navy);">A network that lasts.</span>
+    </div>
+    <p class="cta-sub">Rolling admissions. 15-minute application. Decisions within 5 days.</p>
+    <a href="#" class="btn-light"><ArrowSquare /> Start Your Application</a>
+    <p class="cta-note">Questions? admissions@hudsonlabventures.com</p>
+  </section>
+
 </Base>
+
+<style>
+  /* HERO */
+  .ad-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:56px;}
+  .ad-hero-text{padding:120px 80px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .ad-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .ad-hero-text h1{font-size:46px;font-weight:600;line-height:1.1;color:var(--navy);margin-bottom:24px;max-width:480px;}
+  .ad-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:440px;margin-bottom:40px;}
+  .ad-facts{display:flex;gap:36px;margin-bottom:40px;}
+  .ad-fact .v{font-size:15px;font-weight:600;color:var(--navy);}
+  .ad-fact .l{font-size:13px;color:var(--text-light);}
+  .ad-note{margin-top:16px;font-size:14px;color:var(--text-light);}
+  .ad-hero-photo{position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}
+  .ad-hero-photo .edge{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--violet);}
+  .a5c-inline{display:flex;height:5px;width:100%;}
+
+  /* WHAT WE LOOK FOR */
+  .look-for{padding:120px 0;}
+  .look-for :global(.section-header){margin-bottom:20px;}
+  .look-intro{font-size:18px;line-height:1.65;color:var(--text-mid);max-width:620px;margin:0 0 64px 26px;}
+  .qual-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .qual{padding:44px 36px;}
+  .q-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;}
+  .qual h3{font-size:19px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .qual p{font-size:15px;line-height:1.6;color:var(--text-mid);}
+  .look-note{margin-top:48px;padding:32px 36px;background:rgba(123,79,219,0.04);border-left:4px solid var(--violet);font-size:16px;line-height:1.6;color:var(--text-mid);max-width:680px;}
+
+  /* PROCESS */
+  .process{padding:120px 0;}
+  .process :global(.section-header){margin-bottom:64px;}
+  .proc-step{display:grid;grid-template-columns:80px 1fr;padding:40px 0;border-top:1px solid var(--border);}
+  .proc-step.last{border-bottom:1px solid var(--border);}
+  .proc-num{font-size:42px;font-weight:600;line-height:1;opacity:0.12;}
+  .proc-content{padding-left:24px;}
+  .proc-top{display:flex;align-items:baseline;gap:16px;margin-bottom:8px;}
+  .proc-content h3{font-size:22px;font-weight:600;color:var(--navy);}
+  .proc-time{display:inline-block;padding:3px 10px;}
+  .proc-content p{font-size:16px;line-height:1.6;color:var(--text-mid);max-width:560px;}
+
+  /* COST */
+  .cost-section{padding:0 0 120px;}
+  .cost-section :global(.section-header){margin-bottom:48px;}
+  .cost-layout{display:grid;grid-template-columns:1fr 1px 1fr;margin-top:48px;}
+  .cost-col{padding:0 48px;}
+  .cost-col:first-child{padding-left:0;}
+  .cost-col:last-child{padding-right:0;}
+  .cost-div{background:var(--border);}
+  .cost-price{font-size:40px;font-weight:600;color:var(--navy);line-height:1.1;margin-bottom:4px;}
+  .cost-per{font-size:15px;color:var(--text-light);margin-bottom:24px;}
+  .cost-list{list-style:none;}
+  .cost-list li{font-size:15px;color:var(--text-mid);padding:8px 0;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+  .cost-check svg{stroke-width:2;stroke-linecap:square;fill:none;}
+  .cost-aid{grid-column:1/-1;margin-top:48px;padding:32px 36px;background:rgba(52,199,89,0.05);border-left:4px solid var(--green);font-size:16px;line-height:1.6;color:var(--text-mid);}
+
+  /* FAQ */
+  .faq-section{border-top:1px solid var(--border);padding:120px 0;}
+  .faq-inner{max-width:780px;margin:0 auto;padding:0 40px;}
+  .faq-inner :global(.section-header){margin-bottom:48px;}
+  .faq-item{border-top:1px solid var(--border);padding:28px 0;}
+  .faq-item.last{border-bottom:1px solid var(--border);}
+  .faq-q{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .faq-a{font-size:16px;line-height:1.6;color:var(--text-mid);max-width:600px;}
+
+  /* CTA */
+  .final-cta{background:var(--dark);padding:100px 80px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .final-cta .hl-stack{margin-bottom:24px;}
+  .cta-sub{font-size:17px;color:rgba(255,255,255,0.45);margin-bottom:36px;max-width:440px;}
+  .cta-note{margin-top:16px;font-size:14px;color:rgba(255,255,255,0.3);}
+</style>
