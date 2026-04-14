@@ -1,17 +1,18 @@
 ---
 interface Props {
   variant?: 'light' | 'dark';
+  active?: string;
 }
-const { variant = 'light' } = Astro.props;
+const { variant = 'light', active = '' } = Astro.props;
 ---
 
 <nav class:list={['hlv-nav', `nav-${variant}`]}>
   <a href="/" class="nav-logo">Hudson Lab <span>Ventures</span></a>
   <div class="nav-links">
-    <a href="/program/nyc">Program</a>
-    <a href="/">Cities</a>
-    <a href="/alumni">Alumni</a>
-    <a href="/">Parents</a>
+    <a href="/program/nyc" class:list={[{ active: active === 'program' }]}>Program</a>
+    <a href="/" class:list={[{ active: active === 'cities' }]}>Cities</a>
+    <a href="/alumni" class:list={[{ active: active === 'alumni' }]}>Alumni</a>
+    <a href="/" class:list={[{ active: active === 'parents' }]}>Parents</a>
     <a href="/admissions" class="nav-cta">Apply</a>
   </div>
 </nav>
@@ -45,8 +46,10 @@ const { variant = 'light' } = Astro.props;
   }
   .nav-light .nav-links a { color: var(--text-mid); }
   .nav-light .nav-links a:hover { color: var(--navy); }
+  .nav-light .nav-links a.active { color: var(--navy); }
   .nav-dark .nav-links a { color: rgba(255,255,255,0.6); }
   .nav-dark .nav-links a:hover { color: white; }
+  .nav-dark .nav-links a.active { color: white; }
   .nav-cta {
     padding: 7px 20px !important;
     border-radius: 1px;

@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ArrowSquare from '../components/ArrowSquare.astro';
+---
+
+<Base title="Programs" navVariant="light" navActive="program">
+
+  <section class="pg-hero">
+    <div class="pg-label"><span class="dot"></span> Summer 2026 Programs</div>
+    <h1>Same Curriculum. Different City. Choose Yours.</h1>
+    <p class="pg-sub"><span class="lead">Every Hudson Lab program runs the same three tracks with the same rigor.</span> What changes is the context — the city, the culture, the companies you work with. Pick the one that pulls you.</p>
+  </section>
+
+  <!-- CITY CARDS — large format -->
+  <section class="pg-cities"><div class="mw">
+
+    <a href="/program/nyc" class="pg-city">
+      <div class="pg-city-photo" style="background:#e8e6e0;"><span class="photo-placeholder">NYC street-level</span><div class="pg-color-bar" style="background:var(--violet);"></div></div>
+      <div class="pg-city-info">
+        <span class="label-sm" style="color:var(--violet);">New York City</span>
+        <h2>New York</h2>
+        <div class="pg-dates">June 27 – July 11, 2026</div>
+        <p><span class="lead">The density forces clarity.</span> Build in a city where every block is a market, every subway ride is user research, and the pace demands you ship. NYC cohort works from a studio in Manhattan, partnering with Columbia Business School's Climate Knowledge Initiative.</p>
+        <div class="pg-meta"><span>24 students</span><span>3 tracks</span><span>Columbia University</span></div>
+        <span class="pg-cta">View NYC Program →</span>
+      </div>
+    </a>
+
+    <a href="/program/lisbon" class="pg-city reverse">
+      <div class="pg-city-photo" style="background:#e2e0dc;"><span class="photo-placeholder">Lisbon tram / Alfama</span><div class="pg-color-bar" style="background:var(--blue);"></div></div>
+      <div class="pg-city-info">
+        <span class="label-sm" style="color:var(--blue);">Lisbon, Portugal</span>
+        <h2>Lisbon</h2>
+        <div class="pg-dates">July 13 – July 25, 2026</div>
+        <p><span class="lead">Europe's startup capital, at a human scale.</span> Two challenges: tackle Portugal's education crisis with AI alongside José de Mello, or dive into the future of retail with Sonae. Lisbon's tech ecosystem punches above its weight — and the light makes everything look better.</p>
+        <div class="pg-meta"><span>20 students</span><span>3 tracks</span><span>José de Mello · Sonae</span></div>
+        <span class="pg-cta">View Lisbon Program →</span>
+      </div>
+    </a>
+
+    <a href="/program/porto" class="pg-city">
+      <div class="pg-city-photo" style="background:#e5e3db;"><span class="photo-placeholder">Porto riverside / Ribeira</span><div class="pg-color-bar" style="background:var(--coral);"></div></div>
+      <div class="pg-city-info">
+        <span class="label-sm" style="color:var(--coral);">Porto, Portugal</span>
+        <h2>Porto</h2>
+        <div class="pg-dates">July 13 – July 25, 2026</div>
+        <p><span class="lead">Craft culture meets entrepreneurship.</span> Porto is a city that takes making things seriously — from port wine to ceramics to software. Build in a place where quality matters more than speed, and the Douro keeps you grounded.</p>
+        <div class="pg-meta"><span>16 students</span><span>2 tracks</span></div>
+        <span class="pg-cta">View Porto Program →</span>
+      </div>
+    </a>
+
+    <a href="/program/seoul" class="pg-city reverse">
+      <div class="pg-city-photo" style="background:#e8e6e0;"><span class="photo-placeholder">Seoul Gangnam / street</span><div class="pg-color-bar" style="background:var(--pop);"></div></div>
+      <div class="pg-city-info">
+        <span class="label-sm" style="color:#8a7000;">Seoul, South Korea</span>
+        <h2>Seoul</h2>
+        <div class="pg-dates">July 27 – August 8, 2026</div>
+        <p><span class="lead">Where technology is culture.</span> Partner with Coupang — Korea's largest e-commerce platform — to explore how Gen Z values reshape online retail. Seoul moves faster than anywhere, and K-culture is the lens through which you'll understand global consumer behavior.</p>
+        <div class="pg-meta"><span>20 students</span><span>3 tracks</span><span>Coupang</span></div>
+        <span class="pg-cta">View Seoul Program →</span>
+      </div>
+    </a>
+
+  </div></section>
+
+  <!-- QUICK COMPARE -->
+  <section class="pg-compare"><div class="mw">
+    <SectionHeader title="At a Glance" color="navy" />
+    <div class="compare-grid bordered-grid">
+      <div class="compare-cell header"></div>
+      <div class="compare-cell header"><strong>NYC</strong></div>
+      <div class="compare-cell header"><strong>Lisbon</strong></div>
+      <div class="compare-cell header"><strong>Porto</strong></div>
+      <div class="compare-cell header"><strong>Seoul</strong></div>
+      <div class="compare-cell label">Dates</div>
+      <div class="compare-cell">Jun 27 – Jul 11</div>
+      <div class="compare-cell">Jul 13 – Jul 25</div>
+      <div class="compare-cell">Jul 13 – Jul 25</div>
+      <div class="compare-cell">Jul 27 – Aug 8</div>
+      <div class="compare-cell label">Students</div>
+      <div class="compare-cell">24</div>
+      <div class="compare-cell">20</div>
+      <div class="compare-cell">16</div>
+      <div class="compare-cell">20</div>
+      <div class="compare-cell label">Tracks</div>
+      <div class="compare-cell">3</div>
+      <div class="compare-cell">3</div>
+      <div class="compare-cell">2</div>
+      <div class="compare-cell">3</div>
+      <div class="compare-cell label">Partner</div>
+      <div class="compare-cell">Columbia CBS</div>
+      <div class="compare-cell">José de Mello · Sonae</div>
+      <div class="compare-cell">TBA</div>
+      <div class="compare-cell">Coupang</div>
+      <div class="compare-cell label">Housing</div>
+      <div class="compare-cell">Columbia dorms</div>
+      <div class="compare-cell">Local partner</div>
+      <div class="compare-cell">Local partner</div>
+      <div class="compare-cell">Local partner</div>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="pg-cta-section">
+    <div class="mw pg-cta-inner">
+      <div><h2>Can't decide?</h2><p>Apply to your top two choices. We'll help you find the right fit.</p></div>
+      <a href="/admissions" class="btn-dark"><ArrowSquare /> Start Your Application</a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .pg-hero{padding:180px 80px 80px;max-width:1200px;margin:0 auto;}
+  .pg-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .pg-hero h1{font-size:48px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:24px;}
+  .pg-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:540px;}
+
+  .pg-cities{padding:0 0 120px;}
+  .pg-city{display:grid;grid-template-columns:1fr 1fr;min-height:420px;text-decoration:none;color:inherit;border-top:1px solid var(--border);}
+  .pg-city.reverse{direction:rtl;}
+  .pg-city.reverse>*{direction:ltr;}
+  .pg-city-photo{position:relative;display:flex;align-items:center;justify-content:center;}
+  .pg-color-bar{position:absolute;bottom:0;left:0;right:0;height:4px;}
+  .pg-city.reverse .pg-color-bar{top:0;bottom:auto;}
+  .pg-city-info{padding:56px 64px;display:flex;flex-direction:column;justify-content:center;}
+  .pg-city-info h2{font-size:36px;font-weight:600;color:var(--navy);margin-bottom:4px;}
+  .pg-dates{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.04em;color:var(--text-light);margin-bottom:20px;}
+  .pg-city-info p{font-size:16px;line-height:1.6;color:var(--text-mid);margin-bottom:16px;max-width:460px;}
+  .pg-meta{display:flex;gap:16px;margin-bottom:20px;}
+  .pg-meta span{font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.04em;color:var(--text-light);}
+  .pg-cta{font-size:15px;font-weight:600;color:var(--navy);}
+  .pg-city:hover .pg-cta{color:var(--violet);}
+
+  .pg-compare{padding:0 0 120px;}
+  .pg-compare :global(.section-header){margin-bottom:36px;}
+  .compare-grid{display:grid;grid-template-columns:140px repeat(4,1fr);}
+  .compare-cell{padding:16px 20px;font-size:14px;color:var(--text-mid);}
+  .compare-cell.header{font-size:15px;color:var(--navy);padding:20px 20px;}
+  .compare-cell.label{font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-light);display:flex;align-items:center;}
+
+  .pg-cta-section{border-top:1px solid var(--border);padding:80px 0;}
+  .pg-cta-inner{display:flex;justify-content:space-between;align-items:center;}
+  .pg-cta-inner h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .pg-cta-inner p{font-size:17px;color:var(--text-mid);}
+</style>

@@ -6,9 +6,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   navVariant?: 'light' | 'dark';
+  navActive?: string;
 }
 
-const { title, navVariant = 'light' } = Astro.props;
+const { title, navVariant = 'light', navActive = '' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ const { title, navVariant = 'light' } = Astro.props;
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&family=Literata:ital,wght@1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <Nav variant={navVariant} />
+  <Nav variant={navVariant} active={navActive} />
   <main>
     <slot />
   </main>
