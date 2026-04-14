@@ -24,16 +24,53 @@ import Quote from '../../components/Quote.astro';
 
   <div class="photo-full"><span class="photo-placeholder">Full-width: Lisbon streets, tiled facades, golden hour</span></div>
 
-  <section class="your-day"><div class="mw">
-    <div class="day-header"><SectionHeader title="Your Day" subtitle="Structured around doing. Foundation mornings, track afternoons, city evenings." color="blue" /></div>
-    <div class="day-row"><div class="day-time"><span class="t">9:00</span></div><div class="day-name"><h3>Morning Assembly</h3></div><div class="day-desc"><p>Whole cohort. Check-ins, day context, city logistics.</p></div></div>
-    <div class="day-featured"><div class="day-time"><span class="t">9:30</span></div><div class="day-feat-content"><h3>Foundation Session</h3><p>Cross-track. User research, storytelling, financial reasoning, systems thinking.</p><span class="day-tag" style="background:rgba(59,125,216,0.08);color:var(--blue);">All Tracks · 90 min</span></div></div>
-    <div class="day-row"><div class="day-time"><span class="t">11:00</span></div><div class="day-name"><h3>Break</h3></div><div class="day-desc"><p>Pastéis de nata and conversation.</p></div></div>
-    <div class="day-featured"><div class="day-time"><span class="t">11:15</span></div><div class="day-feat-content"><h3>Track Studio</h3><p>Your track, your tools, your challenge. Facilitators coach, not lecture.</p><span class="day-tag" style="background:rgba(59,125,216,0.08);color:var(--blue);">Track-Specific · 105 min</span></div></div>
-    <div class="day-row"><div class="day-time"><span class="t">13:00</span></div><div class="day-name"><h3>Lunch</h3></div><div class="day-desc"><p>Provided daily on-site. Portuguese food is an education in itself.</p></div></div>
-    <div class="day-featured"><div class="day-time"><span class="t">14:00</span></div><div class="day-feat-content"><h3>Build Sprint</h3><p>Deep work on your innovation challenge. Build solutions, test assumptions, iterate.</p><span class="day-tag" style="background:rgba(59,125,216,0.08);color:var(--blue);">Track-Specific · 120 min</span></div></div>
-    <div class="day-row"><div class="day-time"><span class="t">16:00</span></div><div class="day-name"><h3>Crit & Share</h3></div><div class="day-desc"><p>Cross-track. Present progress, get honest feedback.</p></div></div>
-    <div class="day-row last"><div class="day-time"><span class="t">17:00</span></div><div class="day-name"><h3>City Time</h3></div><div class="day-desc"><p>Explore Lisbon. Cobblestone streets, street art, incredible food. Curated suggestions, never mandatory.</p></div></div>
+  <!-- YOUR TWO WEEKS -->
+  <section class="weeks-section"><div class="mw">
+    <SectionHeader title="Your Two Weeks" subtitle="Week one builds the foundation. Week two ships the work." color="blue" />
+    <div class="weeks-grid">
+      <div class="week-card">
+        <div class="week-num" style="color:var(--blue);">Week 1</div>
+        <h3>Research & Define</h3>
+        <div class="week-days">
+          <div class="wd"><strong>Mon–Tue</strong><span>Team formation, partner briefing, foundation sessions. Meet your challenge sponsor — José de Mello or Sonae — and understand the problem space.</span></div>
+          <div class="wd"><strong>Wed–Thu</strong><span>User research in the field. Get out of the studio and into Lisbon — interviews, observations, market visits. The city is your research lab.</span></div>
+          <div class="wd"><strong>Fri</strong><span>Problem definition. Synthesize research. Present your framing to the cohort for cross-track feedback.</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num" style="color:var(--coral);">Week 2</div>
+        <h3>Build & Present</h3>
+        <div class="week-days">
+          <div class="wd"><strong>Mon–Tue</strong><span>Prototyping, modeling, campaign building. Each track produces its deliverable — solutions to real challenges these companies face.</span></div>
+          <div class="wd"><strong>Wed–Thu</strong><span>Iteration and testing. Refine based on feedback. Rehearse presentations. Polish to a professional standard.</span></div>
+          <div class="wd"><strong>Fri</strong><span>Final presentations to José de Mello and Sonae executives. The people in the room make real decisions based on what you show them.</span></div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PARTNER -->
+  <section class="partner-section"><div class="mw">
+    <div class="partner-layout">
+      <div class="partner-text">
+        <SectionHeader title="Your Challenge Partners" color="blue" />
+        <p><span class="lead">Two challenges, two of Portugal's most important companies.</span> Work with José de Mello — a legacy company committed to public good — on whether AI can solve Portugal's education crisis. Or partner with Sonae, Portugal's largest conglomerate, to reimagine the future of retail.</p>
+        <p>Both challenges are active questions these companies are working to answer. Your team's thinking becomes part of that conversation.</p>
+      </div>
+      <div class="partner-photo">
+        <span class="photo-placeholder">Lisbon innovation hub / Unicorn Factory</span>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- TRAVEL & LOCAL -->
+  <section class="travel-section"><div class="mw">
+    <SectionHeader title="Getting There" color="green" />
+    <div class="travel-grid bordered-grid">
+      <div class="travel-item"><div class="t-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="20" height="20"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/></svg></div><h3>Travel Together</h3><p>International students meet an HLV chaperone and travel together to Lisbon. You won't navigate this alone.</p></div>
+      <div class="travel-item"><div class="t-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="20" height="20"><rect x="3" y="6" width="18" height="14"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Housing in Central Lisbon</h3><p>Supervised accommodation through vetted local partners. Walking distance to the program venue. On-site support staff. Day-student option available.</p></div>
+      <div class="travel-item"><div class="t-icon"><svg viewBox="0 0 24 24" stroke="var(--navy)" width="20" height="20"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14"/></svg></div><h3>Your Evenings</h3><p>Lisbon is yours after hours. Cobblestone streets, pastéis de nata, incredible food scene. Curated guides, optional group dinners, always supervised when organized by HLV.</p></div>
+    </div>
   </div></section>
 
   <Quote text="Lisbon taught me that the best ideas don't come from sitting in a room — they come from walking a city and asking questions." attribution="Lisbon 2025" />
@@ -58,7 +95,6 @@ import Quote from '../../components/Quote.astro';
 </Base>
 
 <style>
-  .prog-hero{position:relative;min-height:100vh;background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 80px;overflow:hidden;}.prog-hero-bg{position:absolute;inset:0;}.prog-hero-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.15;}.prog-hero-placeholder span{border:1px solid rgba(255,255,255,0.3);padding:24px 40px;font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:white;}.prog-hero-content{position:relative;z-index:2;padding:0 80px;max-width:1200px;}.prog-hero-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;}.prog-hero-sub{font-size:18px;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.6;margin-bottom:40px;}.prog-hero-sub strong{color:rgba(255,255,255,0.85);font-weight:500;}.prog-hero-meta{display:flex;gap:48px;align-items:baseline;}.meta-item{display:flex;flex-direction:column;}.meta-item .v{font-size:28px;font-weight:600;color:white;line-height:1.1;}.meta-item .l{font-family:'Barlow Semi Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px;}.a5c-inline{display:flex;height:5px;width:100%;}.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:560px;}.intro-text-col{padding:100px 80px;display:flex;flex-direction:column;justify-content:center;max-width:640px;margin-left:auto;}.intro-text-col h2{font-size:34px;font-weight:600;line-height:1.18;color:var(--navy);margin-bottom:20px;}.intro-text-col p{font-size:17px;line-height:1.65;color:var(--text-mid);margin-bottom:16px;}.intro-photo-col{position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}.intro-photo-col .edge{position:absolute;left:0;top:0;bottom:0;width:6px;}.photo-full{width:100%;height:520px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;}.photo-full span{border:1px solid var(--border);padding:16px 32px;}.your-day{padding:120px 0;}.day-header{margin-bottom:64px;}.day-row{display:grid;grid-template-columns:160px 1fr 1fr;border-top:1px solid var(--border);}.day-row.last{border-bottom:1px solid var(--border);}.day-time{padding:32px 32px 32px 0;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}.day-time .t{font-size:15px;font-weight:600;color:var(--navy);}.day-name{padding:32px 24px;border-left:1px solid var(--border);}.day-name h3{font-size:18px;font-weight:600;color:var(--navy);}.day-desc{padding:32px 0 32px 24px;border-left:1px solid var(--border);}.day-desc p{font-size:15px;line-height:1.55;color:var(--text-mid);}.day-featured{display:grid;grid-template-columns:160px 1fr;border-top:1px solid var(--border);}.day-featured .day-time{padding:48px 32px 48px 0;}.day-feat-content{border-left:1px solid var(--border);padding:48px 0 48px 24px;}.day-feat-content h3{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:8px;}.day-feat-content p{font-size:16px;line-height:1.6;color:var(--text-mid);max-width:520px;margin-bottom:16px;}.day-tag{display:inline-block;padding:3px 10px;font-family:'Barlow Semi Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.logistics-section{padding:100px 0;}.logistics-section :global(.section-header){margin-bottom:48px;}.log-grid{display:grid;grid-template-columns:repeat(3,1fr);}.log-item{padding:36px 32px;}.log-l{margin-bottom:8px;color:var(--text-light);}.log-v{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px;}.log-d{font-size:14px;color:var(--text-mid);}.prog-cta{background:var(--dark);padding:100px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;}.prog-cta .hl-stack{margin-bottom:24px;}.cta-sub{font-size:17px;color:rgba(255,255,255,0.45);margin-bottom:36px;}
 
   @media (max-width: 768px) {
     .prog-hero { min-height: 90vh; padding-bottom: 40px; }
@@ -70,15 +106,6 @@ import Quote from '../../components/Quote.astro';
     .intro-text-col h2 { font-size: 28px; }
     .intro-photo-col { height: 300px; }
     .photo-full { height: 280px; }
-    .your-day { padding: 80px 0; }
-    .your-day .mw { padding: 0 24px; }
-    .day-row { grid-template-columns: 60px 1fr; }
-    .day-desc { display: none; }
-    .day-featured { grid-template-columns: 60px 1fr; }
-    .day-time { padding: 20px 12px 20px 0; }
-    .day-name { padding: 20px 16px; }
-    .day-feat-content { padding: 24px 0 24px 16px; }
-    .day-feat-content h3 { font-size: 18px; }
     .logistics-section .mw { padding: 0 24px; }
     .log-grid { grid-template-columns: 1fr 1fr; }
     .prog-cta { padding: 60px 24px; }
