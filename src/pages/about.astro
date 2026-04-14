@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quote from '../components/Quote.astro';
+import ArrowSquare from '../components/ArrowSquare.astro';
+---
+
+<Base title="About" navVariant="light">
+
+  <!-- HERO -->
+  <section class="ab-hero">
+    <div class="ab-label"><span class="dot"></span> About Hudson Lab Ventures</div>
+    <h1>We Built This Because the World Needs Better Problem Solvers</h1>
+    <p class="ab-sub"><span class="lead">Not more test-takers. Not more résumé-optimizers.</span> People who can walk into a messy situation, figure out what matters, and make something that works. That's what we teach.</p>
+  </section>
+
+  <!-- PHOTO BREAK -->
+  <div class="photo-full"><span class="photo-placeholder">Cohort group photo — all cities, energy, diversity</span></div>
+
+  <!-- ORIGIN STORY -->
+  <section class="ab-section"><div class="mw">
+    <div class="origin-layout">
+      <div class="origin-text">
+        <SectionHeader title="Where This Came From" color="violet" />
+        <p><span class="lead">Hudson Lab Ventures started at the intersection of two worlds.</span> Cate Han spent years helping startups raise capital and build companies. She saw what made founders effective — and it wasn't their degree. It was judgment, creativity, and the ability to work through ambiguity.</p>
+        <p>Meanwhile, the curriculum that powers our program was developed by Co-Created — a venture studio that has launched 110+ new businesses and created $10B+ in enterprise value for companies like LEGO, Verizon, and Coca-Cola. Their innovation framework was built for corporate executives solving real problems.</p>
+        <p>The insight was simple: what if you gave that same framework to high school students? Not watered down. Not simplified. The real thing — adapted for their context, with facilitators who know how to coach rather than lecture.</p>
+        <p>That's Hudson Lab Ventures. An MBA-style innovation program, built for the next generation.</p>
+      </div>
+      <div class="origin-photo">
+        <span class="photo-placeholder">Cate Han — candid, professional</span>
+        <div class="origin-caption">
+          <strong>Cate Han</strong>
+          <span>Founder & CEO</span>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- THREE PILLARS -->
+  <section class="ab-pillars"><div class="mw">
+    <SectionHeader title="Three Pillars" subtitle="Every program, every city, every track is grounded in these." color="coral" />
+    <div class="pillar-grid bordered-grid">
+      <div class="pillar">
+        <div class="pillar-num" style="color:var(--coral);">01</div>
+        <h3>Design Thinking</h3>
+        <p>Start with the problem, not the solution. Use process and creativity to move from ambiguity to clarity. The same approach used by the world's leading universities and brands.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num" style="color:var(--blue);">02</div>
+        <h3>Innovation & Entrepreneurship</h3>
+        <p>Learn to iterate. Test ideas fast. Build things that work — not just things that look good on paper. In a world of constant change, this is a survival skill.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num" style="color:var(--green);">03</div>
+        <h3>Teamwork</h3>
+        <p>Collaborate across differences. Understand your strengths and what you bring to a team. Personal achievement reveals potential — but collaboration shapes your future.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- QUOTE -->
+  <Quote variant="navy" text="I envisioned Hudson Lab Ventures as an innovation ecosystem where government, nonprofits, corporations, and educational institutions collaborate to provide students with real-world opportunities to create, collaborate, and lead." attribution="Cate Han, Founder" accentColors={['violet', 'pop']} />
+
+  <!-- CO-CREATED PARTNERSHIP -->
+  <section class="ab-section"><div class="mw">
+    <div class="cocreated-layout">
+      <div class="cocreated-text">
+        <SectionHeader title="The Curriculum" color="blue" />
+        <p><span class="lead">Our curriculum was originally developed by Co-Created</span> — a cutting-edge innovation framework used by executives at multinational corporations to solve real-world business challenges.</p>
+        <p>This rigorous, action-oriented approach was then adapted for high school students through the lens of Hudson Lab School's project-based learning model. The result: students think like entrepreneurs — collaborating in teams, tackling complex problems, and developing solutions with real-world impact.</p>
+        <p>Each summer's Innovation Challenges are co-designed with executives from our partner companies and institutions. Students don't explore hypothetical problems — they take on active challenges that organizations are working to solve today.</p>
+      </div>
+      <div class="cocreated-stats">
+        <div class="cs-item"><div class="cs-val">110+</div><div class="cs-label">Ventures launched by Co-Created</div></div>
+        <div class="cs-item"><div class="cs-val">$10B+</div><div class="cs-label">Enterprise value created</div></div>
+        <div class="cs-item"><div class="cs-val">4</div><div class="cs-label">Program cities</div></div>
+        <div class="cs-item"><div class="cs-val">PBL</div><div class="cs-label">Project-based learning model</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PARTNER LOGOS AREA -->
+  <section class="ab-partners"><div class="mw">
+    <SectionHeader title="Our Partners" subtitle="Companies and institutions that co-design challenges with us." color="green" />
+    <div class="partner-row">
+      <div class="partner-logo"><span class="photo-placeholder" style="font-size:11px;">Columbia CBS</span></div>
+      <div class="partner-logo"><span class="photo-placeholder" style="font-size:11px;">José de Mello</span></div>
+      <div class="partner-logo"><span class="photo-placeholder" style="font-size:11px;">Sonae</span></div>
+      <div class="partner-logo"><span class="photo-placeholder" style="font-size:11px;">Coupang</span></div>
+      <div class="partner-logo"><span class="photo-placeholder" style="font-size:11px;">Unicorn Factory</span></div>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="ab-cta"><div class="mw ab-cta-inner">
+    <div><h2>See It for Yourself</h2><p>Browse programs, read about the experience, or start an application.</p></div>
+    <div class="ab-cta-btns">
+      <a href="/programs" class="btn-dark"><ArrowSquare /> View Programs</a>
+      <a href="/admissions" class="btn-outline">Apply</a>
+    </div>
+  </div></section>
+
+</Base>
+
+<style>
+  .ab-hero{padding:160px 80px 80px;max-width:1200px;margin:0 auto;}
+  .ab-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .ab-hero h1{font-size:44px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:24px;}
+  .ab-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:540px;}
+  .photo-full{width:100%;height:480px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;}
+  .photo-full span{border:1px solid var(--border);padding:16px 32px;}
+
+  .ab-section{padding:100px 0;border-top:1px solid var(--border);}
+  .ab-section :global(.section-header){margin-bottom:20px;}
+
+  .origin-layout{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:start;}
+  .origin-text p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;margin-top:20px;}
+  .origin-photo{background:var(--bg-subtle);border-radius:2px;aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .origin-caption{text-align:center;margin-top:16px;}
+  .origin-caption strong{display:block;font-size:16px;font-weight:600;color:var(--navy);}
+  .origin-caption span{font-size:14px;color:var(--text-light);}
+
+  .ab-pillars{padding:100px 0;border-top:1px solid var(--border);}
+  .ab-pillars :global(.section-header){margin-bottom:48px;}
+  .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .pillar{padding:40px 36px;}
+  .pillar-num{font-size:40px;font-weight:600;line-height:1;opacity:0.15;margin-bottom:12px;}
+  .pillar h3{font-size:20px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .pillar p{font-size:15px;line-height:1.6;color:var(--text-mid);}
+
+  .cocreated-layout{display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start;}
+  .cocreated-text p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;margin-top:20px;}
+  .cocreated-stats{border:1px solid var(--border);border-radius:2px;}
+  .cs-item{padding:20px 24px;border-bottom:1px solid var(--border);}
+  .cs-item:last-child{border-bottom:none;}
+  .cs-val{font-size:28px;font-weight:600;color:var(--navy);line-height:1.1;margin-bottom:2px;}
+  .cs-label{font-size:13px;color:var(--text-light);}
+
+  .ab-partners{padding:80px 0;border-top:1px solid var(--border);}
+  .ab-partners :global(.section-header){margin-bottom:36px;}
+  .partner-row{display:flex;gap:24px;}
+  .partner-logo{flex:1;height:80px;background:var(--bg-subtle);border-radius:2px;display:flex;align-items:center;justify-content:center;}
+
+  .ab-cta{border-top:1px solid var(--border);padding:80px 0;}
+  .ab-cta-inner{display:flex;justify-content:space-between;align-items:center;}
+  .ab-cta h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .ab-cta p{font-size:17px;color:var(--text-mid);max-width:420px;}
+  .ab-cta-btns{display:flex;gap:16px;}
+
+  @media (max-width: 768px) {
+    .ab-hero{padding:120px 24px 60px;}
+    .ab-hero h1{font-size:32px;}
+    .photo-full{height:280px;}
+    .ab-section .mw{padding:0 24px;}
+    .origin-layout{grid-template-columns:1fr;gap:32px;}
+    .origin-photo{max-width:280px;aspect-ratio:3/4;}
+    .ab-pillars .mw{padding:0 24px;}
+    .pillar-grid{grid-template-columns:1fr;}
+    .cocreated-layout{grid-template-columns:1fr;gap:32px;}
+    .ab-partners .mw{padding:0 24px;}
+    .partner-row{flex-wrap:wrap;}
+    .partner-logo{min-width:120px;}
+    .ab-cta .mw{padding:0 24px;}
+    .ab-cta-inner{flex-direction:column;gap:24px;text-align:center;align-items:center;}
+    .ab-cta h2{font-size:26px;}
+    .ab-cta-btns{flex-direction:column;width:100%;}
+    .ab-cta-btns a{text-align:center;}
+  }
+</style>

@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quote from '../components/Quote.astro';
+---
+
+<Base title="Team" navVariant="light">
+
+  <section class="tm-hero">
+    <div class="tm-label"><span class="dot"></span> Our Team</div>
+    <h1>The Adults at Hudson Lab Don't Lecture. They Coach.</h1>
+    <p class="tm-sub"><span class="lead">Students work closely with educators and entrepreneurs who guide the work, ask hard questions, and take students seriously.</span> They're not here to rescue. They're here to support students as they take ownership, make decisions, and learn from experience.</p>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="tm-section"><div class="mw">
+    <SectionHeader title="Leadership" color="violet" />
+
+    <div class="tm-person featured">
+      <div class="tm-photo"><span class="photo-placeholder" style="color:var(--text-light);">Photo</span></div>
+      <div class="tm-bio">
+        <span class="label-sm" style="color:var(--violet);">Founder & CEO</span>
+        <h3>Cate Han</h3>
+        <p><span class="lead">Before founding Hudson Lab, Cate helped startups raise over $100M in early-stage capital.</span> She worked with entrepreneurs to build company value through mentoring, strategic planning, and fundraising. Cate began her career as a Quantitative Analyst at Sanford C. Bernstein, co-founded Launch Collective and Learning Pods, and set up the finances for Managed by Q. She is a Chartered Financial Analyst with an MBA from Columbia Business School and a BA from Barnard College.</p>
+      </div>
+    </div>
+
+    <div class="tm-person featured">
+      <div class="tm-photo"><span class="photo-placeholder" style="color:var(--text-light);">Photo</span></div>
+      <div class="tm-bio">
+        <span class="label-sm" style="color:var(--coral);">Curriculum & Facilitation</span>
+        <h3>Stacey Seltzer</h3>
+        <p><span class="lead">Partner at Co-Created, which has launched 110+ new ventures and created $10B+ in enterprise value.</span> Co-Created runs innovation programs for LEGO, Verizon, Kaplan, Coca-Cola, and others. Stacey designed HLV's curriculum and facilitator training. MBA from Columbia Business School, BA from Brown University.</p>
+      </div>
+    </div>
+
+  </div></section>
+
+  <!-- ADVISORS & TEAM -->
+  <section class="tm-section"><div class="mw">
+    <SectionHeader title="Team & Advisors" color="blue" />
+
+    <div class="tm-grid">
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Jerome</h4>
+          <span class="tm-role">Civic Tech & Housing Equity</span>
+          <p>Leads Boston's innovative civic-tech nonprofit. Wealth of experience across nonprofit, government, and private sectors. At Empire State Development, oversaw $6B+ in MWBE contracts.</p>
+        </div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Ivy</h4>
+          <span class="tm-role">Communications Strategy</span>
+          <p>Founder of the Viney Group. Two decades leading research, rebranding, and marketing for nonprofits and public institutions. MA from Columbia Teachers College.</p>
+        </div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Harold</h4>
+          <span class="tm-role">Brand & Culture</span>
+          <p>Owner of Chase Republic. Merges culture and corporate worlds for brands like LVMH, MLB, NBA. College professor and author of "Beyond Words."</p>
+        </div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Sukhwa Kweon</h4>
+          <span class="tm-role">Seoul Program Lead</span>
+          <p>Leads Artinlabs consulting. 15+ years in global marketing at Thermo Fisher Scientific and ABSCIEX. PhD coursework in GeoEnvironmental Chemistry, Korea University.</p>
+        </div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Philip / Owen</h4>
+          <span class="tm-role">Programs & Learning</span>
+          <p>20 years in venture development and product. Co-founder of Prehype. Builds the operational and curriculum systems that make HLV work across four cities.</p>
+        </div>
+      </div>
+      <div class="tm-card">
+        <div class="tm-card-photo"><span class="photo-placeholder" style="color:var(--text-light);font-size:11px;">Photo</span></div>
+        <div class="tm-card-info">
+          <h4>Sophia Patznick</h4>
+          <span class="tm-role">Student Experience</span>
+          <p>Supports students and families from first inquiry through the full program. Entrepreneurial mindset with experience founding her own business and building AI-powered tools.</p>
+        </div>
+      </div>
+    </div>
+
+  </div></section>
+
+  <!-- FACILITATORS -->
+  <section class="tm-section"><div class="mw">
+    <SectionHeader title="Facilitators" subtitle="Experienced practitioners who coach, not lecture. Each city has its own team." color="green" />
+    <div class="fac-note">
+      <p><span class="lead">Facilitators are practitioners first, educators second.</span> They've built products, run companies, led campaigns. They bring that experience into every session — asking the questions that push students past the obvious answer.</p>
+      <p>Each program location has its own facilitator team, matched to the city's challenges and corporate partners. <a href="/programs">View city-specific facilitator information →</a></p>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="tm-cta"><div class="mw tm-cta-inner">
+    <div><h2>Want to Join the Team?</h2><p>We're always looking for practitioners who want to work with the next generation.</p></div>
+    <a href="mailto:hello@hudsonlabventures.com" class="btn-outline">Get in Touch</a>
+  </div></section>
+
+</Base>
+
+<style>
+  .tm-hero{padding:160px 80px 80px;max-width:1200px;margin:0 auto;}
+  .tm-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .tm-hero h1{font-size:44px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:24px;}
+  .tm-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:560px;}
+
+  .tm-section{padding:80px 0;border-top:1px solid var(--border);}
+  .tm-section :global(.section-header){margin-bottom:48px;}
+
+  /* Featured bios */
+  .tm-person.featured{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+  .tm-person.featured:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+  .tm-photo{aspect-ratio:1;background:var(--bg-subtle);border-radius:2px;display:flex;align-items:center;justify-content:center;}
+  .tm-bio{display:flex;flex-direction:column;justify-content:center;}
+  .tm-bio h3{font-size:26px;font-weight:600;color:var(--navy);margin-bottom:12px;margin-top:4px;}
+  .tm-bio p{font-size:16px;line-height:1.65;color:var(--text-mid);}
+
+  /* Card grid */
+  .tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border);}
+  .tm-card{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 28px;}
+  .tm-card-photo{width:72px;height:72px;background:var(--bg-subtle);border-radius:2px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;}
+  .tm-card h4{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:2px;}
+  .tm-role{font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.04em;color:var(--text-light);display:block;margin-bottom:10px;}
+  .tm-card p{font-size:14px;line-height:1.55;color:var(--text-mid);}
+
+  /* Facilitators */
+  .fac-note{max-width:640px;}
+  .fac-note p{font-size:17px;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .fac-note a{font-weight:600;color:var(--navy);text-decoration:none;}
+  .fac-note a:hover{color:var(--violet);}
+
+  /* CTA */
+  .tm-cta{border-top:1px solid var(--border);padding:80px 0;}
+  .tm-cta-inner{display:flex;justify-content:space-between;align-items:center;}
+  .tm-cta h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .tm-cta p{font-size:17px;color:var(--text-mid);max-width:420px;}
+
+  @media (max-width: 768px) {
+    .tm-hero{padding:120px 24px 60px;}
+    .tm-hero h1{font-size:32px;}
+    .tm-section .mw{padding:0 24px;}
+    .tm-person.featured{grid-template-columns:1fr;gap:24px;}
+    .tm-photo{max-width:200px;aspect-ratio:1;}
+    .tm-grid{grid-template-columns:1fr;}
+    .tm-cta .mw{padding:0 24px;}
+    .tm-cta-inner{flex-direction:column;gap:24px;text-align:center;align-items:center;}
+    .tm-cta h2{font-size:26px;}
+  }
+</style>
