@@ -1,0 +1,176 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quote from '../components/Quote.astro';
+import ArrowSquare from '../components/ArrowSquare.astro';
+---
+
+<Base title="Specialty Tracks" navVariant="light" navActive="program">
+
+  <!-- HERO -->
+  <section class="sp-hero">
+    <div class="sp-label"><span class="dot"></span> Specialty Tracks</div>
+    <h1>Go Deeper in What Matters to You</h1>
+    <p class="sp-sub"><span class="lead">Specialties are advanced content areas that run alongside your core track.</span> Available at every location, open to new students and returning alumni. Choose the lens that matches where you want to go.</p>
+  </section>
+
+  <!-- WHO IT'S FOR — dual audience -->
+  <section class="sp-audience"><div class="mw">
+    <div class="aud-grid bordered-grid">
+      <div class="aud-card">
+        <div class="aud-mark" style="background:var(--coral);"></div>
+        <h3>New Students</h3>
+        <p><span class="lead">Add depth to your core program.</span> Specialties give you focused content on top of your Product, Business, or GTM track. Think of it as choosing a major and a minor — the specialty sharpens your perspective without replacing your foundation.</p>
+      </div>
+      <div class="aud-card">
+        <div class="aud-mark" style="background:var(--violet);"></div>
+        <h3>Returning Alumni</h3>
+        <p><span class="lead">You've done the foundation. Now specialize.</span> Come back for a second summer and go deeper. Alumni who return get advanced content, Student Lead opportunities, and access to practitioner mentors in their specialty area.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- THE THREE SPECIALTIES -->
+  <section class="sp-tracks"><div class="mw">
+    <SectionHeader title="Three Specialties" subtitle="Each runs at every program location." color="violet" />
+
+    <!-- AI & Product -->
+    <div class="sp-track">
+      <div class="sp-track-header">
+        <div class="sp-icon" style="background:rgba(228,108,65,0.08);"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="24" height="24"><rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div>
+        <div><span class="label-sm" style="color:var(--coral);">Specialty 1</span><h2>AI & Product</h2></div>
+      </div>
+      <div class="sp-track-body">
+        <div class="sp-track-text">
+          <p><span class="lead">How AI changes what products can do — and how to build them responsibly.</span></p>
+          <p>This specialty explores the intersection of artificial intelligence and product design. You'll learn how AI capabilities shape product strategy, how to design human-AI interactions, and how to think critically about what should and shouldn't be automated.</p>
+          <p>Returning alumni in this specialty go deeper into prompt engineering, AI product evaluation, and building AI-native product concepts from scratch.</p>
+        </div>
+        <div class="sp-track-topics">
+          <h4>Topics include</h4>
+          <ul>
+            <li>AI capabilities and limitations for product teams</li>
+            <li>Human-AI interaction design patterns</li>
+            <li>Responsible AI — when not to automate</li>
+            <li>Building AI-native product concepts</li>
+            <li>Prompt engineering for product development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Venture Finance -->
+    <div class="sp-track">
+      <div class="sp-track-header">
+        <div class="sp-icon" style="background:rgba(52,199,89,0.08);"><svg viewBox="0 0 24 24" stroke="var(--green)" width="24" height="24"><path d="M4 20 L12 4 L20 20 Z"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
+        <div><span class="label-sm" style="color:var(--green);">Specialty 2</span><h2>Venture Finance</h2></div>
+      </div>
+      <div class="sp-track-body">
+        <div class="sp-track-text">
+          <p><span class="lead">How startups get funded, how investors think, and how to make a case that survives scrutiny.</span></p>
+          <p>Go beyond unit economics into the world of venture capital. Learn how funding rounds work, how investors evaluate opportunities, and how to build financial models that tell a compelling story while staying honest.</p>
+          <p>Returning alumni practice investor pitch sessions, financial modeling with real datasets, and due diligence from both sides of the table.</p>
+        </div>
+        <div class="sp-track-topics">
+          <h4>Topics include</h4>
+          <ul>
+            <li>How venture capital actually works</li>
+            <li>Financial modeling for early-stage companies</li>
+            <li>Valuation methods and term sheets</li>
+            <li>Investor pitch structure and delivery</li>
+            <li>Due diligence — what investors actually look for</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brand Strategy -->
+    <div class="sp-track">
+      <div class="sp-track-header">
+        <div class="sp-icon" style="background:rgba(59,125,216,0.08);"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="24" height="24"><polyline points="4 17 10 11 14 15 20 9"/><line x1="15" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="14"/></svg></div>
+        <div><span class="label-sm" style="color:var(--blue);">Specialty 3</span><h2>Brand Strategy</h2></div>
+      </div>
+      <div class="sp-track-body">
+        <div class="sp-track-text">
+          <p><span class="lead">How brands are built, positioned, and communicated — from identity to go-to-market.</span></p>
+          <p>Understand the strategic decisions behind brands people love. Learn how positioning works, how to develop brand voice, and how to translate strategy into creative execution that connects with real people.</p>
+          <p>Returning alumni work on brand audits, competitive positioning exercises, and develop full creative briefs for their portfolio.</p>
+        </div>
+        <div class="sp-track-topics">
+          <h4>Topics include</h4>
+          <ul>
+            <li>Brand positioning and competitive differentiation</li>
+            <li>Developing brand voice and visual identity</li>
+            <li>Creative briefing and strategy-to-execution</li>
+            <li>Audience research and persona development</li>
+            <li>Brand audits and repositioning case studies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div></section>
+
+  <!-- QUOTE -->
+  <Quote text="The specialty track gave me vocabulary I didn't have before. I could finally explain why some brands feel different — and how to make that happen on purpose." attribution="Brand Strategy Specialty, NYC 2025" />
+
+  <!-- CTA -->
+  <section class="sp-cta"><div class="mw sp-cta-inner">
+    <div><h2>Available at Every Location</h2><p>Specialties run at NYC, Lisbon, Porto, and Seoul. Choose your city, then choose your depth.</p></div>
+    <div class="sp-cta-btns">
+      <a href="/admissions" class="btn-dark"><ArrowSquare /> Apply Now</a>
+      <a href="/programs" class="btn-outline">View Programs</a>
+    </div>
+  </div></section>
+
+</Base>
+
+<style>
+  .sp-hero{padding:160px 80px 60px;max-width:1200px;margin:0 auto;}
+  .sp-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .sp-hero h1{font-size:48px;font-weight:600;line-height:1.1;color:var(--navy);max-width:620px;margin-bottom:20px;}
+  .sp-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:540px;}
+
+  .sp-audience{padding:48px 0 80px;}
+  .aud-grid{display:grid;grid-template-columns:1fr 1fr;}
+  .aud-card{padding:40px 36px;}
+  .aud-mark{width:6px;height:36px;margin-bottom:20px;}
+  .aud-card h3{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:12px;}
+  .aud-card p{font-size:16px;line-height:1.6;color:var(--text-mid);}
+
+  .sp-tracks{padding:80px 0;border-top:1px solid var(--border);}
+  .sp-tracks :global(.section-header){margin-bottom:56px;}
+  .sp-track{border-top:1px solid var(--border);padding:48px 0;}
+  .sp-track:last-child{border-bottom:1px solid var(--border);}
+  .sp-track-header{display:flex;align-items:center;gap:20px;margin-bottom:32px;}
+  .sp-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .sp-icon svg{stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter;fill:none;}
+  .sp-track-header h2{font-size:28px;font-weight:600;color:var(--navy);margin-top:4px;}
+  .sp-track-body{display:grid;grid-template-columns:1fr 300px;gap:56px;}
+  .sp-track-text p{font-size:16px;line-height:1.65;color:var(--text-mid);margin-bottom:14px;}
+  .sp-track-topics{background:var(--bg-subtle);padding:28px 24px;border-radius:2px;}
+  .sp-track-topics h4{font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:16px;}
+  .sp-track-topics ul{list-style:none;}
+  .sp-track-topics li{font-size:14px;line-height:1.5;color:var(--text-mid);padding:8px 0;border-top:1px solid var(--border);}
+
+  .sp-cta{border-top:1px solid var(--border);padding:80px 0;}
+  .sp-cta-inner{display:flex;justify-content:space-between;align-items:center;}
+  .sp-cta h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .sp-cta p{font-size:17px;color:var(--text-mid);max-width:420px;}
+  .sp-cta-btns{display:flex;gap:16px;}
+
+  @media (max-width: 768px) {
+    .sp-hero{padding:120px 24px 40px;}
+    .sp-hero h1{font-size:32px;}
+    .sp-audience .mw{padding:0 24px;}
+    .aud-grid{grid-template-columns:1fr;}
+    .sp-tracks .mw{padding:0 24px;}
+    .sp-track-body{grid-template-columns:1fr;gap:24px;}
+    .sp-cta .mw{padding:0 24px;}
+    .sp-cta-inner{flex-direction:column;gap:24px;text-align:center;align-items:center;}
+    .sp-cta h2{font-size:26px;}
+    .sp-cta-btns{flex-direction:column;width:100%;}
+    .sp-cta-btns a{text-align:center;}
+  }
+</style>
