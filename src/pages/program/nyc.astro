@@ -165,3 +165,41 @@ import Quote from '../../components/Quote.astro';
   .prog-cta .hl-stack{margin-bottom:24px;}
   .cta-sub{font-size:17px;color:rgba(255,255,255,0.45);margin-bottom:36px;}
 </style>
+
+<style>
+  @media (max-width: 768px) {
+    .prog-hero { min-height: 90vh; padding-bottom: 40px; }
+    .prog-hero-content { padding: 0 24px; }
+    .prog-hero-meta { flex-wrap: wrap; gap: 24px; }
+    .meta-item .v { font-size: 22px; }
+    .intro-split { grid-template-columns: 1fr; }
+    .intro-text-col { padding: 60px 24px; max-width: 100%; margin: 0; }
+    .intro-text-col h2 { font-size: 28px; }
+    .intro-photo-col { height: 300px; }
+    .photo-full { height: 280px; }
+    .your-day { padding: 80px 0; }
+    .your-day .mw { padding: 0 24px; }
+    .day-row { grid-template-columns: 60px 1fr; }
+    .day-desc { display: none; }
+    .day-featured { grid-template-columns: 60px 1fr; }
+    .day-time { padding: 20px 12px 20px 0; }
+    .day-name { padding: 20px 16px; }
+    .day-feat-content { padding: 24px 0 24px 16px; }
+    .day-feat-content h3 { font-size: 18px; }
+    .tracks-dark { padding: 80px 0 0; }
+    .tracks-dark .mw { padding: 0 24px; }
+    .asc-grid { grid-template-columns: 1fr; padding: 40px 0 80px; }
+    .asc-card:nth-child(1), .asc-card:nth-child(2), .asc-card:nth-child(3) { min-height: 280px; }
+    .ghost { font-size: 56px; }
+    .fac-section { padding: 80px 0; }
+    .fac-section .mw { padding: 0 24px; }
+    .fac-row { grid-template-columns: 1fr; }
+    .fac-photo-col { padding: 24px 0 0; }
+    .fac-photo-box { max-width: 200px; }
+    .fac-info-col { padding: 24px 0 32px; border-left: none; }
+    .logistics-section { padding: 60px 0; }
+    .logistics-section .mw { padding: 0 24px; }
+    .log-grid { grid-template-columns: 1fr 1fr; }
+    .prog-cta { padding: 60px 24px; }
+  }
+</style>

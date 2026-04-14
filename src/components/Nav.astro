@@ -9,10 +9,10 @@ const { variant = 'light', active = '' } = Astro.props;
 <nav class:list={['hlv-nav', `nav-${variant}`]}>
   <a href="/" class="nav-logo">Hudson Lab <span>Ventures</span></a>
   <div class="nav-links">
-    <a href="/programs" class:list={[{ active: active === 'program' }]}>Program</a>
-    <a href="/" class:list={[{ active: active === 'cities' }]}>Cities</a>
-    <a href="/alumni" class:list={[{ active: active === 'alumni' }]}>Alumni</a>
-    <a href="/" class:list={[{ active: active === 'parents' }]}>Parents</a>
+    <a href="/programs" class:list={['nav-link-desktop', { active: active === 'program' }]}>Program</a>
+    <a href="/" class:list={['nav-link-desktop', { active: active === 'cities' }]}>Cities</a>
+    <a href="/alumni" class:list={['nav-link-desktop', { active: active === 'alumni' }]}>Alumni</a>
+    <a href="/" class:list={['nav-link-desktop', { active: active === 'parents' }]}>Parents</a>
     <a href="/admissions" class="nav-cta">Apply</a>
   </div>
 </nav>
@@ -30,9 +30,7 @@ const { variant = 'light', active = '' } = Astro.props;
     background: rgba(250,249,247,0.95);
     border-bottom: 1px solid rgba(0,0,0,0.06);
   }
-  .nav-dark {
-    background: rgba(24,24,27,0.92);
-  }
+  .nav-dark { background: rgba(24,24,27,0.92); }
   .nav-logo {
     font-weight: 600; font-size: 15px;
     letter-spacing: 0.02em; text-decoration: none;
@@ -59,4 +57,12 @@ const { variant = 'light', active = '' } = Astro.props;
   .nav-light .nav-cta { background: var(--navy); color: white !important; }
   .nav-light .nav-cta:hover { background: var(--violet); }
   .nav-dark .nav-cta { background: var(--violet); color: white !important; }
+
+  @media (max-width: 768px) {
+    .hlv-nav { padding: 0 20px; height: 48px; }
+    .nav-logo { font-size: 14px; }
+    .nav-link-desktop { display: none; }
+    .nav-links { gap: 0; }
+    .nav-cta { padding: 6px 16px !important; font-size: 12px !important; }
+  }
 </style>

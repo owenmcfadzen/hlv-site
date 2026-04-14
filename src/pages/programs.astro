@@ -157,3 +157,22 @@ import ArrowSquare from '../components/ArrowSquare.astro';
   .pg-cta-inner h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
   .pg-cta-inner p{font-size:17px;color:var(--text-mid);}
 </style>
+
+<style>
+  @media (max-width: 768px) {
+    .pg-hero { padding: 120px 24px 40px; }
+    .pg-hero h1 { font-size: 32px; }
+    .city-row, .city-row.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .city-row > * { direction: ltr; }
+    .city-photo { min-height: 240px; }
+    .city-content { padding: 32px 24px; }
+    .city-content h2 { font-size: 30px; }
+    .city-edge, .city-edge.right { position: absolute; left: 0; right: 0; top: auto; bottom: 0; width: 100%; height: 4px; }
+    .pg-compare { padding: 40px 0 80px; }
+    .compare-grid { grid-template-columns: 100px repeat(4, 1fr); font-size: 12px; overflow-x: auto; }
+    .compare-cell { padding: 10px 8px; font-size: 11px; }
+    .pg-cta { padding: 60px 0; }
+    .pg-cta-inner { flex-direction: column; gap: 24px; text-align: center; align-items: center; }
+    .pg-cta-inner h2 { font-size: 26px; }
+  }
+</style>

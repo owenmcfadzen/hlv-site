@@ -60,3 +60,29 @@ import Quote from '../../components/Quote.astro';
 <style>
   .prog-hero{position:relative;min-height:100vh;background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 80px;overflow:hidden;}.prog-hero-bg{position:absolute;inset:0;}.prog-hero-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0.15;}.prog-hero-placeholder span{border:1px solid rgba(255,255,255,0.3);padding:24px 40px;font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:white;}.prog-hero-content{position:relative;z-index:2;padding:0 80px;max-width:1200px;}.prog-hero-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;}.prog-hero-sub{font-size:18px;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.6;margin-bottom:40px;}.prog-hero-sub strong{color:rgba(255,255,255,0.85);font-weight:500;}.prog-hero-meta{display:flex;gap:48px;align-items:baseline;}.meta-item{display:flex;flex-direction:column;}.meta-item .v{font-size:28px;font-weight:600;color:white;line-height:1.1;}.meta-item .l{font-family:'Barlow Semi Condensed',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px;}.a5c-inline{display:flex;height:5px;width:100%;}.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:560px;}.intro-text-col{padding:100px 80px;display:flex;flex-direction:column;justify-content:center;max-width:640px;margin-left:auto;}.intro-text-col h2{font-size:34px;font-weight:600;line-height:1.18;color:var(--navy);margin-bottom:20px;}.intro-text-col p{font-size:17px;line-height:1.65;color:var(--text-mid);margin-bottom:16px;}.intro-photo-col{position:relative;display:flex;align-items:center;justify-content:center;background:var(--bg-subtle);}.intro-photo-col .edge{position:absolute;left:0;top:0;bottom:0;width:6px;}.photo-full{width:100%;height:520px;background:var(--bg-subtle);display:flex;align-items:center;justify-content:center;}.photo-full span{border:1px solid var(--border);padding:16px 32px;}.your-day{padding:120px 0;}.day-header{margin-bottom:64px;}.day-row{display:grid;grid-template-columns:160px 1fr 1fr;border-top:1px solid var(--border);}.day-row.last{border-bottom:1px solid var(--border);}.day-time{padding:32px 32px 32px 0;display:flex;flex-direction:column;align-items:flex-end;text-align:right;}.day-time .t{font-size:15px;font-weight:600;color:var(--navy);}.day-name{padding:32px 24px;border-left:1px solid var(--border);}.day-name h3{font-size:18px;font-weight:600;color:var(--navy);}.day-desc{padding:32px 0 32px 24px;border-left:1px solid var(--border);}.day-desc p{font-size:15px;line-height:1.55;color:var(--text-mid);}.day-featured{display:grid;grid-template-columns:160px 1fr;border-top:1px solid var(--border);}.day-featured .day-time{padding:48px 32px 48px 0;}.day-feat-content{border-left:1px solid var(--border);padding:48px 0 48px 24px;}.day-feat-content h3{font-size:22px;font-weight:600;color:var(--navy);margin-bottom:8px;}.day-feat-content p{font-size:16px;line-height:1.6;color:var(--text-mid);max-width:520px;margin-bottom:16px;}.day-tag{display:inline-block;padding:3px 10px;font-family:'Barlow Semi Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.logistics-section{padding:100px 0;}.logistics-section :global(.section-header){margin-bottom:48px;}.log-grid{display:grid;grid-template-columns:repeat(3,1fr);}.log-item{padding:36px 32px;}.log-l{margin-bottom:8px;color:var(--text-light);}.log-v{font-size:18px;font-weight:600;color:var(--navy);margin-bottom:4px;}.log-d{font-size:14px;color:var(--text-mid);}.prog-cta{background:var(--dark);padding:100px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;}.prog-cta .hl-stack{margin-bottom:24px;}.cta-sub{font-size:17px;color:rgba(255,255,255,0.45);margin-bottom:36px;}
 </style>
+
+<style>
+  @media (max-width: 768px) {
+    .prog-hero { min-height: 90vh; padding-bottom: 40px; }
+    .prog-hero-content { padding: 0 24px; }
+    .prog-hero-meta { flex-wrap: wrap; gap: 24px; }
+    .meta-item .v { font-size: 22px; }
+    .intro-split { grid-template-columns: 1fr; }
+    .intro-text-col { padding: 60px 24px; max-width: 100%; margin: 0; }
+    .intro-text-col h2 { font-size: 28px; }
+    .intro-photo-col { height: 300px; }
+    .photo-full { height: 280px; }
+    .your-day { padding: 80px 0; }
+    .your-day .mw { padding: 0 24px; }
+    .day-row { grid-template-columns: 60px 1fr; }
+    .day-desc { display: none; }
+    .day-featured { grid-template-columns: 60px 1fr; }
+    .day-time { padding: 20px 12px 20px 0; }
+    .day-name { padding: 20px 16px; }
+    .day-feat-content { padding: 24px 0 24px 16px; }
+    .day-feat-content h3 { font-size: 18px; }
+    .logistics-section .mw { padding: 0 24px; }
+    .log-grid { grid-template-columns: 1fr 1fr; }
+    .prog-cta { padding: 60px 24px; }
+  }
+</style>

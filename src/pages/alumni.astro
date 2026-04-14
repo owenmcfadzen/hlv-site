@@ -183,3 +183,37 @@ import ArrowSquare from '../components/ArrowSquare.astro';
   .al-cta p{font-size:17px;color:var(--text-mid);max-width:400px;}
   .al-cta-btns{display:flex;gap:16px;}
 </style>
+
+<style>
+  @media (max-width: 768px) {
+    .al-hero { padding: 120px 24px 40px; }
+    .al-hero h1 { font-size: 32px; }
+    .come-back { padding: 32px 24px 60px; }
+    .cb-row { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(3, 1fr); padding: 0 24px; }
+    .stat-item:nth-child(4), .stat-item:nth-child(5) { display: none; }
+    .stat-val { font-size: 28px; }
+    .al-profiles { padding: 80px 0; }
+    .al-profiles .mw { padding: 0 24px; }
+    .al-profile, .al-profile.reverse { grid-template-columns: 1fr; direction: ltr; min-height: auto; }
+    .al-profile > * { direction: ltr; }
+    .al-photo { height: 280px; }
+    .edge-r, .edge-l { left: 0; right: 0; top: auto; bottom: 0; width: 100%; height: 4px; }
+    .al-story { padding: 32px 24px; }
+    .al-story h3 { font-size: 24px; }
+    .al-story blockquote { font-size: 18px; }
+    .network-section { padding: 80px 0; }
+    .network-section .mw { padding: 0 24px; }
+    .net-grid { grid-template-columns: 1fr; }
+    .events-section { padding: 80px 0; }
+    .events-section .mw { padding: 0 24px; }
+    .ev-row { grid-template-columns: 80px 1fr; }
+    .ev-tag { display: none; }
+    .al-cta { padding: 60px 0; }
+    .al-cta .mw { padding: 0 24px; }
+    .al-cta-inner { flex-direction: column; gap: 24px; text-align: center; align-items: center; }
+    .al-cta h2 { font-size: 26px; }
+    .al-cta-btns { flex-direction: column; width: 100%; }
+    .al-cta-btns a { text-align: center; }
+  }
+</style>

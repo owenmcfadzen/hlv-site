@@ -284,3 +284,35 @@ blockquote {
   font-family: 'Literata', serif;
   font-style: italic;
 }
+
+/* =========================================
+   RESPONSIVE — Tablet & Mobile
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .mw { padding-left: 40px; padding-right: 40px; }
+  .mw-narrow { padding-left: 24px; padding-right: 24px; }
+}
+
+@media (max-width: 768px) {
+  body { font-size: 16px; }
+  .mw { padding-left: 24px; padding-right: 24px; }
+
+  /* Typography scale down */
+  .section-header h2 { font-size: 28px; }
+  .hl-stack { gap: 6px; }
+  .hl-block { font-size: 32px; padding: 6px 16px; margin-left: 0 !important; }
+
+  /* Buttons */
+  .btn-dark, .btn-violet, .btn-light, .btn-outline {
+    padding: 12px 24px; font-size: 14px;
+  }
+
+  /* Bordered grids — single column on mobile */
+  .bordered-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Labels */
+  .label-sm { font-size: 11px; }
+}
