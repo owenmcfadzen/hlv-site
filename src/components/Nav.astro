@@ -9,7 +9,7 @@ const { variant = 'light', active = '' } = Astro.props;
 <nav class:list={['hlv-nav', `nav-${variant}`]}>
   <a href="/" class="nav-logo">Hudson Lab <span>Ventures</span></a>
   <div class="nav-links">
-    <a href="/program/nyc" class:list={[{ active: active === 'program' }]}>Program</a>
+    <a href="/programs" class:list={[{ active: active === 'program' }]}>Program</a>
     <a href="/" class:list={[{ active: active === 'cities' }]}>Cities</a>
     <a href="/alumni" class:list={[{ active: active === 'alumni' }]}>Alumni</a>
     <a href="/" class:list={[{ active: active === 'parents' }]}>Parents</a>

@@ -2,15 +2,40 @@
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Quote from '../components/Quote.astro';
+import ArrowSquare from '../components/ArrowSquare.astro';
 ---
 
 <Base title="Alumni" navVariant="light" navActive="alumni">
 
-  <!-- HERO — quiet, typographic -->
+  <!-- HERO -->
   <section class="al-hero">
     <div class="al-label"><span class="dot"></span> Alumni Network</div>
-    <h1>The Program Ends. The Network Doesn't.</h1>
-    <p class="al-sub"><span class="lead">Hudson Lab alumni are building things.</span> Startups, research projects, design studios, careers in venture capital — connected by a shared language for how to think about making something from nothing.</p>
+    <h1>You Did the Program. Now Go Deeper.</h1>
+    <p class="al-sub"><span class="lead">Hudson Lab doesn't end after two weeks.</span> Alumni come back — as Student Leads, as specialists, as the people who shape the next cohort's experience. The program gave you the foundation. The network gives you the edge.</p>
+  </section>
+
+  <!-- COME BACK — the returning value prop, front and center -->
+  <section class="come-back">
+    <div class="cb-row">
+      <div class="cb-card">
+        <div class="cb-mark" style="background:var(--violet);"></div>
+        <h3>Student Lead Program</h3>
+        <p><span class="lead">Come back and lead.</span> Work alongside facilitators, mentor a team through the innovation process, and build real leadership experience. Student Leads are the backbone of every cohort — and the role changes how you see yourself.</p>
+        <span class="label-sm" style="color:var(--violet);">Applications Open · Paid Role</span>
+      </div>
+      <div class="cb-card">
+        <div class="cb-mark" style="background:var(--coral);"></div>
+        <h3>Specialty Tracks</h3>
+        <p><span class="lead">Go deeper in one area.</span> Returning alumni can access advanced specialty content — AI & product, venture finance, brand strategy — designed to build on the foundation you already have. Coming Summer 2026.</p>
+        <span class="label-sm" style="color:var(--coral);">Coming Soon</span>
+      </div>
+      <div class="cb-card">
+        <div class="cb-mark" style="background:var(--blue);"></div>
+        <h3>Alumni Network</h3>
+        <p><span class="lead">Stay connected to people who think like you.</span> Directory, monthly sessions, mentorship matching, and venture support. The network grows every cohort — and so does your access.</p>
+        <span class="label-sm" style="color:var(--blue);">Active · All Alumni</span>
+      </div>
+    </div>
   </section>
 
   <!-- STATS BAR -->
@@ -23,6 +48,9 @@ import Quote from '../components/Quote.astro';
       <div class="stat-item"><div class="stat-val">3</div><div class="stat-label label-xs">Cohorts</div></div>
     </div>
   </section>
+
+  <!-- QUOTE -->
+  <Quote text="I went back as a Student Lead, and that pushed me outside my comfort zone in the best way. Mentoring a team taught me more about leadership than any class ever could." attribution="Returning Student Lead, NYC 2025" />
 
   <!-- PROFILES -->
   <section class="al-profiles"><div class="mw">
@@ -62,17 +90,14 @@ import Quote from '../components/Quote.astro';
     </div>
   </div></section>
 
-  <!-- QUOTE -->
-  <Quote variant="navy" text="The people I met at Hudson Lab think about building the same way I do. That matters more than any certificate." attribution="Alumni, NYC 2024" accentColors={['violet', 'coral']} />
-
-  <!-- NETWORK -->
+  <!-- NETWORK DETAILS -->
   <section class="network-section"><div class="mw">
     <SectionHeader title="What the Network Gives You" subtitle="The program is two weeks. The network is permanent." color="blue" />
     <div class="net-grid">
       <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--violet)" width="24" height="24"><rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg></div><h3>Alumni Directory</h3><p><span class="lead">Find anyone from any cohort.</span> Searchable by city, track, industry, and role.</p></div>
       <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--coral)" width="24" height="24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14"/></svg></div><h3>Monthly Sessions</h3><p><span class="lead">Live workshops and AMAs with operators.</span> Topics rotate. Alumni-only.</p></div>
-      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="24" height="24"><polyline points="4 17 10 11 14 15 20 9"/><line x1="14" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div><h3>Mentorship Matching</h3><p><span class="lead">Paired with practitioners in your field.</span> Matched by track and interest. Quarterly check-ins.</p></div>
-      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--green)" width="24" height="24"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><h3>Venture Support</h3><p><span class="lead">Building something?</span> Office hours with founders, pitch feedback, investor introductions.</p></div>
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--blue)" width="24" height="24"><polyline points="4 17 10 11 14 15 20 9"/><line x1="14" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="15"/></svg></div><h3>Mentorship Matching</h3><p><span class="lead">Paired with practitioners in your field.</span> Matched by track and interest.</p></div>
+      <div class="net-card"><div class="nc-icon c-icon"><svg viewBox="0 0 24 24" stroke="var(--green)" width="24" height="24"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><h3>Venture Support</h3><p><span class="lead">Building something?</span> Office hours, pitch feedback, investor introductions.</p></div>
     </div>
   </div></section>
 
@@ -85,25 +110,31 @@ import Quote from '../components/Quote.astro';
     <div class="ev-row last"><div><span class="label-xs ev-month">Jun</span><div class="ev-day">27</div></div><div class="ev-info"><h3>Summer 2026 Kick-Off — Alumni Welcome Panel</h3><p>In-person · NYC studio</p></div><span class="label-xs ev-tag" style="background:rgba(255,212,59,0.15);color:#8a7000;">In-Person</span></div>
   </div></section>
 
-  <!-- CTA — light, measured -->
+  <!-- CTA -->
   <section class="al-cta"><div class="mw">
     <div class="al-cta-inner">
-      <div><h2>Ready to Join Them?</h2><p>Summer 2026 applications are open. Rolling admissions.</p></div>
-      <div class="al-cta-btns"><a href="/admissions" class="btn-dark" style="background:var(--violet);">Apply Now</a><a href="/" class="btn-outline">View Programs</a></div>
+      <div><h2>Ready to Come Back?</h2><p>Student Lead applications for Summer 2026 are open now.</p></div>
+      <div class="al-cta-btns"><a href="/admissions" class="btn-dark" style="background:var(--violet);">Apply as Student Lead</a><a href="/programs" class="btn-outline">View Programs</a></div>
     </div>
   </div></section>
 
 </Base>
 
 <style>
-  /* HERO */
-  .al-hero{padding:180px 80px 120px;max-width:1200px;margin:0 auto;}
+  .al-hero{padding:160px 80px 60px;max-width:1200px;margin:0 auto;}
   .al-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--violet);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
   .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
-  .al-hero h1{font-size:52px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:24px;}
-  .al-sub{font-size:19px;line-height:1.6;color:var(--text-mid);max-width:540px;}
+  .al-hero h1{font-size:48px;font-weight:600;line-height:1.1;color:var(--navy);max-width:700px;margin-bottom:20px;}
+  .al-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:540px;}
 
-  /* STATS */
+  /* COME BACK — three cards, front and center */
+  .come-back{max-width:1200px;margin:0 auto;padding:48px 80px 80px;}
+  .cb-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);border-left:1px solid var(--border);}
+  .cb-card{padding:40px 36px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .cb-mark{width:6px;height:36px;margin-bottom:20px;}
+  .cb-card h3{font-size:20px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+  .cb-card p{font-size:15px;line-height:1.6;color:var(--text-mid);margin-bottom:16px;}
+
   .stats-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .stats-inner{max-width:1200px;margin:0 auto;padding:0 80px;display:grid;grid-template-columns:repeat(5,1fr);}
   .stat-item{padding:40px 0;text-align:center;}
@@ -111,7 +142,6 @@ import Quote from '../components/Quote.astro';
   .stat-val{font-size:36px;font-weight:600;color:var(--navy);line-height:1;margin-bottom:6px;}
   .stat-label{color:var(--text-light);}
 
-  /* PROFILES */
   .al-profiles{padding:120px 0;}
   .al-profiles :global(.section-header){margin-bottom:72px;}
   .al-profile{display:grid;grid-template-columns:400px 1fr;margin-bottom:1px;min-height:480px;}
@@ -127,7 +157,6 @@ import Quote from '../components/Quote.astro';
   .al-story blockquote{font-size:20px;line-height:1.5;color:var(--navy);margin-bottom:20px;padding-left:20px;border-left:3px solid var(--border);}
   .al-story p{font-size:16px;line-height:1.65;color:var(--text-mid);max-width:480px;}
 
-  /* NETWORK */
   .network-section{background:var(--dark);padding:120px 0;}
   .network-section :global(.section-header h2){color:white;}
   .network-section :global(.section-header .sub){color:rgba(255,255,255,0.5);}
@@ -138,7 +167,6 @@ import Quote from '../components/Quote.astro';
   .net-card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,0.5);}
   .net-card p :global(.lead){font-weight:500;color:rgba(255,255,255,0.8);}
 
-  /* EVENTS */
   .events-section{padding:120px 0;}
   .events-section :global(.section-header){margin-bottom:48px;}
   .ev-row{display:grid;grid-template-columns:140px 1fr auto;padding:28px 0;border-top:1px solid var(--border);align-items:baseline;}
@@ -149,7 +177,6 @@ import Quote from '../components/Quote.astro';
   .ev-info p{font-size:14px;color:var(--text-mid);}
   .ev-tag{display:inline-block;padding:4px 12px;align-self:center;}
 
-  /* CTA */
   .al-cta{padding:100px 0;border-top:1px solid var(--border);}
   .al-cta-inner{display:flex;justify-content:space-between;align-items:center;}
   .al-cta h2{font-size:32px;font-weight:600;color:var(--navy);margin-bottom:8px;}
