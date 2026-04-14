@@ -1,0 +1,39 @@
+---
+interface Props {
+  label: string;
+  title: string;
+  edgeColor?: string;
+  photoDescription?: string;
+}
+const { label, title, edgeColor = 'violet', photoDescription = 'Hero photo' } = Astro.props;
+---
+
+<section class="hero-split">
+  <div class="hs-text">
+    <div class="hs-label"><span class="dot" style={`background: var(--${edgeColor})`}></span> {label}</div>
+    <h1>{title}</h1>
+    <div class="hs-body"><slot /></div>
+  </div>
+  <div class="hs-photo">
+    <div class="hs-edge" style={`background: var(--${edgeColor})`}></div>
+    <span class="photo-placeholder">{photoDescription}</span>
+  </div>
+</section>
+
+<style>
+  .hero-split { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; padding-top: 56px; }
+  .hs-text { padding: 120px 80px 80px; display: flex; flex-direction: column; justify-content: center; max-width: 560px; margin-left: auto; }
+  .hs-label { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .dot { width: 8px; height: 8px; display: inline-block; }
+  .hero-split h1 { font-size: 40px; font-weight: 600; line-height: 1.12; color: var(--navy); margin-bottom: 24px; }
+  .hs-body { font-size: 17px; line-height: 1.7; color: var(--text-mid); }
+  .hs-body :global(p) { margin-bottom: 12px; }
+  .hs-photo { position: relative; display: flex; align-items: center; justify-content: center; background: var(--bg-subtle); }
+  .hs-edge { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; }
+  @media (max-width: 768px) {
+    .hero-split { grid-template-columns: 1fr; min-height: auto; }
+    .hs-text { padding: 100px 24px 40px; max-width: 100%; margin: 0; }
+    .hero-split h1 { font-size: 30px; }
+    .hs-photo { height: 280px; }
+  }
+</style>

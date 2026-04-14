@@ -1,0 +1,23 @@
+---
+interface Props {
+  left: string;
+  right: string;
+  ratio?: string;
+}
+const { left, right, ratio = '2fr 1fr' } = Astro.props;
+---
+
+<div class="photo-pair" style={`grid-template-columns: ${ratio}`}>
+  <div class="photo-pair-item"><span class="photo-placeholder">{left}</span></div>
+  <div class="photo-pair-item alt"><span class="photo-placeholder">{right}</span></div>
+</div>
+
+<style>
+  .photo-pair { display: grid; gap: 1px; height: 360px; }
+  .photo-pair-item { display: flex; align-items: center; justify-content: center; background: var(--bg-subtle); }
+  .photo-pair-item.alt { background: #e2e0dc; }
+  @media (max-width: 768px) {
+    .photo-pair { grid-template-columns: 1fr !important; height: auto; }
+    .photo-pair-item { height: 200px; }
+  }
+</style>

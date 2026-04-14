@@ -1,0 +1,40 @@
+---
+import SectionHeader from './SectionHeader.astro';
+interface Props {
+  items: { title: string; desc: string }[];
+  color?: string;
+}
+const { items, color = 'green' } = Astro.props;
+---
+
+<section class="travel-grid-section"><div class="mw">
+  <SectionHeader title="Getting There" color={color} />
+  <div class="tg-grid bordered-grid">
+    {items.map(item => (
+      <div class="tg-item">
+        <div class="tg-icon">
+          <svg viewBox="0 0 24 24" stroke="var(--navy)" width="20" height="20">
+            <path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/>
+          </svg>
+        </div>
+        <h3>{item.title}</h3>
+        <p>{item.desc}</p>
+      </div>
+    ))}
+  </div>
+</div></section>
+
+<style>
+  .travel-grid-section { padding: 0 0 100px; }
+  .travel-grid-section :global(.section-header) { margin-bottom: 36px; }
+  .tg-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .tg-item { padding: 32px; }
+  .tg-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .tg-icon svg { stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; fill: none; }
+  .tg-item h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .tg-item p { font-size: 14px; line-height: 1.55; color: var(--text-mid); }
+  @media (max-width: 768px) {
+    .travel-grid-section .mw { padding: 0 24px; }
+    .tg-grid { grid-template-columns: 1fr; }
+  }
+</style>

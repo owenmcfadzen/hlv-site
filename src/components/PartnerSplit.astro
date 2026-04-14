@@ -1,0 +1,35 @@
+---
+import SectionHeader from './SectionHeader.astro';
+interface Props {
+  title: string;
+  color?: string;
+  photoDescription?: string;
+}
+const { title, color = 'blue', photoDescription = 'Partner' } = Astro.props;
+---
+
+<section class="partner-split"><div class="mw">
+  <div class="ps-layout">
+    <div class="ps-text">
+      <SectionHeader title={title} color={color} />
+      <div class="ps-body"><slot /></div>
+    </div>
+    <div class="ps-photo">
+      <span class="photo-placeholder">{photoDescription}</span>
+    </div>
+  </div>
+</div></section>
+
+<style>
+  .partner-split { padding: 0 0 100px; }
+  .partner-split :global(.section-header) { margin-bottom: 20px; }
+  .ps-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .ps-body { margin-top: 20px; }
+  .ps-body :global(p) { font-size: 16px; line-height: 1.65; color: var(--text-mid); margin-bottom: 16px; }
+  .ps-photo { aspect-ratio: 4/3; background: var(--bg-subtle); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 768px) {
+    .partner-split .mw { padding: 0 24px; }
+    .ps-layout { grid-template-columns: 1fr; }
+    .ps-photo { height: 240px; }
+  }
+</style>

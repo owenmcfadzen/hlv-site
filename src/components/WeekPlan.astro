@@ -1,0 +1,51 @@
+---
+import SectionHeader from './SectionHeader.astro';
+interface Props {
+  color?: string;
+  week1: { color: string; days: { label: string; desc: string }[] };
+  week2: { color: string; days: { label: string; desc: string }[] };
+}
+const { color = 'coral', week1, week2 } = Astro.props;
+---
+
+<section class="week-plan"><div class="mw">
+  <SectionHeader title="Your Two Weeks" subtitle="Week one builds the foundation. Week two ships the work." color={color} />
+  <div class="wp-grid">
+    <div class="wp-card">
+      <div class="wp-num" style={`color: var(--${week1.color})`}>Week 1</div>
+      <h3>Research & Define</h3>
+      <div class="wp-days">
+        {week1.days.map(d => (
+          <div class="wp-day"><strong>{d.label}</strong><span>{d.desc}</span></div>
+        ))}
+      </div>
+    </div>
+    <div class="wp-card">
+      <div class="wp-num" style={`color: var(--${week2.color})`}>Week 2</div>
+      <h3>Build & Present</h3>
+      <div class="wp-days">
+        {week2.days.map(d => (
+          <div class="wp-day"><strong>{d.label}</strong><span>{d.desc}</span></div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<style>
+  .week-plan { padding: 120px 0; }
+  .week-plan :global(.section-header) { margin-bottom: 48px; }
+  .wp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .wp-card { border: 1px solid var(--border); border-radius: 2px; padding: 40px 36px; }
+  .wp-num { font-size: 14px; font-weight: 600; font-family: 'Barlow Semi Condensed', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+  .wp-card h3 { font-size: 24px; font-weight: 600; color: var(--navy); margin-bottom: 24px; }
+  .wp-days { display: flex; flex-direction: column; }
+  .wp-day { padding: 16px 0; border-top: 1px solid var(--border); }
+  .wp-day strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .wp-day span { font-size: 14px; line-height: 1.55; color: var(--text-mid); }
+  @media (max-width: 768px) {
+    .week-plan { padding: 80px 0; }
+    .week-plan .mw { padding: 0 24px; }
+    .wp-grid { grid-template-columns: 1fr; }
+  }
+</style>

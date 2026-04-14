@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  color?: string;
+  icon?: string;
+}
+const { title, description, color = 'navy' } = Astro.props;
+---
+
+<div class="icon-card">
+  <div class="ic-icon" style={`background: rgba(var(--${color}-rgb, 24,45,83), 0.08)`}>
+    <slot name="icon" />
+  </div>
+  <h3>{title}</h3>
+  <p set:html={description} />
+</div>
+
+<style>
+  .icon-card { padding: 32px 28px; }
+  .ic-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .ic-icon :global(svg) { stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; fill: none; }
+  .icon-card h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+  .icon-card p { font-size: 14px; line-height: 1.55; color: var(--text-mid); }
+</style>

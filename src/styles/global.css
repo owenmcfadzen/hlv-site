@@ -316,3 +316,65 @@ blockquote {
   /* Labels */
   .label-sm { font-size: 11px; }
 }
+
+/* =========================================
+   SHARED SECTION PATTERNS
+   ========================================= */
+
+/* Prose blocks — used in parents, about, specialties */
+.prose-block { max-width: 640px; }
+.prose-block p {
+  font-size: 17px; line-height: 1.7;
+  color: var(--text-mid); margin-bottom: 16px;
+}
+
+/* Accent note — left-border callout */
+.accent-note {
+  padding: 28px 32px;
+  border-left: 4px solid var(--violet);
+  background: rgba(123,79,219,0.04);
+  font-size: 16px; line-height: 1.6;
+  color: var(--text-mid);
+  max-width: 640px;
+}
+.accent-note.green { border-color: var(--green); background: rgba(52,199,89,0.04); }
+.accent-note.coral { border-color: var(--coral); background: rgba(228,108,65,0.04); }
+.accent-note.blue { border-color: var(--blue); background: rgba(59,125,216,0.04); }
+
+/* Icon utility — carbon style enforcement */
+.c-icon svg {
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  fill: none;
+}
+
+/* Photo placeholder improvements */
+.photo-placeholder {
+  border: 1px solid var(--border);
+  padding: 16px 32px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+/* Numbered items — for processes, steps */
+.numbered-list { counter-reset: step; }
+.numbered-item { counter-increment: step; position: relative; }
+.numbered-item::before {
+  content: counter(step, decimal-leading-zero);
+  font-size: 40px; font-weight: 600;
+  color: var(--border); line-height: 1;
+  display: block; margin-bottom: 12px;
+}
+
+/* Section spacing utilities */
+.section-padded { padding: 100px 0; border-top: 1px solid var(--border); }
+.section-padded .mw { padding: 0 80px; }
+@media (max-width: 768px) {
+  .section-padded { padding: 60px 0; }
+  .section-padded .mw { padding: 0 24px; }
+}

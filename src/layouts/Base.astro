@@ -5,11 +5,21 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  description?: string;
   navVariant?: 'light' | 'dark';
   navActive?: string;
+  ogImage?: string;
 }
 
-const { title, navVariant = 'light', navActive = '' } = Astro.props;
+const { 
+  title, 
+  description = 'Hudson Lab Ventures is a two-week summer innovation program where high school students work on real business challenges in New York City, Lisbon, Porto, and Seoul.',
+  navVariant = 'light', 
+  navActive = '',
+  ogImage = '/og-default.png'
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://hlv-site-production.up.railway.app');
 ---
 
 <!DOCTYPE html>
@@ -18,6 +28,22 @@ const { title, navVariant = 'light', navActive = '' } = Astro.props;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} — Hudson Lab Ventures</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={`${title} — Hudson Lab Ventures`}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:site_name" content="Hudson Lab Ventures">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={`${title} — Hudson Lab Ventures`}>
+  <meta name="twitter:description" content={description}>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&family=Literata:ital,wght@1,400&display=swap" rel="stylesheet">
