@@ -6,10 +6,18 @@ import ArrowSquare from '../components/ArrowSquare.astro';
 
 <Base title="Programs" description="Compare Hudson Lab Ventures summer programs across four cities. Same curriculum, different contexts. NYC, Lisbon, Porto, and Seoul." navVariant="light" navActive="program">
 
-  <!-- HERO — short, then straight to cities -->
+  <!-- HERO — set up the program, then transition to cities -->
   <section class="pg-hero">
-    <h1>Summer 2026 Programs</h1>
-    <p class="pg-sub"><span class="lead">Four cities. Same curriculum. Choose yours.</span> Every program runs the same rigorous framework — what changes is the city, the culture, and the corporate challenge you work on.</p>
+    <div class="pg-hero-label"><span class="dot"></span> The Program</div>
+    <h1>Two Weeks Inside a Real Business Problem</h1>
+    <p class="pg-sub"><span class="lead">Hudson Lab is a full-time, studio-based summer program where high-school students work alongside practitioners on a live corporate challenge.</span> You'll scope the problem with the operator, prototype a response in small teams, and present your work to the people who'll act on it. It's the same design-thinking framework Co-Created uses with Fortune-500 operators — adapted for how you learn best: by making things.</p>
+    <p class="pg-sub pg-sub-2">Every cohort runs the same rigorous curriculum. What changes is the city, the culture, and the challenge. Use this page as a compass — pick the city that fits, check the dates, scan what you'll learn, then apply.</p>
+    <div class="pg-hero-chips">
+      <span class="pg-chip">14 days, full-time</span>
+      <span class="pg-chip">Three specialties</span>
+      <span class="pg-chip">Live corporate challenge</span>
+      <span class="pg-chip">Cohort of 16–24</span>
+    </div>
   </section>
 
   <!-- CITIES — full-width alternating rows, impossible to miss -->
@@ -180,9 +188,14 @@ import ArrowSquare from '../components/ArrowSquare.astro';
 </Base>
 
 <style>
-  .pg-hero{padding:160px 80px 60px;max-width:1200px;margin:0 auto;}
-  .pg-hero h1{font-size:48px;font-weight:600;line-height:1.1;color:var(--navy);max-width:600px;margin-bottom:16px;}
-  .pg-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:500px;}
+  .pg-hero{padding:160px 80px 72px;max-width:1200px;margin:0 auto;}
+  .pg-hero-label{font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);display:flex;align-items:center;gap:12px;margin-bottom:28px;}
+  .pg-hero-label .dot{width:8px;height:8px;background:var(--violet);display:inline-block;}
+  .pg-sub-2{margin-top:16px;max-width:640px;color:var(--text-mid);}
+  .pg-hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px;}
+  .pg-chip{font-family:'Barlow Semi Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);padding:7px 14px;background:transparent;border:1px solid var(--border);border-radius:1px;}
+  .pg-hero h1{font-size:52px;font-weight:600;line-height:1.08;letter-spacing:-0.01em;color:var(--navy);max-width:720px;margin-bottom:20px;}
+  .pg-sub{font-size:18px;line-height:1.6;color:var(--text-mid);max-width:640px;}
 
   /* City rows — full width, alternating, dominant */
   .city-row{display:grid;grid-template-columns:1fr 1fr;min-height:440px;text-decoration:none;color:inherit;border-top:1px solid var(--border);transition:background 0.15s;}

@@ -10,9 +10,8 @@ const { variant = 'light', active = '' } = Astro.props;
   <a href="/" class="nav-logo">Hudson Lab <span>Ventures</span></a>
   <div class="nav-links">
     <a href="/programs" class:list={['nav-link-desktop', { active: active === 'program' }]}>Program</a>
-    <a href="/" class:list={['nav-link-desktop', { active: active === 'cities' }]}>Cities</a>
     <a href="/alumni" class:list={['nav-link-desktop', { active: active === 'alumni' }]}>Alumni</a>
-    <a href="/" class:list={['nav-link-desktop', { active: active === 'parents' }]}>Parents</a>
+    <a href="/parents" class:list={['nav-link-desktop', { active: active === 'parents' }]}>Parents</a>
     <a href="/admissions" class="nav-cta">Apply</a>
   </div>
 </nav>
