@@ -4,8 +4,12 @@ import ArrowSquare from './ArrowSquare.astro';
 interface Props {
   eyebrow?: string;
   lineOne?: string;
-  lineTwo?: string;      // accent line (gets the violet highlight block)
+  lineTwo?: string;
   lineThree?: string;
+  /** Per-line highlight color. null = plain text, otherwise a palette color. */
+  lineOneAccent?: string | null;
+  lineTwoAccent?: string | null;
+  lineThreeAccent?: string | null;
   subtext?: string;
   primaryLabel?: string;
   primaryHref?: string;
@@ -19,6 +23,10 @@ const {
   lineOne = 'The summer that',
   lineTwo = 'makes school',
   lineThree = 'make sense.',
+  // Multi-color accent pattern — no two purples, uses coral + pop to mix the palette
+  lineOneAccent = null,
+  lineTwoAccent = 'coral',
+  lineThreeAccent = 'pop',
   subtext = 'Hudson Lab is a two-week program where high-school students work on a real business problem, with real operators, in New York, Lisbon, Porto, or Seoul.',
   primaryLabel = 'Apply now',
   primaryHref = '/admissions',
@@ -27,6 +35,14 @@ const {
   videoSrc,
   posterSrc,
 } = Astro.props;
+
+// pop (yellow) requires dark text per design system; every other color uses white
+const accentTextColor = (c: string | null | undefined) =>
+  c === 'pop' ? 'var(--navy)' : 'white';
+const accentClass = (c: string | null | undefined) =>
+  c ? 'hv-line hv-line-accent' : 'hv-line';
+const accentStyle = (c: string | null | undefined) =>
+  c ? `background: var(--${c}); color: ${accentTextColor(c)};` : '';
 ---
 
 <section class="hero-video">
@@ -47,9 +63,9 @@ const {
   <div class="hv-overlay">
     <div class="hv-eyebrow"><span class="dot"></span> {eyebrow}</div>
     <h1 class="hv-headline">
-      <span class="hv-line">{lineOne}</span>
-      <span class="hv-line hv-line-accent">{lineTwo}</span>
-      <span class="hv-line">{lineThree}</span>
+      <span class={accentClass(lineOneAccent)}   style={accentStyle(lineOneAccent)}>{lineOne}</span>
+      <span class={accentClass(lineTwoAccent)}   style={accentStyle(lineTwoAccent)}>{lineTwo}</span>
+      <span class={accentClass(lineThreeAccent)} style={accentStyle(lineThreeAccent)}>{lineThree}</span>
     </h1>
     <p class="hv-sub">{subtext}</p>
     <div class="hv-cta-row">
@@ -125,11 +141,10 @@ const {
   .hv-line:nth-child(2) { padding-left: 28px; }
   .hv-line:nth-child(3) { padding-left: 8px; }
 
-  /* Accent line — subtle violet highlight, white text, still reads as part of the stack */
+  /* Accent line — inline background + color come from accentStyle() so each line can take a
+     different palette color (avoids purple monotony across the page). */
   .hv-line-accent {
     display: inline-block;
-    background: var(--violet);
-    color: white;
     padding: 2px 16px;
   }
 
