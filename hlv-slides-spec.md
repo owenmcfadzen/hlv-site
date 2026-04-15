@@ -78,78 +78,96 @@ Google Slides has Barlow as a Google Font. Load via Insert → Text → More fon
 
 ## 2.4 Slide Layout Templates
 
-Each layout maps to a web section pattern. Build them as Slide Masters (Slide → Edit theme → add layout).
+Each layout maps to a web section pattern. Build them as Slide Masters
+(Slide → Edit theme → add layout). Numbers cross-reference the live patterns
+on https://hlv-site-production.up.railway.app and `/dev/lookbook` §1.6.
 
-### 1 · Title slide (full dark)
-- Background: Dark `#18181B`.
-- Three highlighted-text blocks, stacked vertically, offset 0 / 24pt / 8pt from left (L → R stagger).
-- Color sequence: Violet → Pop → Navy (or Coral → Pop → Navy for energy, Blue → Pop → Navy for GTM).
-- A5c bar at bottom, full width, 4pt tall.
-- Bottom-right: small HLV arrow-square (see §2.5).
+### 1 · Title slide (full dark) — *maps to HeroVideo overlay*
+- Background: Dark `#18181B` with optional video poster image cropped behind.
+- Content card: warm-white rectangle bottom-left, 60% width, 1pt border,
+  subtle drop shadow. Card sits over a 1pt rule that aligns with the
+  slide edge so it visually "hangs" off the dark area below.
+- Three-line typographic headline in navy (Barlow 600, 44pt), staircased
+  with 0 / 24 / 8 pt left-indents on lines 1–3. **Two of the three lines
+  carry a colored highlight block:** line 2 in coral (white text), line 3
+  in pop yellow (navy text). Don't use violet for both — vary the palette.
+- Eyebrow in violet Barlow Semi Condensed, dot indicator + label.
+- Two CTAs: btn-dark + secondary text-link.
+- A5c bar at slide bottom (4pt tall, 6:5:4:3:2:2 widths).
 
-### 2 · Section divider
-- Background: Warm white.
-- 6×48pt colored bar (section mark) left-aligned at 1.27 cm.
-- Next to it: section title 36pt Barlow 600.
-- Below title: 14pt subtitle in Text mid.
-- Minimal. No decoration.
+### 2 · "What this is" content slide — *maps to PremiseDark*
+- Background: Dark `#18181B`, white text.
+- Two-column layout: text 65% / spec-table 35%, large gap.
+- Left: violet eyebrow, 36pt Barlow 600 headline, 14pt body in
+  rgba(255,255,255,0.72). First sentence in white weight 500 (lead pattern).
+- Right: spec-table — one row per fact, 1pt rules between rows,
+  Barlow Semi Condensed 10pt UPPERCASE labels (color: rgba(255,255,255,0.5)),
+  Barlow 14pt values in white.
+- Optional `→` text-link below the body copy.
 
-### 3 · Content + photo (split)
-- Two columns, 50/50.
-- Left: text — section label, title, 2–3 short paragraphs.
-- Right: full-bleed photo (edge to edge of right half).
-- 6pt edge bar on the inside edge of the photo (track color).
+### 3 · Section divider — *unchanged from v1*
+- Warm white. 6×48pt colored bar (section mark) + 36pt section title +
+  optional 14pt subtitle. Minimal.
 
-### 4 · Full-bleed photo with overlay
-- Photo fills entire slide.
-- Dark gradient overlay, bottom 50% (linear: transparent → rgba(0,0,0,0.7)).
-- Bottom-left overlay: section label in Pop, title 36pt, short subtitle. Overlay anchored 1.27cm from bottom-left.
+### 4 · Full-bleed photo with overlay caption
+- Photo fills slide. Bottom 50% gradient (transparent → rgba(0,0,0,0.7)).
+- Overlay anchored 1.27cm from bottom-left: small Pop label, 36pt title,
+  14pt subtitle. White text.
 
-### 5 · 3-column content
-- Three equal columns, 0.5cm gutters.
-- Each column: small icon OR colored top-edge (4pt), title, short paragraph.
-- Use for tracks (Product / GTM / Business) or outcomes.
-- Optional: ghost number (42pt, 12% navy) above each column.
+### 5 · 3-column tracks/outcomes — *unchanged*
+- Three equal columns, 0.5cm gutters. Optional ghost number (42pt, 12% navy)
+  above each column.
 
-### 6 · 2-column comparison
-- Two columns, 50/50.
-- Column headers with colored top-edge (e.g., violet vs. coral).
-- Rows below with 1pt border rule (border color `#E2E0DC`).
+### 6 · Asymmetric "intent" CTA — *maps to Intent CTA pattern*
+- Background: Dark `#18181B`. Two-column layout:
+  - Left 2/3: highlighted-text stack (violet → pop), copy paragraph,
+    btn-light primary + secondary white-on-dark text-link.
+  - Right 1/3: 2×3 photo grid. Place 3 image cells in zigzag — (1,1), (2,2),
+    (1,3). Other 3 cells stay transparent (dark slide bg shows through).
+- A5c bar **omitted** here (sparingly rule applies).
 
-### 7 · Quote slide
-- Background: Warm white (or Navy for dramatic).
-- Two short accent bars above the quote: Violet 28pt × 4pt, Pop 16pt × 4pt, 4pt gap.
-- Literata Italic 20pt centered, max 12 words per line.
-- Attribution below in Barlow Semi Condensed 10pt UPPERCASE, Text light.
+### 7 · Quote slide — *unchanged*
+- Two short accent bars above (Violet 28pt × 4pt + Pop 16pt × 4pt).
+- Literata Italic 20pt centered. Attribution in Barlow Semi Condensed
+  10pt UPPERCASE.
 
-### 8 · Stats / numbers
-- Up to 4 stats in a single row.
-- Each: 72pt Barlow 600 Navy number, 10pt Barlow Semi Condensed UPPERCASE label below.
-- 1pt vertical divider between stats.
+### 8 · Stats / numbers slide — *unchanged*
 
-### 9 · Timeline / process
-- Four to six horizontal steps, evenly spaced.
-- Top: 1pt horizontal line connecting all steps.
-- Each step: 12pt colored dot on the line, step number (01) 24pt, step title 14pt Barlow 600.
-- Colors rotate: Violet → Coral → Blue → Pop (→ Green if 5 steps).
+### 9 · Timeline / process — *unchanged*
 
-### 10 · Bordered grid (2×2 or 3×2)
-- Four or six cells, separated by 1pt border (Border `#E2E0DC`).
-- Each cell: 16pt padding, icon optional top-left, title 14pt Barlow 600, body 11pt text mid.
-- Best for "what you'll do / what you'll get" pages.
+### 10 · 3×3 specialties grid — *new, maps to SpecialtiesGrid*
+- 3×3 bordered grid (1pt rules in `#E2E0DC`) on warm white.
+- **Top 2 rows (6 cells = foundational):** 44×44pt navy icon square with
+  white Carbon-style icon. Title in navy Barlow 600 20pt. Sub-label in
+  Barlow Semi Condensed 11pt UPPERCASE text-light. Body in 14pt text-mid.
+- **Bottom row (3 cells = optional specialties):** 44×44pt **track-colored**
+  icon square (coral / green / blue) with white icon. Title in the
+  matching track color. Small "Optional specialty" tag at top + arrow
+  indicator (signals clickability on web; on slides, just visual cue).
+- Section header above (mark + 32pt title + 14pt subtitle).
 
-### 11 · Icon + text rows
-- Vertical stack of 3–5 rows.
-- Each row: 24pt carbon-style icon left (track color), title + paragraph right.
-- 1pt horizontal rule between rows.
+### 11 · Cities — alternating rows — *maps to CityLocations*
+- For each city: full-width row split 50/50 photo + content.
+- Photo side: full-bleed image cell.
+- Content side: small color-tag label, 36pt title, dates in Barlow Semi
+  Condensed 11pt, 16pt body with lead-sentence emphasis, meta pills,
+  text-link CTA.
+- Alternating direction every other slide (or every other row if shown
+  multi-up): NYC photo-left, Lisbon photo-right, etc. Edge bar (6pt × full
+  height, track color) sits centered on the 50% gridline (offset -3pt).
 
-### 12 · CTA / closing slide
-- Dark background, centered content.
-- Highlighted-text blocks: "Ready when" (violet) / "you are." (pop, navy text).
-- Centered button: "Apply" on white with arrow-square (see §2.5).
-- A5c bar at very bottom, 4pt tall.
+### 12 · Trust close — *maps to Care section*
+- Warm white, narrow column (max 720pt wide).
+- 3-bar mark above (violet + pop + coral, 5×20pt each).
+- 26pt headline ("We know what you're trusting us with."), 15pt body.
+- Below: 5–6 collapsed Q rows (label + plus sign), with one expanded as
+  example. On slides, don't try to make these interactive — render one
+  expanded, others collapsed for the visual.
+- Closing block: 96×96pt portrait placeholder + signature line +
+  navy SVG flourish.
 
----
+### 13 · CTA / closing slide
+- Reuse template 1 (Title slide) with CTA-focused copy.
 
 ## 2.5 Reusable Elements (construct as grouped Slides shapes)
 
@@ -211,4 +229,4 @@ Google Slides doesn't ship IBM Carbon icons natively. Options:
 
 ---
 
-*Spec version 1.0 — 2026-04-14. Owen to review font loading and icon strategy before first full deck build.*
+*Spec version 1.1 — 2026-04-15. Updated to reflect the new HeroVideo white-card pattern, PremiseDark spec-table layout, asymmetric Intent CTA, 3×3 SpecialtiesGrid (foundational + optional with inverted icon treatment), CityLocations alternating rows, and the Care trust-close. Single-color highlighted-text stack is no longer the default — vary across coral/pop/violet.*
