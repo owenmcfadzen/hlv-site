@@ -1,0 +1,171 @@
+---
+interface City {
+  slug: string;            // e.g. "nyc"
+  label: string;           // small cap label above title, e.g. "New York City"
+  title: string;           // display title, e.g. "New York"
+  dates: string;           // e.g. "June 27 – July 11"
+  leadSentence: string;    // bolded lead-sentence at the start of the description
+  description: string;     // rest of the description (appended after the lead)
+  meta: string[];          // small meta pills, e.g. ["24 students", "3 tracks", "Columbia University"]
+  color: string;           // track color — violet, blue, coral, green, pop, navy
+  photoBg?: string;        // fallback color for photo block
+  photoLabel?: string;     // placeholder label on the photo
+  linkLabel?: string;      // e.g. "View NYC Program →"
+  linkHref?: string;       // defaults to /program/{slug}
+}
+interface Props {
+  showHeader?: boolean;
+  headerTitle?: string;
+  headerSubtitle?: string;
+  headerColor?: string;
+  cities?: City[];
+}
+const {
+  showHeader = true,
+  headerTitle = 'Four cities',
+  headerSubtitle = 'Same curriculum. Different context. Each cohort takes on a live challenge in a city that shapes how the work gets made.',
+  headerColor = 'blue',
+  cities = [
+    {
+      slug: 'nyc', label: 'New York City', title: 'New York', dates: 'June 27 – July 11',
+      leadSentence: 'Columbia University campus. Climate Knowledge Initiative.',
+      description: 'Tackle a real sustainability challenge with Columbia Business School and one of the world\'s leading chemical companies.',
+      meta: ['24 students', '3 tracks', 'Columbia University'],
+      color: 'violet', photoBg: '#e8e6e0', photoLabel: 'NYC — Manhattan, street level',
+    },
+    {
+      slug: 'lisbon', label: 'Lisbon, Portugal', title: 'Lisbon', dates: 'July 13 – July 25',
+      leadSentence: 'Two challenges: AI in education with José de Mello, or the future of retail with Sonae.',
+      description: 'Europe\'s startup capital. Founders are accessible, the cost of experimentation is low, and the light makes everything look better.',
+      meta: ['20 students', '3 tracks', 'José de Mello · Sonae'],
+      color: 'blue', photoBg: '#e2e0dc', photoLabel: 'Lisbon — tram, golden light',
+    },
+    {
+      slug: 'porto', label: 'Porto, Portugal', title: 'Porto', dates: 'July 13 – July 25',
+      leadSentence: 'Craft culture meets entrepreneurship.',
+      description: 'A deliberately smaller program — two tracks, sixteen students. Porto rewards depth over breadth. Quality matters more than speed here.',
+      meta: ['16 students', '2 tracks'],
+      color: 'coral', photoBg: '#e5e3db', photoLabel: 'Porto — Ribeira, Douro river',
+    },
+    {
+      slug: 'seoul', label: 'Seoul, South Korea', title: 'Seoul', dates: 'July 27 – August 8',
+      leadSentence: 'Partner with Coupang — Korea\'s "Amazon" — on Gen Z e-commerce.',
+      description: 'The world\'s most connected market. Korean and international students work side by side. K-culture isn\'t the backdrop — it\'s the lens.',
+      meta: ['20 students', '3 tracks', 'Coupang'],
+      color: 'pop', photoBg: '#e8e6e0', photoLabel: 'Seoul — neon, Gangnam energy',
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="city-locations">
+  {showHeader && (
+    <div class="cl-header-wrap">
+      <div class="section-header">
+        <div class="section-mark" style={`background: var(--${headerColor});`}></div>
+        <div>
+          <h2>{headerTitle}</h2>
+          {headerSubtitle && <p class="sub">{headerSubtitle}</p>}
+        </div>
+      </div>
+    </div>
+  )}
+
+  {cities.map((c, i) => (
+    <a href={c.linkHref || `/program/${c.slug}`} class:list={['city-row', { reverse: i % 2 === 1 }]}>
+      <div class="city-photo" style={`background:${c.photoBg || 'var(--bg-subtle)'};`}>
+        <span class="photo-placeholder">{c.photoLabel || c.title}</span>
+        <div class:list={['city-edge', { right: i % 2 === 1 }]} style={`background: var(--${c.color});`}></div>
+      </div>
+      <div class="city-content">
+        <span class="label-sm city-label" style={`color: var(--${c.color === 'pop' ? 'navy' : c.color});`}>{c.label}</span>
+        <h3>{c.title}</h3>
+        <p class="city-dates">{c.dates}</p>
+        <p class="city-desc"><span class="lead">{c.leadSentence}</span> {c.description}</p>
+        <div class="city-meta">{c.meta.map(m => <span>{m}</span>)}</div>
+        <span class="city-link">{c.linkLabel || `View ${c.title} Program →`}</span>
+      </div>
+    </a>
+  ))}
+</section>
+
+<style>
+  .city-locations {
+    border-top: 1px solid var(--border);
+  }
+  .cl-header-wrap {
+    max-width: 1200px; margin: 0 auto;
+    padding: 100px 80px 60px;
+  }
+  .cl-header-wrap .section-header h2 {
+    font-size: 40px; font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .cl-header-wrap .section-header .sub {
+    font-size: 17px; line-height: 1.6;
+    color: var(--text-mid);
+    margin-top: 14px;
+    max-width: 620px;
+  }
+
+  .city-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 440px;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .city-row:last-of-type { border-bottom: 1px solid var(--border); }
+  .city-row:hover { background: rgba(0,0,0,0.01); }
+  .city-row.reverse { direction: rtl; }
+  .city-row.reverse > * { direction: ltr; }
+
+  .city-photo {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 440px;
+  }
+  .city-edge { position: absolute; right: -3px; top: 0; bottom: 0; width: 6px; z-index: 1; }
+  .city-edge.right { left: -3px; right: auto; }
+
+  .city-content { padding: 56px 72px; display: flex; flex-direction: column; justify-content: center; }
+  .city-label { display: block; margin-bottom: 6px; }
+  .city-content h3 {
+    font-size: 40px; font-weight: 600; color: var(--navy);
+    margin-bottom: 4px; line-height: 1.1; letter-spacing: -0.005em;
+  }
+  .city-dates {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--text-light); margin-bottom: 20px;
+  }
+  .city-desc { font-size: 16px; line-height: 1.6; color: var(--text-mid); margin-bottom: 18px; max-width: 480px; }
+  .city-meta { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .city-meta span {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--text-light);
+  }
+  .city-link { font-size: 15px; font-weight: 600; color: var(--navy); transition: color 0.15s; }
+  .city-row:hover .city-link { color: var(--violet); }
+
+  @media (max-width: 1024px) {
+    .cl-header-wrap { padding: 80px 48px 48px; }
+    .cl-header-wrap .section-header h2 { font-size: 32px; }
+    .city-content { padding: 48px 40px; }
+  }
+  @media (max-width: 768px) {
+    .cl-header-wrap { padding: 60px 24px 32px; }
+    .cl-header-wrap .section-header h2 { font-size: 26px; }
+    .city-row, .city-row.reverse { grid-template-columns: 1fr; direction: ltr; }
+    .city-row > * { direction: ltr; }
+    .city-photo { min-height: 240px; }
+    .city-content { padding: 32px 24px; }
+    .city-content h3 { font-size: 30px; }
+    .city-edge, .city-edge.right { position: absolute; left: 0; right: 0; top: auto; bottom: 0; width: 100%; height: 4px; }
+  }
+</style>

@@ -8,6 +8,7 @@ import PartnersMarquee from '../components/PartnersMarquee.astro';
 import HeroVideo from '../components/HeroVideo.astro';
 import PremiseDark from '../components/PremiseDark.astro';
 import SpecialtiesGrid from '../components/SpecialtiesGrid.astro';
+import CityLocations from '../components/CityLocations.astro';
 import FAQList from '../components/FAQList.astro';
 ---
 
@@ -39,49 +40,8 @@ import FAQList from '../components/FAQList.astro';
     attribution="NYC 2025"
   />
 
-  <!-- CITIES -->
-  <section class="cities-section">
-    <SectionHeader title="Four Cities" color="blue" />
-
-    <div class="cities-grid bordered-grid">
-      <div class="city-card">
-        <div class="city-card-photo"><span class="photo-placeholder">NYC</span><div class="c-mark" style="background: var(--violet);"></div></div>
-        <div class="city-card-info">
-          <div class="c-name">New York</div>
-          <div class="c-dates">June 27 – July 11</div>
-          <div class="c-desc">The density forces clarity. Build in a city where every block is a market.</div>
-          <a href="/program/nyc" class="icon-link">View program <span class="mini-arrow"><svg viewBox="0 0 12 12" width="12" height="12"><line x1="2" y1="6" x2="10" y2="6"/><line x1="6.5" y1="3" x2="10" y2="6"/><line x1="6.5" y1="9" x2="10" y2="6"/></svg></span></a>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-photo"><span class="photo-placeholder">Lisbon</span><div class="c-mark" style="background: var(--blue);"></div></div>
-        <div class="city-card-info">
-          <div class="c-name">Lisbon</div>
-          <div class="c-dates">July 13 – July 25</div>
-          <div class="c-desc">Europe's startup capital, at a human scale.</div>
-          <a href="/program/lisbon" class="icon-link">View program <span class="mini-arrow"><svg viewBox="0 0 12 12" width="12" height="12"><line x1="2" y1="6" x2="10" y2="6"/><line x1="6.5" y1="3" x2="10" y2="6"/><line x1="6.5" y1="9" x2="10" y2="6"/></svg></span></a>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-photo"><span class="photo-placeholder">Porto</span><div class="c-mark" style="background: var(--coral);"></div></div>
-        <div class="city-card-info">
-          <div class="c-name">Porto</div>
-          <div class="c-dates">July 13 – July 25</div>
-          <div class="c-desc">Craft culture meets entrepreneurship.</div>
-          <a href="/program/porto" class="icon-link">View program <span class="mini-arrow"><svg viewBox="0 0 12 12" width="12" height="12"><line x1="2" y1="6" x2="10" y2="6"/><line x1="6.5" y1="3" x2="10" y2="6"/><line x1="6.5" y1="9" x2="10" y2="6"/></svg></span></a>
-        </div>
-      </div>
-      <div class="city-card">
-        <div class="city-card-photo"><span class="photo-placeholder">Seoul</span><div class="c-mark" style="background: var(--pop);"></div></div>
-        <div class="city-card-info">
-          <div class="c-name">Seoul</div>
-          <div class="c-dates">July 27 – Aug 8</div>
-          <div class="c-desc">Where technology is culture.</div>
-          <a href="/program/seoul" class="icon-link">View program <span class="mini-arrow"><svg viewBox="0 0 12 12" width="12" height="12"><line x1="2" y1="6" x2="10" y2="6"/><line x1="6.5" y1="3" x2="10" y2="6"/><line x1="6.5" y1="9" x2="10" y2="6"/></svg></span></a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- CITIES (full-width alternating rows) -->
+  <CityLocations />
 
   <!-- INTENT CTA — dark emotional fulcrum. Full-bleed layout: text on the left
        with site gutter; photo grid fills the right third, edge to edge. -->
@@ -191,26 +151,6 @@ import FAQList from '../components/FAQList.astro';
   }
   .photo-pair-item:nth-child(2) { background: #e2e0dc; }
 
-  /* ===== CITIES ===== */
-  .cities-section { max-width: 1200px; margin: 0 auto; padding: 0 80px 120px; }
-  .cities-section .section-header { margin-bottom: 36px; }
-  .cities-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .city-card { cursor: pointer; transition: background 0.15s; }
-  .city-card:hover { background: rgba(0,0,0,0.015); }
-  .city-card-photo {
-    width: 100%; aspect-ratio: 3/2;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; border-bottom: 1px solid var(--border);
-    background: var(--bg-subtle);
-  }
-  .c-mark { position: absolute; bottom: -1px; left: 24px; width: 40px; height: 4px; }
-  .city-card-info { padding: 24px 24px 28px; }
-  .c-name { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
-  .c-dates { font-size: 14px; color: var(--text-light); margin-bottom: 12px; }
-  .c-desc { font-size: 14px; color: var(--text-mid); line-height: 1.5; margin-bottom: 16px; }
-  .mini-arrow { display: inline-flex; align-items: center; justify-content: center; }
-  .mini-arrow svg { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: square; }
-
   /* ===== HOW TO APPLY ===== */
   .how-band { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .how-inner {
@@ -260,9 +200,6 @@ import FAQList from '../components/FAQList.astro';
     .photo-pair-item { height: 200px; }
     .quote-warm { padding: 60px 24px; }
     .quote-warm blockquote { font-size: 20px; }
-    .cities-section { padding: 0 24px 80px; }
-    .cities-section .section-header { margin-bottom: 24px; }
-    .cities-grid { grid-template-columns: 1fr 1fr; }
     .how-band .how-inner { grid-template-columns: 1fr; padding: 0 24px; }
     .how-label-col { padding: 40px 0 0; }
     .how-steps { grid-template-columns: 1fr; border-left: none; }
@@ -274,7 +211,6 @@ import FAQList from '../components/FAQList.astro';
     .cta-dark h2 { font-size: 28px; }
   }
   @media (max-width: 480px) {
-    .cities-grid { grid-template-columns: 1fr; }
   }
 
 
