@@ -30,8 +30,8 @@ import FAQList from '../components/FAQList.astro';
 
   <!-- PHOTO PAIR -->
   <div class="photo-pair">
-    <div class="photo-pair-item"><span class="photo-placeholder">Students presenting / crit session</span></div>
-    <div class="photo-pair-item"><span class="photo-placeholder">City street / cultural moment</span></div>
+    <div class="photo-pair-item"><img src="/img/studio-team.webp" alt="Student cohort presenting at Columbia" loading="lazy" /></div>
+    <div class="photo-pair-item"><img src="/img/studio-work.webp" alt="Project work in progress" loading="lazy" /></div>
   </div>
 
   <!-- QUOTE -->
@@ -158,8 +158,10 @@ import FAQList from '../components/FAQList.astro';
   .photo-pair-item {
     display: flex; align-items: center; justify-content: center;
     background: var(--bg-subtle);
+    overflow: hidden;
   }
   .photo-pair-item:nth-child(2) { background: #e2e0dc; }
+  .photo-pair-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* ===== HOW TO APPLY ===== */
   .how-band { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }

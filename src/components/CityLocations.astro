@@ -1,17 +1,18 @@
 ---
 interface City {
   slug: string;            // e.g. "nyc"
-  label: string;           // small cap label above title, e.g. "New York City"
-  title: string;           // display title, e.g. "New York"
-  dates: string;           // e.g. "June 27 – July 11"
-  leadSentence: string;    // bolded lead-sentence at the start of the description
-  description: string;     // rest of the description (appended after the lead)
-  meta: string[];          // small meta pills, e.g. ["24 students", "3 tracks", "Columbia University"]
-  color: string;           // track color — violet, blue, coral, green, pop, navy
-  photoBg?: string;        // fallback color for photo block
+  label: string;           // small cap label above title
+  title: string;           // display title
+  dates: string;
+  leadSentence: string;
+  description: string;
+  meta: string[];
+  color: string;
+  photoSrc?: string;       // path to real photo — when present, renders an <img>; otherwise the placeholder
+  photoBg?: string;        // fallback warm tone for placeholder blocks
   photoLabel?: string;     // placeholder label on the photo
-  linkLabel?: string;      // e.g. "View NYC Program →"
-  linkHref?: string;       // defaults to /program/{slug}
+  linkLabel?: string;
+  linkHref?: string;
 }
 interface Props {
   showHeader?: boolean;
@@ -31,14 +32,14 @@ const {
       leadSentence: 'Columbia University campus. Climate Knowledge Initiative.',
       description: 'Tackle a real sustainability challenge with Columbia Business School and one of the world\'s leading chemical companies.',
       meta: ['24 students', '3 tracks', 'Columbia University'],
-      color: 'violet', photoBg: '#e8e6e0', photoLabel: 'NYC — Manhattan, street level',
+      color: 'violet', photoSrc: '/img/nyc.webp', photoBg: '#e8e6e0', photoLabel: 'NYC — Manhattan, street level',
     },
     {
       slug: 'lisbon', label: 'Lisbon, Portugal', title: 'Lisbon', dates: 'July 13 – July 25',
       leadSentence: 'Two challenges: AI in education with José de Mello, or the future of retail with Sonae.',
       description: 'Europe\'s startup capital. Founders are accessible, the cost of experimentation is low, and the light makes everything look better.',
       meta: ['20 students', '3 tracks', 'José de Mello · Sonae'],
-      color: 'blue', photoBg: '#e2e0dc', photoLabel: 'Lisbon — tram, golden light',
+      color: 'blue', photoSrc: '/img/lisbon.webp', photoBg: '#e2e0dc', photoLabel: 'Lisbon — tram, golden light',
     },
     {
       slug: 'porto', label: 'Porto, Portugal', title: 'Porto', dates: 'July 13 – July 25',
@@ -52,7 +53,7 @@ const {
       leadSentence: 'Partner with Coupang — Korea\'s "Amazon" — on Gen Z e-commerce.',
       description: 'The world\'s most connected market. Korean and international students work side by side. K-culture isn\'t the backdrop — it\'s the lens.',
       meta: ['20 students', '3 tracks', 'Coupang'],
-      color: 'pop', photoBg: '#e8e6e0', photoLabel: 'Seoul — neon, Gangnam energy',
+      color: 'pop', photoSrc: '/img/seoul.webp', photoBg: '#e8e6e0', photoLabel: 'Seoul — neon, Gangnam energy',
     },
   ],
 } = Astro.props;
@@ -73,8 +74,12 @@ const {
 
   {cities.map((c, i) => (
     <a href={c.linkHref || `/program/${c.slug}`} class:list={['city-row', { reverse: i % 2 === 1 }]}>
-      <div class="city-photo" style={`background:${c.photoBg || 'var(--bg-subtle)'};`}>
-        <span class="photo-placeholder">{c.photoLabel || c.title}</span>
+      <div class="city-photo" style={!c.photoSrc ? `background:${c.photoBg || 'var(--bg-subtle)'};` : undefined}>
+        {c.photoSrc ? (
+          <img src={c.photoSrc} alt={`${c.title} — ${c.label}`} loading="lazy" />
+        ) : (
+          <span class="photo-placeholder">{c.photoLabel || c.title}</span>
+        )}
         <div class:list={['city-edge', { right: i % 2 === 1 }]} style={`background: var(--${c.color});`}></div>
       </div>
       <div class="city-content">
@@ -128,7 +133,9 @@ const {
     position: relative;
     display: flex; align-items: center; justify-content: center;
     min-height: 440px;
+    overflow: hidden;
   }
+  .city-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .city-edge { position: absolute; right: -3px; top: 0; bottom: 0; width: 6px; z-index: 1; }
   .city-edge.right { left: -3px; right: auto; }
 
