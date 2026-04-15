@@ -4,6 +4,7 @@
 import Base from '../../layouts/Base.astro';
 import ArrowSquare from '../../components/ArrowSquare.astro';
 import A5cBar from '../../components/A5cBar.astro';
+import PartnersMarquee from '../../components/PartnersMarquee.astro';
 
 const palette = [
   { name: 'violet-600', hex: '#7B4FDB', css: '--violet', role: 'Primary identity · cross-track' },
@@ -618,6 +619,149 @@ const palette = [
       </div>
     </section>
 
+    <!-- §1.6 COMPOSITE PAGE SECTIONS -->
+    <section class="lb-section">
+      <div class="lb-section-head">
+        <span class="lb-tick" style="background: var(--navy)"></span>
+        <h2>1.6 Composite Page Sections</h2>
+        <span class="lb-note">Multi-part page patterns: Partners marquee, Intent CTA (full-bleed + photo grid), Care section (trust close with accordion), FAQ accordion, Programs hero.</span>
+      </div>
+
+      <!-- A · Partners Marquee -->
+      <div class="lb-variant">
+        <div class="lb-label">A · Partners Marquee — text wordmarks, horizontal scroll</div>
+        <div class="lb-embed">
+          <PartnersMarquee />
+        </div>
+        <p class="lb-caption">Sits between Premise and Specialties on the landing page. Uniform Barlow Semi Condensed wordmarks rather than mismatched logo grabs — matches editorial tone, honest about what we have. 42s linear loop, duplicated content for seamless cycle, fade masks on both edges. Honors <code>prefers-reduced-motion</code> (static wrapped grid fallback). Component takes optional <code>label</code> and <code>partners</code> props — reusable on /about with a tailored list.</p>
+      </div>
+
+      <!-- B · Intent CTA: full-bleed dark with photo grid zigzag -->
+      <div class="lb-variant">
+        <div class="lb-label">B · Intent CTA — full-bleed dark + asymmetric photo grid <em>[live on landing]</em></div>
+        <div class="lb-embed-fullbleed">
+          <section class="lbc-intent">
+            <div class="lbc-intent-copy">
+              <div class="lbc-copy-inner">
+                <div class="hl-stack">
+                  <span class="hl-block" style="background: var(--violet);">Make this summer</span>
+                  <span class="hl-block" style="background: var(--pop); color: var(--navy); margin-left: 32px;">count.</span>
+                </div>
+                <p class="lbc-intent-text"><span class="lead">Two weeks that sit differently on a résumé — and in your head.</span> Applications for Summer 2026 are open now. Rolling review. Decisions within five days.</p>
+                <div class="lbc-cta-row">
+                  <a class="btn-light" href="#"><ArrowSquare size="small" /> Start your application</a>
+                  <a class="lbc-email" href="#">Talk to someone first →</a>
+                </div>
+              </div>
+            </div>
+            <div class="lbc-photos" aria-hidden="true">
+              <div class="lbc-photo lbc-photo-1"><span class="photo-placeholder on-dark">Studio moment</span></div>
+              <div class="lbc-photo lbc-photo-2"><span class="photo-placeholder on-dark">Cohort detail</span></div>
+              <div class="lbc-photo lbc-photo-3"><span class="photo-placeholder on-dark">City at work</span></div>
+            </div>
+          </section>
+        </div>
+        <p class="lb-caption">Section-level 2-column grid (<code>1fr 33.333%</code>, <code>align-items: stretch</code>). Text column right-aligns inside its 2/3 so it hugs the grid's edge. Photo column is a 2×3 inner grid with cells in zigzag placement (1,1) (2,2) (1,3); three empty cells stay transparent for the dark to read as intentional negative space. <code>grid-template-rows: repeat(3, 1fr)</code> + <code>height: 100%</code> on photos stretches them top-to-bottom. <strong>No A5c bar on this section</strong> — A5c stays reserved for the page-top afterglow and the footer.</p>
+      </div>
+
+      <!-- C · Care section: accordion + signature close -->
+      <div class="lb-variant">
+        <div class="lb-label">C · Care section — trust close with FAQ accordion + personal signature <em>[live on landing]</em></div>
+        <div class="lb-embed">
+          <section class="lbc-care">
+            <div class="lbc-care-inner">
+              <div class="lbc-care-open">
+                <div class="lbc-care-mark"><span style="background:var(--violet)"></span><span style="background:var(--pop)"></span><span style="background:var(--coral)"></span></div>
+                <h3>We know what you're trusting us with.</h3>
+                <p><span class="lead">Your child's summer. The shape of their self-belief. A real investment of time and money.</span> Here are the questions families ask most, and honest answers.</p>
+              </div>
+              <div class="lbc-care-faq">
+                <details class="lbc-item" open>
+                  <summary><span class="lbc-q">Is this safe? How is my child supervised?</span><span class="lbc-toggle" aria-hidden="true">+</span></summary>
+                  <div class="lbc-a"><span class="lead">Adult facilitators present during all program hours.</span> Evening activities are optional and supervised. Housing through vetted local partners.</div>
+                </details>
+                <details class="lbc-item last">
+                  <summary><span class="lbc-q">What does it cost, and is there real financial aid?</span><span class="lbc-toggle" aria-hidden="true">+</span></summary>
+                  <div class="lbc-a"><span class="lead">Programs cost real money; we offer real financial aid.</span> Full breakdown on the admissions page.</div>
+                </details>
+              </div>
+              <div class="lbc-care-close">
+                <div class="lbc-portrait"><span class="photo-placeholder">Cate Han</span></div>
+                <div class="lbc-note">
+                  <p class="lead">Still have questions that only apply to you?</p>
+                  <p>Write directly — a real person replies within 24 hours.</p>
+                  <p class="lbc-sig">— Cate Han, Founder</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <p class="lb-caption">Replaces separate "For Parents" + "FAQ" sections on the landing. Single narrow column (780px) — editorial, personal. Three-bar mark above headline. Accordion uses native <code>&lt;details&gt;/&lt;summary&gt;</code> — no JS, accessible by default. Closes with a portrait + signature from Cate — named accountability as the smallest form of omotenashi.</p>
+      </div>
+
+      <!-- D · FAQ accordion (building block) -->
+      <div class="lb-variant">
+        <div class="lb-label">D · FAQ accordion — building block, native <code>&lt;details&gt;</code></div>
+        <div class="lb-embed">
+          <div class="lbc-faq-demo">
+            <details class="lbc-item" open>
+              <summary><span class="lbc-q">How competitive is admission?</span><span class="lbc-toggle" aria-hidden="true">+</span></summary>
+              <div class="lbc-a"><span class="lead">Selective, not competitive.</span> We're building a cohort, not ranking individuals.</div>
+            </details>
+            <details class="lbc-item">
+              <summary><span class="lbc-q">Who's this designed for?</span><span class="lbc-toggle" aria-hidden="true">+</span></summary>
+              <div class="lbc-a"><span class="lead">High-school students ages 14–19.</span></div>
+            </details>
+            <details class="lbc-item last">
+              <summary><span class="lbc-q">Can we talk to someone first?</span><span class="lbc-toggle" aria-hidden="true">+</span></summary>
+              <div class="lbc-a"><span class="lead">Please do.</span> Email hello@hudsonlabventures.com.</div>
+            </details>
+          </div>
+        </div>
+        <p class="lb-caption">Used inline in Care section and available as <code>FAQList</code> component elsewhere. Summary is flex row with <code>+</code> toggle in a 28px bordered square (respects 2px radius rule). Hover turns question + toggle violet. Open state hides the vertical stroke of the + to render as −. Fully accessible; keyboard-navigable without JS.</p>
+      </div>
+
+      <!-- E · Programs page hero -->
+      <div class="lb-variant">
+        <div class="lb-label">E · Programs page hero — eyebrow + headline + chips <em>[live on /programs]</em></div>
+        <div class="lb-embed">
+          <div class="lbc-pg-hero">
+            <div class="lbc-pg-eyebrow"><span class="dot"></span> The Program</div>
+            <h2>Two Weeks Inside a Real Business Problem</h2>
+            <p class="lbc-pg-sub"><span class="lead">Hudson Lab is a full-time, studio-based summer program where high-school students work alongside practitioners on a live corporate challenge.</span> You'll scope the problem with the operator, prototype a response, and present.</p>
+            <p class="lbc-pg-sub">Use this page as a compass — pick the city that fits, check the dates, scan what you'll learn, then apply.</p>
+            <div class="lbc-pg-chips">
+              <span class="lbc-chip">14 days, full-time</span>
+              <span class="lbc-chip">Three specialties</span>
+              <span class="lbc-chip">Live corporate challenge</span>
+              <span class="lbc-chip">Cohort of 16–24</span>
+            </div>
+          </div>
+        </div>
+        <p class="lb-caption">Used to open the Programs page. Eyebrow (violet label + dot) frames the section. Chips are 11pt Barlow Semi Condensed with 1px borders (no pills, respects the 2px radius rule). Summarizes the program without duplicating copy from the body.</p>
+      </div>
+
+      <!-- F · Specialties section with end-of-section CTA -->
+      <div class="lb-variant">
+        <div class="lb-label">F · Specialties — label + explainer + bordered grid + end-of-section CTA <em>[live on landing]</em></div>
+        <div class="lb-embed">
+          <div class="lbc-spec">
+            <div class="lbc-spec-head">
+              <div class="lbc-spec-label label-sm">Specialties</div>
+              <p class="lbc-spec-intro">Every student picks one of three specialties on day one. Each runs the full two weeks — taught by practitioners, grounded in the cohort's challenge.</p>
+            </div>
+            <div class="bordered-grid lbc-spec-grid">
+              <div class="lbc-spec-cell"><strong>Product</strong><em>Design & Build</em><p>Turn problems into prototypes.</p></div>
+              <div class="lbc-spec-cell"><strong>Business</strong><em>Model & Validate</em><p>Make the numbers work.</p></div>
+              <div class="lbc-spec-cell"><strong>Go-to-Market</strong><em>Launch & Grow</em><p>Get it in front of people.</p></div>
+            </div>
+            <a href="#" class="lbc-spec-cta">See how specialties work →</a>
+          </div>
+        </div>
+        <p class="lb-caption">Pattern for "category grids with a continue link." Label + short explainer above the grid, grid cells are bordered and flat, end-of-section CTA uses text-link style with underline — not a button, because the surface isn't asking for a conversion, just an invitation to go deeper.</p>
+      </div>
+    </section>
+
     <!-- DECISIONS -->
     <section class="lb-section lb-decisions">
       <div class="lb-section-head">
@@ -632,6 +776,11 @@ const palette = [
         <li><strong>Diagonal cuts:</strong> only between warm-white and dark sections.</li>
         <li><strong>Gradients:</strong> max 10% wash over photos. Never standalone section fills.</li>
         <li><strong>Literata:</strong> blockquotes only. Bad example included deliberately.</li>
+        <li><strong>A5c bar usage:</strong> sparingly. Page-top afterglow (below hero) and footer only. <em>Not</em> as a section divider or below dark CTAs. Removed from Intent CTA for this reason.</li>
+        <li><strong>Partners Marquee:</strong> text wordmarks over logo files — honest, editorial, one register. 42s loop. Reduced-motion: static wrapped grid.</li>
+        <li><strong>Intent CTA pattern:</strong> full-bleed, photo grid pinned to right third edge-to-edge, cells in zigzag pattern. Section drives its own grid (not a centered container) — gives the dark surface more presence and the square-on-square structure reads from top to bottom.</li>
+        <li><strong>Care section pattern:</strong> unifies parents + FAQ into one trust close. Accordion keeps it scannable, signature close adds named accountability. Use on landing; admissions + parents pages keep their dedicated inline FAQ for now.</li>
+        <li><strong>FAQ accordion:</strong> native <code>&lt;details&gt;</code> — no JS, accessible, works with keyboard by default. Replaces the original always-open FAQ list on the landing.</li>
         <li><strong>Responsive:</strong> desktop-only per brief.</li>
       </ol>
     </section>
@@ -946,4 +1095,84 @@ const palette = [
   .lb-decisions ol { padding-left: 20px; max-width: 780px; }
   .lb-decisions li { margin-bottom: 14px; font-size: 15px; line-height: 1.6; color: var(--text-mid); }
   .lb-decisions strong { color: var(--navy); }
+
+  /* ===== §1.6 composite samples ===== */
+  .lb-embed { background: white; border: 1px solid var(--border); padding: 32px; }
+  .lb-embed-fullbleed { border: 1px solid var(--border); overflow: hidden; }
+
+  /* Intent CTA sample */
+  .lbc-intent { background: var(--dark); color: white; display: grid; grid-template-columns: 1fr 33.333%; align-items: stretch; min-height: 420px; }
+  .lbc-intent-copy { padding: 72px 48px; display: flex; align-items: center; justify-content: flex-end; }
+  .lbc-copy-inner { max-width: 520px; width: 100%; }
+  .lbc-copy-inner .hl-stack { margin-bottom: 28px; }
+  .lbc-copy-inner .hl-block { font-size: 40px; padding: 8px 20px; }
+  .lbc-intent-text { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.75); margin-bottom: 28px; max-width: 480px; }
+  .lbc-intent-text .lead { color: white; font-weight: 500; }
+  .lbc-cta-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .lbc-email { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 4px; }
+  .lbc-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 1px; height: 100%; }
+  .lbc-photo { background: #1e1e22; display: flex; align-items: center; justify-content: center; }
+  .lbc-photo .photo-placeholder { border: 0; padding: 0; font-size: 10px; color: rgba(255,255,255,0.22); }
+  .lbc-photo-1 { grid-column: 1; grid-row: 1; }
+  .lbc-photo-2 { grid-column: 2; grid-row: 2; }
+  .lbc-photo-3 { grid-column: 1; grid-row: 3; }
+
+  /* Care section sample */
+  .lbc-care { background: var(--warm-white); padding: 56px 40px; }
+  .lbc-care-inner { max-width: 720px; margin: 0 auto; }
+  .lbc-care-open { margin-bottom: 48px; }
+  .lbc-care-mark { display: flex; gap: 6px; margin-bottom: 20px; }
+  .lbc-care-mark span { width: 20px; height: 5px; display: block; }
+  .lbc-care-open h3 { font-size: 26px; font-weight: 600; color: var(--navy); line-height: 1.15; margin-bottom: 16px; max-width: 560px; }
+  .lbc-care-open p { font-size: 15px; line-height: 1.6; color: var(--text-mid); }
+
+  .lbc-care-faq { margin-bottom: 56px; }
+  .lbc-item { border-top: 1px solid var(--border); padding: 0; }
+  .lbc-item.last { border-bottom: 1px solid var(--border); }
+  .lbc-item > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; }
+  .lbc-item > summary::-webkit-details-marker { display: none; }
+  .lbc-q { font-size: 16px; font-weight: 600; color: var(--navy); }
+  .lbc-toggle { flex-shrink: 0; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 1px; font-size: 14px; color: var(--navy); font-weight: 400; }
+  .lbc-item[open] .lbc-toggle { /* show as − */ }
+  .lbc-item[open] .lbc-toggle::before { content: '−'; }
+  .lbc-item:not([open]) .lbc-toggle::before { content: '+'; }
+  .lbc-item > summary .lbc-toggle { visibility: hidden; position: relative; }
+  .lbc-item > summary .lbc-toggle::before { visibility: visible; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); }
+  .lbc-a { font-size: 15px; line-height: 1.65; color: var(--text-mid); padding: 0 0 20px; max-width: 560px; }
+
+  .lbc-care-close { display: grid; grid-template-columns: 96px 1fr; gap: 24px; padding-top: 36px; border-top: 1px solid var(--border); }
+  .lbc-portrait { width: 96px; height: 96px; background: var(--bg-subtle); display: flex; align-items: center; justify-content: center; }
+  .lbc-note .lead { display: block; font-size: 16px; font-weight: 500; color: var(--navy); margin-bottom: 8px; }
+  .lbc-note p { font-size: 14px; color: var(--text-mid); margin-bottom: 8px; }
+  .lbc-sig { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.04em; color: var(--text-light); text-transform: uppercase; margin-top: 12px !important; }
+
+  /* FAQ accordion standalone */
+  .lbc-faq-demo { max-width: 620px; }
+
+  /* Programs hero sample */
+  .lbc-pg-hero { max-width: 640px; }
+  .lbc-pg-eyebrow { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet); display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .lbc-pg-eyebrow .dot { width: 8px; height: 8px; background: var(--violet); display: inline-block; }
+  .lbc-pg-hero h2 { font-size: 36px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 16px; }
+  .lbc-pg-sub { font-size: 16px; line-height: 1.55; color: var(--text-mid); margin-bottom: 12px; max-width: 560px; }
+  .lbc-pg-sub:nth-of-type(2) { margin-bottom: 24px; }
+  .lbc-pg-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .lbc-chip { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); padding: 6px 12px; background: transparent; border: 1px solid var(--border); border-radius: 1px; }
+
+  /* Specialties sample */
+  .lbc-spec { }
+  .lbc-spec-head { margin-bottom: 28px; max-width: 620px; }
+  .lbc-spec-label { margin-bottom: 12px; color: var(--text-light); }
+  .lbc-spec-intro { font-size: 15px; line-height: 1.6; color: var(--text-mid); }
+  .lbc-spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .lbc-spec-cell { padding: 24px; background: white; }
+  .lbc-spec-cell strong { display: block; color: var(--navy); font-size: 17px; margin-bottom: 2px; }
+  .lbc-spec-cell em { display: block; font-style: normal; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; }
+  .lbc-spec-cell p { font-size: 13px; color: var(--text-mid); }
+  .lbc-spec-cta { display: inline-flex; align-items: center; margin-top: 28px; color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+  .lbc-spec-cta:hover { color: var(--violet); border-color: var(--violet); }
+
+  /* inline code style for captions */
+  .lb-caption code { font-family: 'Barlow', monospace; font-size: 12px; background: rgba(0,0,0,0.05); padding: 1px 6px; border-radius: 1px; color: var(--navy); }
+
 </style>
