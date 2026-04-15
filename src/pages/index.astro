@@ -5,12 +5,24 @@ import SectionHeader from '../components/SectionHeader.astro';
 import Quote from '../components/Quote.astro';
 import A5cBar from '../components/A5cBar.astro';
 import PartnersMarquee from '../components/PartnersMarquee.astro';
+import HeroVideo from '../components/HeroVideo.astro';
+import PremiseDark from '../components/PremiseDark.astro';
+import SpecialtiesGrid from '../components/SpecialtiesGrid.astro';
 import FAQList from '../components/FAQList.astro';
 ---
 
 <Base title="Build Something Real" description="Two-week summer innovation programs for high school students in NYC, Lisbon, Porto, and Seoul. Work on real business challenges with experienced practitioners." navVariant="light">
 
-  <!-- HERO -->
+  <!-- HERO (new) — video background + dark overlay card, bottom-left, hangs 1/3 into next section -->
+  <HeroVideo />
+
+  <!-- PREMISE DARK (new) — "What Hudson Lab is" on a dark surface to receive the hero overlay -->
+  <PremiseDark />
+
+  <!--
+    LEGACY sections kept for rollback (replaced by <HeroVideo /> + <PremiseDark />)
+    ======================================================================
+<!-- HERO -->
   <section class="lp-hero">
     <div class="lp-hero-label">
       <span class="dot"></span>
@@ -60,11 +72,19 @@ import FAQList from '../components/FAQList.astro';
       <p>Hudson Lab closes that gap. Every day, you're making something — and getting honest feedback from people who build things professionally. By the end, you'll have a portfolio of work that proves what you can do, not what you memorized.</p>
     </div>
   </section>
+  -->
+
 
   <!-- PARTNERS MARQUEE — credibility anchor between premise and tracks -->
   <PartnersMarquee />
 
-  <!-- TRACKS -->
+  <!-- SPECIALTIES GRID (new) — 3×3: 6 foundational + 3 optional specialties -->
+  <SpecialtiesGrid />
+
+  <!--
+    LEGACY tracks-section kept for rollback (replaced by <SpecialtiesGrid />)
+    ======================================================================
+<!-- TRACKS -->
   <section class="tracks-section">
     <div class="tracks-head">
       <div class="tracks-label label-sm">Specialties</div>
@@ -92,6 +112,7 @@ import FAQList from '../components/FAQList.astro';
     </div>
     <a href="/specialties" class="tracks-cta">See how specialties work <ArrowSquare size="small" /></a>
   </section>
+  -->
 
   <!-- PHOTO PAIR -->
   <div class="photo-pair">

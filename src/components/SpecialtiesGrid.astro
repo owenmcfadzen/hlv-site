@@ -1,0 +1,143 @@
+---
+interface Topic {
+  label: string;
+  subtitle: string;
+  blurb: string;
+  color?: string;
+}
+interface Props {
+  foundational?: Topic[];
+  optional?: Topic[];
+}
+const {
+  foundational = [
+    { label: 'Leadership',       subtitle: 'Own the room', blurb: 'Take ownership of decisions. Lead a team through ambiguity. Learn that leadership isn\'t authority — it\'s initiative.', color: 'coral'  },
+    { label: 'Critical Thinking',subtitle: 'Cut the noise', blurb: 'Question assumptions. Separate signal from noise. Make decisions under uncertainty with limited information.',               color: 'violet' },
+    { label: 'Problem Solving',  subtitle: 'Mess to clarity',blurb: 'Define problems before solving them. Use design thinking to move from mess to clarity to action.',                         color: 'blue'   },
+    { label: 'Teamwork',         subtitle: 'Better together', blurb: 'Work across differences. Give and receive honest feedback. Understand your role on a team — and when to step up.',         color: 'green'  },
+    { label: 'Creativity',       subtitle: 'Ideas on tap', blurb: 'Generate ideas under constraints. Prototype fast. Learn that creativity isn\'t inspiration — it\'s a discipline.',           color: 'pop'    },
+    { label: 'Communication',    subtitle: 'Be heard',  blurb: 'Present to executives. Write clearly. Tell a story with data. Persuade people who don\'t have to listen.',                       color: 'navy'   },
+  ],
+  optional = [
+    { label: 'AI & Product',     subtitle: 'Optional specialty', blurb: 'How AI changes what products can do — and how to build them responsibly.', color: 'coral'  },
+    { label: 'Venture Finance',  subtitle: 'Optional specialty', blurb: 'How startups get funded, how investors think, and how to make a case that survives scrutiny.', color: 'green' },
+    { label: 'Brand Strategy',   subtitle: 'Optional specialty', blurb: 'How brands are built, positioned, and communicated — from identity to go-to-market.', color: 'blue'   },
+  ],
+} = Astro.props;
+---
+
+<section class="spec-grid">
+  <div class="sg-inner">
+    <div class="sg-head">
+      <div class="sg-label">Foundations & specialties</div>
+      <p class="sg-intro">
+        Every student builds the same six foundations. Those who want to go deeper pick up an optional specialty on top — think of it as a major and a minor.
+      </p>
+    </div>
+
+    <!-- 3×3 bordered grid. Rows 1–2: foundational. Row 3: optional specialties (tinted). -->
+    <div class="sg-grid">
+      {foundational.map((t) => (
+        <div class="sg-cell sg-found">
+          <div class="sg-mark" style={`background: var(--${t.color || 'violet'});`}></div>
+          <h3>{t.label}</h3>
+          <div class="sg-sub">{t.subtitle}</div>
+          <p>{t.blurb}</p>
+        </div>
+      ))}
+      {optional.map((t) => (
+        <div class="sg-cell sg-opt">
+          <div class="sg-mark" style={`background: var(--${t.color || 'violet'});`}></div>
+          <div class="sg-tag">Optional</div>
+          <h3>{t.label}</h3>
+          <p>{t.blurb}</p>
+        </div>
+      ))}
+    </div>
+
+    <a href="/specialties" class="sg-cta">See how specialties work →</a>
+  </div>
+</section>
+
+<style>
+  .spec-grid {
+    background: var(--warm-white);
+    padding: 120px 80px;
+  }
+  .sg-inner { max-width: 1200px; margin: 0 auto; }
+
+  .sg-head { margin-bottom: 56px; max-width: 720px; }
+  .sg-label {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .sg-intro {
+    font-size: 17px; line-height: 1.6; color: var(--text-mid);
+    max-width: 620px;
+  }
+
+  /* 3×3 grid, 1px gutters, bordered */
+  .sg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .sg-cell {
+    padding: 36px 32px 40px;
+    background: white;
+    display: flex; flex-direction: column;
+    min-height: 220px;
+  }
+  .sg-mark { width: 24px; height: 5px; margin-bottom: 20px; }
+  .sg-cell h3 {
+    font-size: 20px; font-weight: 600; color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .sg-sub {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+  .sg-cell p {
+    font-size: 14px; line-height: 1.55;
+    color: var(--text-mid);
+  }
+
+  /* Optional specialties — tinted bg to distinguish the bottom row */
+  .sg-opt {
+    background: var(--bg-subtle);
+  }
+  .sg-opt .sg-tag {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 8px;
+  }
+
+  .sg-cta {
+    display: inline-flex; align-items: center;
+    margin-top: 40px;
+    color: var(--navy); font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+    transition: color .15s, border-color .15s;
+  }
+  .sg-cta:hover { color: var(--violet); border-color: var(--violet); }
+
+  @media (max-width: 1024px) {
+    .spec-grid { padding: 88px 48px; }
+  }
+  @media (max-width: 768px) {
+    .spec-grid { padding: 72px 24px; }
+    .sg-grid { grid-template-columns: 1fr; }
+    .sg-cell { min-height: auto; padding: 28px 24px; }
+  }
+</style>

@@ -5,6 +5,9 @@ import Base from '../../layouts/Base.astro';
 import ArrowSquare from '../../components/ArrowSquare.astro';
 import A5cBar from '../../components/A5cBar.astro';
 import PartnersMarquee from '../../components/PartnersMarquee.astro';
+import HeroVideo from '../../components/HeroVideo.astro';
+import PremiseDark from '../../components/PremiseDark.astro';
+import SpecialtiesGrid from '../../components/SpecialtiesGrid.astro';
 
 const palette = [
   { name: 'violet-600', hex: '#7B4FDB', css: '--violet', role: 'Primary identity · cross-track' },
@@ -760,6 +763,33 @@ const palette = [
         </div>
         <p class="lb-caption">Pattern for "category grids with a continue link." Label + short explainer above the grid, grid cells are bordered and flat, end-of-section CTA uses text-link style with underline — not a button, because the surface isn't asking for a conversion, just an invitation to go deeper.</p>
       </div>
+    
+      <!-- G · HeroVideo — video background + dark overlay -->
+      <div class="lb-variant">
+        <div class="lb-label">G · HeroVideo — video bg + dark overlay, bottom-left, 1/3 hangs below <em>[live on landing]</em></div>
+        <div class="lb-embed-fullbleed lb-embed-constrain">
+          <HeroVideo />
+        </div>
+        <p class="lb-caption">Full-bleed autoplay video + a dark overlay card pinned bottom-left. <code>transform: translateY(33%)</code> on <code>.hv-overlay</code> hangs the card's lower third into the next section, creating a bridge. The headline uses the HLV <code>hl-block</code> highlighted-text pattern at hero scale (violet → pop → navy), staggered per design rules (max 3 lines, dark bg only, never violet+blue adjacent). Placeholder renders when <code>videoSrc</code> prop is empty; pass <code>videoSrc="/hero.mp4"</code> (drop the file in <code>/public</code>) to swap the real video in. Props: <code>eyebrow</code>, <code>lineOne</code>/<code>lineTwo</code>/<code>lineThree</code>, <code>subtext</code>, primary/secondary CTA label + href, <code>videoSrc</code>, <code>posterSrc</code>.</p>
+      </div>
+
+      <!-- H · PremiseDark — "What HLV is" on a dark surface -->
+      <div class="lb-variant">
+        <div class="lb-label">H · PremiseDark — dark section, text-left + spec-table-right <em>[live on landing]</em></div>
+        <div class="lb-embed-fullbleed lb-embed-constrain">
+          <PremiseDark />
+        </div>
+        <p class="lb-caption">Dark surface that receives the hero overlay's bleed-through. Left: eyebrow + H2 + two paragraphs + text-link. Right: flat spec-table — label/value rows, 1px rules, Barlow Semi Condensed labels + Barlow values. Reads like a spec sheet, not a marketing box. Top padding of 220px on desktop accounts for the hero overlay that hangs in from above. Props: <code>eyebrow</code>, <code>headline</code>, <code>linkLabel</code>/<code>linkHref</code>, <code>specs</code> array.</p>
+      </div>
+
+      <!-- I · SpecialtiesGrid — 3×3 foundational + optional -->
+      <div class="lb-variant">
+        <div class="lb-label">I · SpecialtiesGrid — 3×3, 6 foundational + 3 optional <em>[live on landing]</em></div>
+        <div class="lb-embed-fullbleed lb-embed-constrain">
+          <SpecialtiesGrid />
+        </div>
+        <p class="lb-caption">3×3 bordered grid on warm white. Top two rows: six foundational topics (Leadership, Critical Thinking, Problem Solving, Teamwork, Creativity, Communication) — each with a small 24×5px track-colored mark. Bottom row: three optional specialties (AI & Product, Venture Finance, Brand Strategy) on a subtly tinted <code>--bg-subtle</code> background with a small "Optional" tag, so they read as "go deeper" without losing grid consistency. Replaces the old Product/Business/GTM tracks section on the landing — those three are now mentioned in the PremiseDark lead paragraph instead. Props: <code>foundational</code>, <code>optional</code> arrays (override per-page).</p>
+      </div>
     </section>
 
     <!-- DECISIONS -->
@@ -781,7 +811,11 @@ const palette = [
         <li><strong>Intent CTA pattern:</strong> full-bleed, photo grid pinned to right third edge-to-edge, cells in zigzag pattern. Section drives its own grid (not a centered container) — gives the dark surface more presence and the square-on-square structure reads from top to bottom.</li>
         <li><strong>Care section pattern:</strong> unifies parents + FAQ into one trust close. Accordion keeps it scannable, signature close adds named accountability. Use on landing; admissions + parents pages keep their dedicated inline FAQ for now.</li>
         <li><strong>FAQ accordion:</strong> native <code>&lt;details&gt;</code> — no JS, accessible, works with keyboard by default. Replaces the original always-open FAQ list on the landing.</li>
-        <li><strong>Responsive:</strong> desktop-only per brief.</li>
+        <li><strong>HeroVideo:</strong> video background + dark overlay card, bottom-left, hangs 1/3 below into the next section. Requires the next section to be dark for the bridge to work. Falls back to a gradient placeholder when no <code>videoSrc</code> is provided — safe to ship before the final video exists.</li>
+        <li><strong>PremiseDark:</strong> replaces the old warm-white "Most Programs Teach You About Business" section. Dark surface continues the hero's canvas; left-text/right-spec-table creates the cascade crisscross with the bottom-left hero overlay.</li>
+        <li><strong>SpecialtiesGrid:</strong> 3×3 — foundational topics on top two rows, optional specialties on bottom row with tinted bg. Consolidates "what every student learns" + "optional specialties" into one surface. Product/Business/GTM core tracks now referenced in the PremiseDark lead rather than getting their own section.</li>
+        <li><strong>Legacy sections:</strong> old <code>.lp-hero</code>, <code>.lp-premise</code>, <code>.tracks-section</code> markup remains in <code>index.astro</code> inside HTML comments labeled LEGACY. Safe to delete after a week of the new layout shipping; kept in-file so rollback doesn't need git archaeology.</li>
+        <li><strong>Responsive:</strong> desktop-only per brief (for the lookbook reference page itself; production components are responsive).</li>
       </ol>
     </section>
 
@@ -1174,5 +1208,10 @@ const palette = [
 
   /* inline code style for captions */
   .lb-caption code { font-family: 'Barlow', monospace; font-size: 12px; background: rgba(0,0,0,0.05); padding: 1px 6px; border-radius: 1px; color: var(--navy); }
+
+
+  /* Scale down full-bleed component embeds inside the lookbook so they fit the reference layout */
+  .lb-embed-constrain { transform: scale(0.6); transform-origin: top left; width: 166.67%; margin-bottom: -40%; }
+  @media (max-width: 1024px) { .lb-embed-constrain { transform: scale(0.8); width: 125%; margin-bottom: -15%; } }
 
 </style>

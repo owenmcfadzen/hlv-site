@@ -1,0 +1,133 @@
+---
+import ArrowSquare from './ArrowSquare.astro';
+
+interface Props {
+  eyebrow?: string;
+  headline?: string;
+  linkLabel?: string;
+  linkHref?: string;
+  /** Spec-table rows — left column label, right column value */
+  specs?: { k: string; v: string }[];
+}
+const {
+  eyebrow = 'THE PROGRAM',
+  headline = 'Most programs teach you about business. We put you inside one.',
+  linkLabel = 'See the full program',
+  linkHref = '/programs',
+  specs = [
+    { k: 'Duration',   v: '14 days, full-time' },
+    { k: 'Format',     v: 'Studio-based' },
+    { k: 'Cohort',     v: '16–24 students' },
+    { k: 'Specialties',v: 'Product · Business · GTM' },
+    { k: 'Cities',     v: 'NYC · Lisbon · Porto · Seoul' },
+    { k: 'Admissions', v: 'Rolling · 5-day decision' },
+  ],
+} = Astro.props;
+---
+
+<section class="premise-dark">
+  <div class="pd-inner">
+    <div class="pd-copy">
+      <div class="pd-label">{eyebrow}</div>
+      <h2>{headline}</h2>
+      <p class="pd-lead">
+        <span class="lead">Hudson Lab is a two-week, full-time summer program for high-school students, held in New York, Lisbon, Porto, and Seoul.</span>
+        Every cohort takes on a live challenge from a real company — alongside people who've built that kind of work for a living. Students pick one of three specialties (Product, Business, or Go-to-Market) and spend the full two weeks building a response.
+      </p>
+      <p class="pd-body">
+        Most education stops at the lecture. We close the gap between learning and doing — so by the end, you have something shipped, something tested, and a way of thinking you couldn't have read your way into.
+      </p>
+      <a href={linkHref} class="pd-link">{linkLabel} →</a>
+    </div>
+
+    <aside class="pd-table" aria-label="Program at a glance">
+      {specs.map((row) => (
+        <div class="pd-row">
+          <span class="pd-k">{row.k}</span>
+          <span class="pd-v">{row.v}</span>
+        </div>
+      ))}
+    </aside>
+  </div>
+</section>
+
+<style>
+  .premise-dark {
+    background: var(--dark);
+    color: white;
+    padding: 220px 80px 140px; /* top accommodates hero overlay hangover */
+    position: relative;
+  }
+  .pd-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 96px;
+    align-items: flex-start;
+  }
+
+  /* Copy column */
+  .pd-copy { }
+  .pd-label {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--violet);
+    margin-bottom: 24px;
+  }
+  .pd-copy h2 {
+    font-size: 40px; font-weight: 600; line-height: 1.12;
+    color: white; margin-bottom: 28px; letter-spacing: -0.005em;
+    max-width: 640px;
+  }
+  .pd-lead, .pd-body {
+    font-size: 17px; line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 18px; max-width: 640px;
+  }
+  .pd-lead .lead { color: white; font-weight: 500; }
+  .pd-link {
+    display: inline-block; margin-top: 16px;
+    color: white; font-size: 15px; font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 4px;
+    transition: border-color .15s;
+  }
+  .pd-link:hover { border-color: white; }
+
+  /* Spec table — bordered, flat, reads like a spec sheet */
+  .pd-table {
+    display: flex; flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .pd-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    align-items: baseline;
+  }
+  .pd-k {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .pd-v {
+    font-size: 15px; font-weight: 500;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .premise-dark { padding: 200px 48px 100px; }
+    .pd-inner { grid-template-columns: 1fr 300px; gap: 56px; }
+  }
+  @media (max-width: 768px) {
+    .premise-dark { padding: 72px 24px; }
+    .pd-inner { grid-template-columns: 1fr; gap: 48px; }
+    .pd-copy h2 { font-size: 28px; }
+    .pd-row { grid-template-columns: 96px 1fr; gap: 16px; }
+  }
+</style>

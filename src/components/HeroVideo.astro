@@ -1,0 +1,165 @@
+---
+import ArrowSquare from './ArrowSquare.astro';
+
+interface Props {
+  eyebrow?: string;
+  lineOne?: string;
+  lineTwo?: string;
+  lineThree?: string;
+  subtext?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  videoSrc?: string;     // pass "/hero.mp4" once uploaded to /public
+  posterSrc?: string;    // optional poster frame
+}
+const {
+  eyebrow = 'Summer 2026 · Four cities · Applications open',
+  lineOne = 'The summer that',
+  lineTwo = 'makes school',
+  lineThree = 'make sense.',
+  subtext = 'Hudson Lab is a two-week program where high-school students work on a real business problem, with real operators, in New York, Lisbon, Porto, or Seoul.',
+  primaryLabel = 'Apply now',
+  primaryHref = '/admissions',
+  secondaryLabel = 'See the program',
+  secondaryHref = '/programs',
+  videoSrc,
+  posterSrc,
+} = Astro.props;
+---
+
+<section class="hero-video">
+  <div class="hv-media">
+    {videoSrc ? (
+      <video autoplay muted loop playsinline poster={posterSrc}>
+        <source src={videoSrc} type="video/mp4" />
+      </video>
+    ) : (
+      <div class="hv-placeholder" aria-label="Hero video placeholder">
+        <span>Hero video placeholder · drop hero.mp4 in /public and pass videoSrc="/hero.mp4"</span>
+      </div>
+    )}
+    <div class="hv-scrim" aria-hidden="true"></div>
+  </div>
+
+  <!-- Overlay: bottom-left, hangs 1/3 below video into the next section -->
+  <div class="hv-overlay">
+    <div class="hv-eyebrow"><span class="dot"></span> {eyebrow}</div>
+    <div class="hv-stack">
+      <span class="hv-block hv-block-a">{lineOne}</span>
+      <span class="hv-block hv-block-b">{lineTwo}</span>
+      <span class="hv-block hv-block-c">{lineThree}</span>
+    </div>
+    <p class="hv-sub">{subtext}</p>
+    <div class="hv-cta-row">
+      <a class="btn-light" href={primaryHref}><ArrowSquare size="small" /> {primaryLabel}</a>
+      <a class="hv-link" href={secondaryHref}>{secondaryLabel} →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-video {
+    position: relative;
+    width: 100%;
+    background: var(--dark);
+    padding-top: 56px; /* for the fixed nav */
+    overflow: visible; /* overlay must bleed below */
+  }
+  .hv-media { position: relative; width: 100%; height: 86vh; overflow: hidden; }
+  .hv-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hv-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #131317 0%, #1f1f24 45%, #2a2a31 100%);
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    padding: 40px;
+  }
+  .hv-placeholder span {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.22);
+  }
+  .hv-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+  }
+
+  /* Overlay — off-center left, 1/3 bleeds below video */
+  .hv-overlay {
+    position: absolute;
+    left: 80px;
+    bottom: 0;
+    transform: translateY(33%);
+    width: min(620px, calc(100vw - 160px));
+    z-index: 3;
+    background: var(--dark);
+    padding: 48px 56px 56px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .hv-eyebrow {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--violet);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .hv-eyebrow .dot { width: 8px; height: 8px; background: var(--violet); display: inline-block; }
+
+  /* Highlighted-text stack — HLV signature on dark */
+  .hv-stack {
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+  .hv-block {
+    display: inline-block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    padding: 8px 20px;
+    color: white;
+  }
+  .hv-block-a { background: var(--violet); margin-left: 0; }
+  .hv-block-b { background: var(--pop); color: var(--navy); margin-left: 24px; }
+  .hv-block-c { background: var(--navy); margin-left: 8px; }
+
+  .hv-sub {
+    font-size: 16px; line-height: 1.55;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+  .hv-cta-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .hv-link {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 4px;
+    transition: color .15s, border-color .15s;
+  }
+  .hv-link:hover { color: white; border-color: white; }
+
+  @media (max-width: 1024px) {
+    .hv-overlay { left: 40px; padding: 40px; width: min(560px, calc(100vw - 80px)); }
+    .hv-block { font-size: 36px; padding: 6px 18px; }
+  }
+  @media (max-width: 768px) {
+    .hero-video { padding-top: 48px; }
+    .hv-media { height: 56vh; }
+    .hv-overlay {
+      position: relative;
+      left: 0; bottom: auto;
+      transform: none;
+      width: 100%;
+      border: 0; border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 40px 24px 48px;
+    }
+    .hv-block { font-size: 28px; padding: 5px 14px; }
+    .hv-block-b { margin-left: 16px; }
+    .hv-block-c { margin-left: 0; }
+  }
+</style>
