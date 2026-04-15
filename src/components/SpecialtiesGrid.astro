@@ -46,6 +46,14 @@ const {
   ],
   optionalHref = '/specialties',
 } = Astro.props;
+
+const tints: Record<string, { base: string; hover: string; tag: string }> = {
+  coral:  { base: 'rgba(228,108,65,0.08)',  hover: 'rgba(228,108,65,0.14)',  tag: 'var(--coral)' },
+  green:  { base: 'rgba(52,199,89,0.08)',   hover: 'rgba(52,199,89,0.14)',   tag: 'var(--green)' },
+  blue:   { base: 'rgba(59,125,216,0.08)',  hover: 'rgba(59,125,216,0.14)',  tag: 'var(--blue)' },
+  violet: { base: 'rgba(123,79,219,0.06)',  hover: 'rgba(123,79,219,0.12)',  tag: 'var(--violet)' },
+  pop:    { base: 'rgba(255,212,59,0.14)',  hover: 'rgba(255,212,59,0.22)',  tag: 'var(--navy)' },
+};
 ---
 
 <section class="spec-grid">
@@ -72,20 +80,23 @@ const {
           <p>{t.blurb}</p>
         </div>
       ))}
-      {optional.map((t) => (
-        <a class="sg-cell sg-opt" href={optionalHref}>
-          <div class="sg-tag-row">
-            <span class="sg-tag">Optional specialty</span>
-            <span class="sg-arrow" aria-hidden="true"><svg viewBox="0 0 14 14" width="14" height="14"><line x1="3" y1="7" x2="11" y2="7"/><line x1="7.5" y1="3.5" x2="11" y2="7"/><line x1="7.5" y1="10.5" x2="11" y2="7"/></svg></span>
-          </div>
-          <div class="sg-icon" style={`background: rgba(var(--${t.color}-rgb, 123, 79, 219), 0.10);`}>
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke={`var(--${t.color || 'violet'})`} fill="none" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" set:html={t.icon} />
-          </div>
-          <h3>{t.label}</h3>
-          <div class="sg-sub">{t.subtitle}</div>
-          <p>{t.blurb}</p>
-        </a>
-      ))}
+      {optional.map((t) => {
+        const tint = tints[t.color || 'violet'] || tints.violet;
+        return (
+          <a class="sg-cell sg-opt" href={optionalHref} style={`--opt-base:${tint.base};--opt-hover:${tint.hover};--opt-tag:${tint.tag};`}>
+            <div class="sg-tag-row">
+              <span class="sg-tag">Optional specialty</span>
+              <span class="sg-arrow" aria-hidden="true"><svg viewBox="0 0 14 14" width="14" height="14"><line x1="3" y1="7" x2="11" y2="7"/><line x1="7.5" y1="3.5" x2="11" y2="7"/><line x1="7.5" y1="10.5" x2="11" y2="7"/></svg></span>
+            </div>
+            <div class="sg-icon" style={`background: rgba(255,255,255,0.55);`}>
+              <svg viewBox="0 0 24 24" width="22" height="22" stroke={`var(--${t.color || 'violet'})`} fill="none" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" set:html={t.icon} />
+            </div>
+            <h3>{t.label}</h3>
+            <div class="sg-sub">{t.subtitle}</div>
+            <p>{t.blurb}</p>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
@@ -149,17 +160,16 @@ const {
     color: var(--text-mid);
   }
 
-  /* Optional row — clickable, violet-tinted (not grey) to signal "go deeper" */
+  /* Optional row — clickable, per-cell tinted with the lightest shade of its own track color */
   .sg-opt {
-    background: rgba(123, 79, 219, 0.045);
+    background: var(--opt-base);
     cursor: pointer;
-    transition: background 0.18s, transform 0.18s;
+    transition: background 0.2s, transform 0.2s;
   }
-  .sg-opt:hover {
-    background: rgba(123, 79, 219, 0.10);
-  }
-  .sg-opt:hover .sg-arrow { transform: translateX(4px); color: var(--violet); }
-  .sg-opt:hover h3 { color: var(--violet); }
+  .sg-opt:hover { background: var(--opt-hover); }
+  .sg-opt:hover .sg-arrow { transform: translateX(4px); color: var(--opt-tag); }
+  .sg-opt:hover h3 { color: var(--opt-tag); }
+  .sg-opt .sg-tag { color: var(--opt-tag); }
   .sg-tag-row {
     display: flex; align-items: center; justify-content: space-between;
     margin-bottom: 20px;
@@ -168,7 +178,6 @@ const {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--violet);
   }
   .sg-arrow {
     display: inline-flex; align-items: center; justify-content: center;
