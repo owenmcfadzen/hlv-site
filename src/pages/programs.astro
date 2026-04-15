@@ -191,8 +191,8 @@ import ArrowSquare from '../components/ArrowSquare.astro';
   .city-row.reverse{direction:rtl;}
   .city-row.reverse>*{direction:ltr;}
   .city-photo{position:relative;display:flex;align-items:center;justify-content:center;min-height:440px;}
-  .city-edge{position:absolute;right:0;top:0;bottom:0;width:6px;}
-  .city-edge.right{left:0;right:auto;}
+  .city-edge{position:absolute;right:-3px;top:0;bottom:0;width:6px;z-index:1;}
+  .city-edge.right{left:-3px;right:auto;}
   .city-content{padding:56px 72px;display:flex;flex-direction:column;justify-content:center;}
   .city-label{display:block;margin-bottom:4px;}
   .city-content h2{font-size:40px;font-weight:600;color:var(--navy);margin-bottom:4px;line-height:1.1;}
