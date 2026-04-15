@@ -3,8 +3,10 @@ interface Props {
   items: { q: string; a: string }[];
   color?: string;
   title?: string;
+  /** Open the first item by default? Defaults to false (fully collapsed). */
+  firstOpen?: boolean;
 }
-const { items, color = 'navy', title = 'Questions' } = Astro.props;
+const { items, color = 'navy', title = 'Questions', firstOpen = false } = Astro.props;
 ---
 
 <section class="faq-section">
@@ -14,10 +16,15 @@ const { items, color = 'navy', title = 'Questions' } = Astro.props;
       <div><h2>{title}</h2></div>
     </div>
     {items.map((item, i) => (
-      <div class:list={['faq-item', { last: i === items.length - 1 }]}>
-        <div class="faq-q">{item.q}</div>
+      <details class:list={['faq-item', { last: i === items.length - 1 }]} open={firstOpen && i === 0}>
+        <summary class="faq-q">
+          <span class="faq-q-text">{item.q}</span>
+          <span class="faq-toggle" aria-hidden="true">
+            <svg viewBox="0 0 14 14" width="14" height="14"><line x1="2" y1="7" x2="12" y2="7"/><line class="v-stroke" x1="7" y1="2" x2="7" y2="12"/></svg>
+          </span>
+        </summary>
         <div class="faq-a" set:html={item.a} />
-      </div>
+      </details>
     ))}
   </div>
 </section>
@@ -26,13 +33,56 @@ const { items, color = 'navy', title = 'Questions' } = Astro.props;
   .faq-section { border-top: 1px solid var(--border); padding: 80px 0; }
   .faq-inner { max-width: 780px; margin: 0 auto; padding: 0 40px; }
   .faq-inner .section-header { margin-bottom: 48px; }
-  .faq-item { border-top: 1px solid var(--border); padding: 28px 0; }
+
+  .faq-item { border-top: 1px solid var(--border); padding: 0; }
   .faq-item.last { border-bottom: 1px solid var(--border); }
-  .faq-q { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
-  .faq-a { font-size: 16px; line-height: 1.6; color: var(--text-mid); max-width: 600px; }
+
+  /* Kill the default triangle marker */
+  .faq-item > summary { list-style: none; cursor: pointer; }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+
+  .faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .faq-q:hover { color: var(--violet); }
+
+  .faq-toggle {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .faq-q:hover .faq-toggle { border-color: var(--violet); }
+  .faq-toggle svg { stroke: var(--navy); stroke-width: 1.5; fill: none; stroke-linecap: square; }
+  .faq-q:hover .faq-toggle svg { stroke: var(--violet); }
+
+  /* Flip the vertical stroke to hide it when expanded — turns + into - */
+  .faq-item .v-stroke { transition: opacity 0.15s; }
+  .faq-item[open] .v-stroke { opacity: 0; }
+
+  .faq-a {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-mid);
+    max-width: 620px;
+    padding: 0 0 28px;
+  }
+  .faq-a :global(a) { color: var(--navy); border-bottom: 1px solid var(--border); }
+  .faq-a :global(a:hover) { color: var(--violet); border-color: var(--violet); }
+
   @media (max-width: 768px) {
     .faq-inner { padding: 0 24px; }
-    .faq-q { font-size: 16px; }
+    .faq-q { font-size: 16px; padding: 20px 0; gap: 16px; }
     .faq-section { padding: 60px 0; }
+    .faq-toggle { width: 24px; height: 24px; }
   }
 </style>

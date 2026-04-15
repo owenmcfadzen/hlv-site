@@ -164,18 +164,24 @@ import FAQList from '../components/FAQList.astro';
     </div>
   </section>
 
-  <!-- FAQ — momentum builder, right after the process is explained -->
-  <FAQList
-    color="blue"
-    title="Common Questions"
-    items={[
-      { q: "Who's this designed for?", a: "<span class='lead'>High-school students ages 14–19.</span> Rising 9th graders through graduated seniors are welcome at NYC (Columbia). International programs take rising 10th graders and older." },
-      { q: "How competitive is admission?", a: "<span class='lead'>Selective, not competitive.</span> We're building a cohort, not ranking individuals. We read every application and look for curiosity and initiative, not test scores." },
-      { q: "What does it cost, and is financial aid available?", a: "<span class='lead'>Programs are priced to reflect what's involved — and yes, we offer real financial aid.</span> Full cost breakdown and aid options live on the <a href='/admissions'>admissions page</a>. We're transparent: ask us directly if something isn't clear." },
-      { q: "What if I'm not sure which specialty to pick?", a: "<span class='lead'>That's normal.</span> Tell us what interests you on the application. Final selection happens on day one, after you've met the cohort and the operator." },
-      { q: "Can I talk to someone before applying?", a: "<span class='lead'>Please do.</span> Email <strong>hello@hudsonlabventures.com</strong> — a real person replies within 24 hours, usually Cate or a team member who can answer your specific questions." },
-    ]}
-  />
+  <!-- INTENT CTA — dark emotional fulcrum between process and trust -->
+  <section class="intent-cta">
+    <div class="intent-inner">
+      <div class="hl-stack">
+        <span class="hl-block" style="background: var(--violet);">Make this summer</span>
+        <span class="hl-block" style="background: var(--pop); color: var(--navy); margin-left: 32px;">count.</span>
+      </div>
+      <p class="intent-text"><span class="lead">Two weeks that sit differently on a résumé — and in your head.</span> Applications for Summer 2026 are open now. Rolling review. Decisions within five days.</p>
+      <div class="intent-cta-row">
+        <a href="/admissions" class="btn-light">
+          <ArrowSquare size="small" />
+          Start your application
+        </a>
+        <a href="mailto:hello@hudsonlabventures.com" class="intent-email">Talk to someone first →</a>
+      </div>
+    </div>
+    <A5cBar class="intent-a5c" />
+  </section>
 
   <!-- FOR PARENTS -->
   <section class="parents-section">
@@ -189,19 +195,22 @@ import FAQList from '../components/FAQList.astro';
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-dark">
-    <div class="cta-dark-inner">
-      <div>
-        <h2>Build something real<br>this summer.</h2>
-        <p>Rolling admissions. 15-minute application. Decisions within 5 days.</p>
-      </div>
-      <a href="/admissions" class="btn-light">
-        <ArrowSquare />
-        Start Your Application
-      </a>
-    </div>
-  </section>
+  <!-- FAQ — momentum builder, right after the process is explained -->
+  <FAQList
+    color="blue"
+    title="Common Questions"
+    items={[
+      { q: "Who's this designed for?", a: "<span class='lead'>High-school students ages 14–19.</span> Rising 9th graders through graduated seniors are welcome at NYC (Columbia). International programs take rising 10th graders and older." },
+      { q: "How competitive is admission?", a: "<span class='lead'>Selective, not competitive.</span> We're building a cohort, not ranking individuals. We read every application and look for curiosity and initiative, not test scores." },
+      { q: "What does it cost, and is financial aid available?", a: "<span class='lead'>Programs are priced to reflect what's involved — and yes, we offer real financial aid.</span> Full cost breakdown and aid options live on the <a href='/admissions'>admissions page</a>. We're transparent: ask us directly if something isn't clear." },
+      { q: "What if I'm not sure which specialty to pick?", a: "<span class='lead'>That's normal.</span> Tell us what interests you on the application. Final selection happens on day one, after you've met the cohort and the operator." },
+      { q: "Can I talk to someone before applying?", a: "<span class='lead'>Please do.</span> Email <strong>hello@hudsonlabventures.com</strong> — a real person replies within 24 hours, usually Cate or a team member who can answer your specific questions." },
+    ]}
+  />
+
+
+
+
 
 </Base>
 
@@ -386,6 +395,26 @@ import FAQList from '../components/FAQList.astro';
   }
   @media (max-width: 480px) {
     .cities-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ===== INTENT CTA (dark emotional fulcrum) ===== */
+  .intent-cta { background: var(--dark); color: white; padding: 120px 80px 0; position: relative; }
+  .intent-inner { max-width: 1100px; margin: 0 auto; padding-bottom: 120px; }
+  .intent-inner .hl-stack { margin-bottom: 40px; }
+  .intent-inner .hl-block { font-size: 56px; padding: 10px 28px; letter-spacing: -0.01em; }
+  .intent-text { font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.75); max-width: 620px; margin-bottom: 48px; }
+  .intent-text .lead { color: white; font-weight: 500; }
+  .intent-cta-row { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .intent-email { color: rgba(255,255,255,0.7); font-size: 15px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 4px; transition: color .15s, border-color .15s; }
+  .intent-email:hover { color: white; border-color: white; }
+  .intent-a5c { margin-top: 0 !important; }
+  @media (max-width: 768px) {
+    .intent-cta { padding: 72px 24px 0; }
+    .intent-inner { padding-bottom: 72px; }
+    .intent-inner .hl-block { font-size: 32px; padding: 6px 16px; }
+    .intent-inner .hl-stack > :nth-child(2) { margin-left: 0 !important; }
+    .intent-cta-row { gap: 20px; }
   }
 
 </style>
