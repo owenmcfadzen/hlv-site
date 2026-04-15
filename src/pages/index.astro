@@ -149,10 +149,11 @@ import FAQList from '../components/FAQList.astro';
     </div>
   </section>
 
-  <!-- INTENT CTA — dark emotional fulcrum between process and trust -->
+  <!-- INTENT CTA — dark emotional fulcrum. Full-bleed layout: text on the left
+       with site gutter; photo grid fills the right third, edge to edge. -->
   <section class="intent-cta">
-    <div class="intent-inner">
-      <div class="intent-copy">
+    <div class="intent-copy">
+      <div class="intent-copy-inner">
         <div class="hl-stack">
           <span class="hl-block" style="background: var(--violet);">Make this summer</span>
           <span class="hl-block" style="background: var(--pop); color: var(--navy); margin-left: 32px;">count.</span>
@@ -166,11 +167,11 @@ import FAQList from '../components/FAQList.astro';
           <a href="mailto:hello@hudsonlabventures.com" class="intent-email">Talk to someone first →</a>
         </div>
       </div>
-      <div class="intent-photos" aria-hidden="true">
-        <div class="intent-photo photo-1"><span class="photo-placeholder on-dark">Studio moment</span></div>
-        <div class="intent-photo photo-2"><span class="photo-placeholder on-dark">Cohort detail</span></div>
-        <div class="intent-photo photo-3"><span class="photo-placeholder on-dark">City at work</span></div>
-      </div>
+    </div>
+    <div class="intent-photos" aria-hidden="true">
+      <div class="intent-photo photo-1"><span class="photo-placeholder on-dark">Studio moment</span></div>
+      <div class="intent-photo photo-2"><span class="photo-placeholder on-dark">Cohort detail</span></div>
+      <div class="intent-photo photo-3"><span class="photo-placeholder on-dark">City at work</span></div>
     </div>
     <A5cBar class="intent-a5c" />
   </section>
@@ -429,9 +430,15 @@ import FAQList from '../components/FAQList.astro';
   }
 
 
-  /* ===== INTENT CTA (dark emotional fulcrum) ===== */
-  .intent-cta { background: var(--dark); color: white; padding: 120px 80px 0; position: relative; }
-  .intent-inner { max-width: 1200px; margin: 0 auto; padding-bottom: 120px; display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; }
+  /* ===== INTENT CTA (dark emotional fulcrum) =====
+     Full-bleed: section itself is a 2-col grid. Text has internal padding,
+     photo grid bleeds to the right edge of the viewport and fills the
+     section top-to-bottom — no gutter, no padding. */
+  .intent-cta { background: var(--dark); color: white; padding: 0; position: relative;
+    display: grid; grid-template-columns: 1fr 33.333%; align-items: stretch; }
+
+  .intent-copy { padding: 120px 80px; display: flex; align-items: center; justify-content: flex-end; }
+  .intent-copy-inner { max-width: 640px; width: 100%; }
   .intent-copy .hl-stack { margin-bottom: 40px; }
   .intent-copy .hl-block { font-size: 56px; padding: 10px 28px; letter-spacing: -0.01em; }
   .intent-text { font-size: 19px; line-height: 1.55; color: rgba(255,255,255,0.75); max-width: 620px; margin-bottom: 48px; }
@@ -440,28 +447,29 @@ import FAQList from '../components/FAQList.astro';
   .intent-email { color: rgba(255,255,255,0.7); font-size: 15px; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 4px; transition: color .15s, border-color .15s; }
   .intent-email:hover { color: white; border-color: white; }
 
-  /* 2-col × 3-row grid, 3 photos in alternating L-R-L pattern.
-     Unused cells stay transparent so the section's dark bg shows through.
-     Aspect ratio 2:3 keeps each cell square without explicit heights. */
-  .intent-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 1px; aspect-ratio: 2 / 3; }
-  .intent-photo { background: #1e1e22; display: flex; align-items: center; justify-content: center; }
+  /* Right-third photo grid: 2 cols × 3 rows. Photos zigzag L-R-L.
+     Unused cells stay transparent (dark bg shows through).
+     No aspect-ratio — cells stretch to fill the section height. */
+  .intent-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 1px; }
+  .intent-photo { background: #1e1e22; display: flex; align-items: center; justify-content: center; min-height: 0; }
   .intent-photo .photo-placeholder { border: 0; padding: 0; font-size: 10px; color: rgba(255,255,255,0.22); }
   .intent-photo.photo-1 { grid-column: 1; grid-row: 1; }
   .intent-photo.photo-2 { grid-column: 2; grid-row: 2; }
   .intent-photo.photo-3 { grid-column: 1; grid-row: 3; }
 
-  .intent-a5c { margin-top: 0 !important; }
+  .intent-a5c { margin-top: 0 !important; grid-column: 1 / -1; }
 
   @media (max-width: 1024px) {
-    .intent-inner { grid-template-columns: 1fr 260px; gap: 48px; }
+    .intent-cta { grid-template-columns: 1fr 40%; }
+    .intent-copy { padding: 100px 48px; }
   }
   @media (max-width: 768px) {
-    .intent-cta { padding: 72px 24px 0; }
-    .intent-inner { grid-template-columns: 1fr; padding-bottom: 72px; gap: 48px; }
+    .intent-cta { grid-template-columns: 1fr; padding: 0; }
+    .intent-copy { padding: 72px 24px 40px; justify-content: flex-start; }
     .intent-copy .hl-block { font-size: 32px; padding: 6px 16px; }
     .intent-copy .hl-stack > :nth-child(2) { margin-left: 0 !important; }
     .intent-cta-row { gap: 20px; }
-    .intent-photos { max-width: 320px; aspect-ratio: 2 / 3; }
+    .intent-photos { aspect-ratio: 3 / 2; }
   }
 
 
