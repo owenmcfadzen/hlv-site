@@ -193,3 +193,108 @@ Owen wakes up to:
 - A slides spec document he can use immediately in Google Slides
 - A worksheet spec document he can use for print layout
 - Everything pushed to GitHub and deployed to Railway
+
+---
+
+## Task 4: Cost & Aid Page (`/cost-aid`)
+
+Create `src/pages/cost-aid.astro` — a dedicated pricing and financial aid page. Audience is primarily parents. Tone: transparent, respectful, adult-to-adult. No sales language.
+
+**Read the skill file first for design system rules.**
+
+### Page structure:
+
+**4.1 Hero (light, no photo)**
+- Label: "Cost & Financial Aid"
+- Headline: "Transparent Pricing. Real Financial Aid."
+- Subtext: lead sentence style. "Tuition ranges from $3,000 to $6,500 depending on location and enrollment type. Financial aid is available and need-based. Here's everything you need to know."
+
+**4.2 Program Pricing Comparison (bordered-grid)**
+Clean comparison grid, 5 columns (label + 4 cities):
+
+| | NYC | Lisbon | Porto | Seoul |
+|---|---|---|---|---|
+| Residential | $6,500 | $3,000 | $3,000 | $6,000 |
+| Day Student | $3,500 | — | — | $4,000 |
+| Deposit | 10% | 10% | 10% | 10% |
+
+Below the grid, a note: "Tuition covers all sessions, materials, expert facilitation, daily lunch, city activities, and lifetime alumni network access."
+
+**4.3 What's Included vs What's Not (two-column layout)**
+
+Included (with check icons, blue):
+- All program sessions and materials
+- Expert facilitation (small group ratio)
+- Daily lunch
+- City activities and cultural programming
+- Alumni network access (lifetime)
+- Supervised housing (residential programs)
+- On-site support staff
+
+Not included (with neutral icons):
+- Travel to/from program city
+- Dinner (curated restaurant guides provided)
+- Personal spending money
+- Travel insurance (recommended)
+- Group flight (optional, priced separately)
+
+**4.4 Financial Aid (full-width, accent-note style with green border)**
+
+Prose section:
+- "We believe cost should never be the reason a qualified student can't participate."
+- Need-based, families under ~$100K income eligible
+- No separate application — indicate interest on enrollment form
+- Both tuition AND housing support available
+- Aid recipients participate fully, no distinction
+- Application fee waivers available for qualifying families
+- "If cost is a concern, reach out before applying. We'll give you a straight answer."
+
+**4.5 Referral & Friends (two bordered cards side by side)**
+
+Card 1 — Alumni Referral:
+- Referrer: $250 cash OR $500 tuition credit if returning
+- Referee: $250 off tuition
+- "Share your name as your referral code"
+
+Card 2 — Friends Enrollment:
+- Two friends apply and enroll together
+- Each receives 10% tuition credit (up to $250)
+- "Apply with a friend. Both save."
+
+Note below: "Referral and friends credits cannot be combined with each other or other promotional discounts."
+
+**4.6 Payment & Refund Policy (clean FAQ-style or timeline)**
+
+Items to cover:
+- Application fee: $45 (before Feb 28) / $60 (after March 1). Fee waivers available.
+- Deposit: 10% of tuition, non-refundable, secures your place
+- Full payment: due May 31 for students accepted before May 15. Within 5 days for later acceptances.
+- Payment methods: credit card (2.75% convenience fee), check, wire transfer
+- Refund: full tuition minus deposit if cancelled before May 1 ($100 processing fee). After May 1, non-refundable.
+- Credit card fee waived on application fee and deposit
+
+**4.7 Regional Pricing Note**
+Brief section explaining:
+- EU and Portuguese students may be eligible for ecosystem-supported tuition through local partnerships
+- Portuguese students enroll directly through Unicorn Factory Lisboa
+- Contact hello@hudsonlabventures.com for regional pricing details
+
+**4.8 CTA**
+- "Questions about cost?" + email link
+- "Ready to apply?" + link to /admissions
+
+### Design notes:
+- Parents page tone — warm, calm, no flash
+- Use the bordered-grid pattern for the pricing comparison
+- Icons from Carbon set (check marks, calendar, wallet)
+- Green accent for financial aid section
+- Mobile: grid collapses to scrollable horizontal table or stacked cards
+- Add to nav? Probably link from Parents page and Admissions page rather than top nav
+
+### Add navigation links:
+- Parents page cost section: link to /cost-aid for "full details"
+- Admissions page cost section: link to /cost-aid
+- DO NOT add to main nav (keep nav clean: Program, About, Alumni, Parents, Apply)
+
+### Meta description:
+"Hudson Lab Ventures tuition ranges from $3,000 to $6,500 by location. Financial aid, referral credits, and payment plans available. Transparent pricing for families."
