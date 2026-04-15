@@ -4,15 +4,15 @@ import ArrowSquare from './ArrowSquare.astro';
 interface Props {
   eyebrow?: string;
   lineOne?: string;
-  lineTwo?: string;
+  lineTwo?: string;      // accent line (gets the violet highlight block)
   lineThree?: string;
   subtext?: string;
   primaryLabel?: string;
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
-  videoSrc?: string;     // pass "/hero.mp4" once uploaded to /public
-  posterSrc?: string;    // optional poster frame
+  videoSrc?: string;
+  posterSrc?: string;
 }
 const {
   eyebrow = 'Summer 2026 · Four cities · Applications open',
@@ -43,17 +43,17 @@ const {
     <div class="hv-scrim" aria-hidden="true"></div>
   </div>
 
-  <!-- Overlay: bottom-left, hangs 1/3 below video into the next section -->
+  <!-- Overlay: white card, bottom-left, hangs 1/3 below video into the next (dark) section -->
   <div class="hv-overlay">
     <div class="hv-eyebrow"><span class="dot"></span> {eyebrow}</div>
-    <div class="hv-stack">
-      <span class="hv-block hv-block-a">{lineOne}</span>
-      <span class="hv-block hv-block-b">{lineTwo}</span>
-      <span class="hv-block hv-block-c">{lineThree}</span>
-    </div>
+    <h1 class="hv-headline">
+      <span class="hv-line">{lineOne}</span>
+      <span class="hv-line hv-line-accent">{lineTwo}</span>
+      <span class="hv-line">{lineThree}</span>
+    </h1>
     <p class="hv-sub">{subtext}</p>
     <div class="hv-cta-row">
-      <a class="btn-light" href={primaryHref}><ArrowSquare size="small" /> {primaryLabel}</a>
+      <a class="btn-dark hv-cta" href={primaryHref}>{primaryLabel} <ArrowSquare size="small" /></a>
       <a class="hv-link" href={secondaryHref}>{secondaryLabel} →</a>
     </div>
   </div>
@@ -64,7 +64,7 @@ const {
     position: relative;
     width: 100%;
     background: var(--dark);
-    padding-top: 56px; /* for the fixed nav */
+    padding-top: 56px; /* fixed nav */
     overflow: visible; /* overlay must bleed below */
   }
   .hv-media { position: relative; width: 100%; height: 86vh; overflow: hidden; }
@@ -86,7 +86,7 @@ const {
     pointer-events: none;
   }
 
-  /* Overlay — off-center left, 1/3 bleeds below video */
+  /* Overlay — white card, off-center left, hangs 1/3 below video into next dark section */
   .hv-overlay {
     position: absolute;
     left: 80px;
@@ -94,10 +94,12 @@ const {
     transform: translateY(33%);
     width: min(620px, calc(100vw - 160px));
     z-index: 3;
-    background: var(--dark);
+    background: var(--warm-white);
     padding: 48px 56px 56px;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,0.35);
   }
+
   .hv-eyebrow {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
@@ -107,45 +109,59 @@ const {
   }
   .hv-eyebrow .dot { width: 8px; height: 8px; background: var(--violet); display: inline-block; }
 
-  /* Highlighted-text stack — HLV signature on dark */
-  .hv-stack {
-    display: flex; flex-direction: column; align-items: flex-start;
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-  .hv-block {
-    display: inline-block;
+  /* Typographic headline — 3 lines staircased, navy, accent word highlighted */
+  .hv-headline {
     font-family: 'Barlow', sans-serif;
     font-weight: 600;
-    font-size: 44px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    padding: 8px 20px;
-    color: white;
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 28px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 2px;
   }
-  .hv-block-a { background: var(--violet); margin-left: 0; }
-  .hv-block-b { background: var(--pop); color: var(--navy); margin-left: 24px; }
-  .hv-block-c { background: var(--navy); margin-left: 8px; }
+  .hv-line { display: block; }
+  .hv-line:nth-child(2) { padding-left: 28px; }
+  .hv-line:nth-child(3) { padding-left: 8px; }
+
+  /* Accent line — subtle violet highlight, white text, still reads as part of the stack */
+  .hv-line-accent {
+    display: inline-block;
+    background: var(--violet);
+    color: white;
+    padding: 2px 16px;
+  }
 
   .hv-sub {
     font-size: 16px; line-height: 1.55;
-    color: rgba(255,255,255,0.75);
+    color: var(--text-mid);
     margin-bottom: 32px;
     max-width: 480px;
   }
   .hv-cta-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .hv-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: white; background: var(--navy);
+    text-decoration: none; border: none; border-radius: 1px;
+    transition: background 0.15s;
+  }
+  .hv-cta:hover { background: var(--violet); }
   .hv-link {
-    color: rgba(255,255,255,0.75);
+    color: var(--text-mid);
     font-size: 15px; font-weight: 500; text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 4px;
     transition: color .15s, border-color .15s;
   }
-  .hv-link:hover { color: white; border-color: white; }
+  .hv-link:hover { color: var(--navy); border-color: var(--navy); }
 
   @media (max-width: 1024px) {
     .hv-overlay { left: 40px; padding: 40px; width: min(560px, calc(100vw - 80px)); }
-    .hv-block { font-size: 36px; padding: 6px 18px; }
+    .hv-headline { font-size: 38px; }
   }
   @media (max-width: 768px) {
     .hero-video { padding-top: 48px; }
@@ -155,11 +171,12 @@ const {
       left: 0; bottom: auto;
       transform: none;
       width: 100%;
-      border: 0; border-top: 1px solid rgba(255,255,255,0.1);
+      border: 0; border-top: 1px solid var(--border);
+      box-shadow: none;
       padding: 40px 24px 48px;
     }
-    .hv-block { font-size: 28px; padding: 5px 14px; }
-    .hv-block-b { margin-left: 16px; }
-    .hv-block-c { margin-left: 0; }
+    .hv-headline { font-size: 30px; }
+    .hv-line:nth-child(2) { padding-left: 16px; }
+    .hv-line:nth-child(3) { padding-left: 0; }
   }
 </style>
