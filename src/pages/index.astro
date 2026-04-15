@@ -450,14 +450,15 @@ import FAQList from '../components/FAQList.astro';
   /* Right-third photo grid: 2 cols × 3 rows. Photos zigzag L-R-L.
      Unused cells stay transparent (dark bg shows through).
      No aspect-ratio — cells stretch to fill the section height. */
-  .intent-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 1px; }
+  .intent-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 1px; height: 100%; align-self: stretch; }
   .intent-photo { background: #1e1e22; display: flex; align-items: center; justify-content: center; min-height: 0; }
   .intent-photo .photo-placeholder { border: 0; padding: 0; font-size: 10px; color: rgba(255,255,255,0.22); }
   .intent-photo.photo-1 { grid-column: 1; grid-row: 1; }
   .intent-photo.photo-2 { grid-column: 2; grid-row: 2; }
   .intent-photo.photo-3 { grid-column: 1; grid-row: 3; }
 
-  .intent-a5c { margin-top: 0 !important; grid-column: 1 / -1; }
+  :global(.intent-a5c) { margin-top: 0 !important; }
+  .intent-a5c { grid-column: 1 / -1; }
 
   @media (max-width: 1024px) {
     .intent-cta { grid-template-columns: 1fr 40%; }
