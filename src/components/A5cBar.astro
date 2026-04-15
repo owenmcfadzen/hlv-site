@@ -1,11 +1,13 @@
 ---
 interface Props {
   class?: string;
+  /** Removes the component's default margin-top (48px). Use when the bar is the first element of a section, not a transition after content. */
+  flush?: boolean;
 }
-const { class: className } = Astro.props;
+const { class: className, flush = false } = Astro.props;
 ---
 
-<div class:list={['a5c-bar', className]}>
+<div class:list={['a5c-bar', { 'a5c-flush': flush }, className]}>
   <div class="seg" style="flex: 6; background: var(--violet);"></div>
   <div class="seg" style="flex: 5; background: var(--blue);"></div>
   <div class="seg" style="flex: 4; background: var(--coral);"></div>
@@ -21,4 +23,5 @@ const { class: className } = Astro.props;
     width: 100%;
     margin-top: 48px;
   }
+  .a5c-bar.a5c-flush { margin-top: 0; }
 </style>

@@ -1,7 +1,11 @@
 ---
+import A5cBar from './A5cBar.astro';
+
 interface Props {
   label?: string;
   partners?: string[];
+  /** Render the A5c color bar at the top edge of the section as a divider. Default true. */
+  topBar?: boolean;
 }
 const {
   label = 'Who we work with',
@@ -16,28 +20,35 @@ const {
     'Co-Created',
     'Unicorn Factory',
   ],
+  topBar = true,
 } = Astro.props;
 ---
-<section class="partners-marquee">
-  <div class="pm-label">{label}</div>
-  <div class="pm-track" aria-label={label}>
-    <div class="pm-row">
-      {partners.map((p) => <span class="pm-logo">{p}</span>)}
-      {/* duplicate for seamless loop — aria-hidden so screen readers don't repeat */}
-      {partners.map((p) => <span class="pm-logo" aria-hidden="true">{p}</span>)}
+<section class:list={['partners-marquee', { 'pm-with-topbar': topBar }]}>
+  {topBar && <A5cBar flush />}
+  <div class="pm-body">
+    <div class="pm-label">{label}</div>
+    <div class="pm-track" aria-label={label}>
+      <div class="pm-row">
+        {partners.map((p) => <span class="pm-logo">{p}</span>)}
+        {partners.map((p) => <span class="pm-logo" aria-hidden="true">{p}</span>)}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .partners-marquee {
-    padding: 72px 0 84px;
     background: var(--warm-white);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     overflow: hidden;
     position: relative;
   }
+  /* When the A5c bar is the top divider, drop the border (the bar replaces it) */
+  .partners-marquee.pm-with-topbar { border-top: 0; }
+
+  .pm-body { padding: 72px 0 84px; }
+
   .pm-label {
     text-align: center;
     color: var(--text-light);
@@ -86,7 +97,7 @@ const {
     .pm-track { mask-image: none; -webkit-mask-image: none; }
   }
   @media (max-width: 768px) {
-    .partners-marquee { padding: 48px 0 56px; }
+    .pm-body { padding: 48px 0 56px; }
     .pm-label { margin-bottom: 24px; }
     .pm-logo { font-size: 18px; }
     .pm-row { gap: 44px; }

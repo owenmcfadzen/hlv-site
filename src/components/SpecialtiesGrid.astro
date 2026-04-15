@@ -4,58 +4,89 @@ interface Topic {
   subtitle: string;
   blurb: string;
   color?: string;
+  /** Inline SVG paths for the icon. Drawn at 22×22, stroke-width 1.5, Carbon style. */
+  icon: string;
 }
 interface Props {
   foundational?: Topic[];
   optional?: Topic[];
+  optionalHref?: string;
 }
 const {
   foundational = [
-    { label: 'Leadership',       subtitle: 'Own the room', blurb: 'Take ownership of decisions. Lead a team through ambiguity. Learn that leadership isn\'t authority — it\'s initiative.', color: 'coral'  },
-    { label: 'Critical Thinking',subtitle: 'Cut the noise', blurb: 'Question assumptions. Separate signal from noise. Make decisions under uncertainty with limited information.',               color: 'violet' },
-    { label: 'Problem Solving',  subtitle: 'Mess to clarity',blurb: 'Define problems before solving them. Use design thinking to move from mess to clarity to action.',                         color: 'blue'   },
-    { label: 'Teamwork',         subtitle: 'Better together', blurb: 'Work across differences. Give and receive honest feedback. Understand your role on a team — and when to step up.',         color: 'green'  },
-    { label: 'Creativity',       subtitle: 'Ideas on tap', blurb: 'Generate ideas under constraints. Prototype fast. Learn that creativity isn\'t inspiration — it\'s a discipline.',           color: 'pop'    },
-    { label: 'Communication',    subtitle: 'Be heard',  blurb: 'Present to executives. Write clearly. Tell a story with data. Persuade people who don\'t have to listen.',                       color: 'navy'   },
+    { label: 'Leadership', subtitle: 'Own the room', color: 'coral',
+      blurb: 'Take ownership of decisions. Lead a team through ambiguity. Learn that leadership isn\'t authority — it\'s initiative.',
+      icon: '<circle cx="12" cy="8" r="4"/><path d="M4 20 C4 16 8 14 12 14 C16 14 20 16 20 20"/>' },
+    { label: 'Critical Thinking', subtitle: 'Cut the noise', color: 'violet',
+      blurb: 'Question assumptions. Separate signal from noise. Make decisions under uncertainty with limited information.',
+      icon: '<circle cx="12" cy="12" r="3"/><path d="M12 2 L12 5 M12 19 L12 22 M2 12 L5 12 M19 12 L22 12"/>' },
+    { label: 'Problem Solving', subtitle: 'Mess to clarity', color: 'blue',
+      blurb: 'Define problems before solving them. Use design thinking to move from mess to clarity to action.',
+      icon: '<rect x="3" y="3" width="18" height="18"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/>' },
+    { label: 'Teamwork', subtitle: 'Better together', color: 'green',
+      blurb: 'Work across differences. Give and receive honest feedback. Understand your role on a team — and when to step up or step back.',
+      icon: '<circle cx="8" cy="12" r="4"/><circle cx="16" cy="12" r="4"/>' },
+    { label: 'Creativity', subtitle: 'Ideas on tap', color: 'pop',
+      blurb: 'Generate ideas under constraints. Prototype fast. Learn that creativity isn\'t inspiration — it\'s a discipline.',
+      icon: '<polygon points="12,2 15,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 9,9"/>' },
+    { label: 'Communication', subtitle: 'Be heard', color: 'navy',
+      blurb: 'Present to executives. Write clearly. Tell a story with data. Persuade people who don\'t have to listen.',
+      icon: '<path d="M4 20 L12 4 L20 20"/><line x1="8" y1="14" x2="16" y2="14"/>' },
   ],
   optional = [
-    { label: 'AI & Product',     subtitle: 'Optional specialty', blurb: 'How AI changes what products can do — and how to build them responsibly.', color: 'coral'  },
-    { label: 'Venture Finance',  subtitle: 'Optional specialty', blurb: 'How startups get funded, how investors think, and how to make a case that survives scrutiny.', color: 'green' },
-    { label: 'Brand Strategy',   subtitle: 'Optional specialty', blurb: 'How brands are built, positioned, and communicated — from identity to go-to-market.', color: 'blue'   },
+    { label: 'AI & Product', subtitle: 'Build with intent', color: 'coral',
+      blurb: 'How AI changes what products can do — and how to build them responsibly. For students who want to go deeper on the craft of making.',
+      icon: '<rect x="3" y="3" width="18" height="18"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="21"/>' },
+    { label: 'Venture Finance', subtitle: 'Make the case', color: 'green',
+      blurb: 'How startups get funded, how investors think, and how to make a case that survives scrutiny. For the business-minded who want a harder edge.',
+      icon: '<path d="M4 20 L12 4 L20 20 Z"/><line x1="8" y1="14" x2="16" y2="14"/>' },
+    { label: 'Brand Strategy', subtitle: 'Shape the story', color: 'blue',
+      blurb: 'How brands are built, positioned, and communicated — from identity to go-to-market. For students who see strategy as design.',
+      icon: '<polyline points="4 17 10 11 14 15 20 9"/><line x1="15" y1="9" x2="20" y2="9"/><line x1="20" y1="9" x2="20" y2="14"/>' },
   ],
+  optionalHref = '/specialties',
 } = Astro.props;
 ---
 
 <section class="spec-grid">
   <div class="sg-inner">
     <div class="sg-head">
-      <div class="sg-label">Foundations & specialties</div>
-      <p class="sg-intro">
-        Every student builds the same six foundations. Those who want to go deeper pick up an optional specialty on top — think of it as a major and a minor.
-      </p>
+      <div class="section-header">
+        <div class="section-mark" style="background: var(--coral);"></div>
+        <div>
+          <h2>What you'll take with you.</h2>
+          <p class="sub">Six foundations every student builds — the skills that travel with you into school, work, and whatever you do next. Three optional specialties to go deeper in one direction.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- 3×3 bordered grid. Rows 1–2: foundational. Row 3: optional specialties (tinted). -->
+    <!-- 3×3 bordered grid. Rows 1–2: foundational. Row 3: optional (tinted + clickable). -->
     <div class="sg-grid">
       {foundational.map((t) => (
         <div class="sg-cell sg-found">
-          <div class="sg-mark" style={`background: var(--${t.color || 'violet'});`}></div>
+          <div class="sg-icon" style={`background: rgba(var(--${t.color}-rgb, 123, 79, 219), 0.08);`}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke={`var(--${t.color || 'violet'})`} fill="none" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" set:html={t.icon} />
+          </div>
           <h3>{t.label}</h3>
           <div class="sg-sub">{t.subtitle}</div>
           <p>{t.blurb}</p>
         </div>
       ))}
       {optional.map((t) => (
-        <div class="sg-cell sg-opt">
-          <div class="sg-mark" style={`background: var(--${t.color || 'violet'});`}></div>
-          <div class="sg-tag">Optional</div>
+        <a class="sg-cell sg-opt" href={optionalHref}>
+          <div class="sg-tag-row">
+            <span class="sg-tag">Optional specialty</span>
+            <span class="sg-arrow" aria-hidden="true"><svg viewBox="0 0 14 14" width="14" height="14"><line x1="3" y1="7" x2="11" y2="7"/><line x1="7.5" y1="3.5" x2="11" y2="7"/><line x1="7.5" y1="10.5" x2="11" y2="7"/></svg></span>
+          </div>
+          <div class="sg-icon" style={`background: rgba(var(--${t.color}-rgb, 123, 79, 219), 0.10);`}>
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke={`var(--${t.color || 'violet'})`} fill="none" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" set:html={t.icon} />
+          </div>
           <h3>{t.label}</h3>
+          <div class="sg-sub">{t.subtitle}</div>
           <p>{t.blurb}</p>
-        </div>
+        </a>
       ))}
     </div>
-
-    <a href="/specialties" class="sg-cta">See how specialties work →</a>
   </div>
 </section>
 
@@ -66,15 +97,17 @@ const {
   }
   .sg-inner { max-width: 1200px; margin: 0 auto; }
 
-  .sg-head { margin-bottom: 56px; max-width: 720px; }
-  .sg-label {
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--text-light);
-    margin-bottom: 16px;
+  .sg-head { margin-bottom: 56px; }
+  .sg-head .section-header h2 {
+    font-size: 40px; font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
   }
-  .sg-intro {
-    font-size: 17px; line-height: 1.6; color: var(--text-mid);
+  .sg-head .section-header .sub {
+    font-size: 17px; line-height: 1.6;
+    color: var(--text-mid);
+    margin-top: 14px;
     max-width: 620px;
   }
 
@@ -90,9 +123,16 @@ const {
     padding: 36px 32px 40px;
     background: white;
     display: flex; flex-direction: column;
-    min-height: 220px;
+    min-height: 260px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
   }
-  .sg-mark { width: 24px; height: 5px; margin-bottom: 20px; }
+  .sg-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
   .sg-cell h3 {
     font-size: 20px; font-weight: 600; color: var(--navy);
     margin-bottom: 4px;
@@ -102,42 +142,51 @@ const {
     font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-light);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .sg-cell p {
     font-size: 14px; line-height: 1.55;
     color: var(--text-mid);
   }
 
-  /* Optional specialties — tinted bg to distinguish the bottom row */
+  /* Optional row — clickable, violet-tinted (not grey) to signal "go deeper" */
   .sg-opt {
-    background: var(--bg-subtle);
+    background: rgba(123, 79, 219, 0.045);
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s;
   }
-  .sg-opt .sg-tag {
+  .sg-opt:hover {
+    background: rgba(123, 79, 219, 0.10);
+  }
+  .sg-opt:hover .sg-arrow { transform: translateX(4px); color: var(--violet); }
+  .sg-opt:hover h3 { color: var(--violet); }
+  .sg-tag-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .sg-tag {
     font-family: 'Barlow Semi Condensed', sans-serif;
     font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--violet);
-    margin-bottom: 8px;
   }
-
-  .sg-cta {
-    display: inline-flex; align-items: center;
-    margin-top: 40px;
-    color: var(--navy); font-size: 15px; font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 4px;
-    transition: color .15s, border-color .15s;
+  .sg-arrow {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px;
+    color: var(--text-light);
+    transition: transform 0.18s, color 0.18s;
   }
-  .sg-cta:hover { color: var(--violet); border-color: var(--violet); }
+  .sg-arrow svg { stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: square; stroke-linejoin: miter; }
+  .sg-opt .sg-icon { background: rgba(255,255,255,0.55) !important; }
 
   @media (max-width: 1024px) {
     .spec-grid { padding: 88px 48px; }
+    .sg-head .section-header h2 { font-size: 32px; }
   }
   @media (max-width: 768px) {
     .spec-grid { padding: 72px 24px; }
     .sg-grid { grid-template-columns: 1fr; }
     .sg-cell { min-height: auto; padding: 28px 24px; }
+    .sg-head .section-header h2 { font-size: 26px; }
   }
 </style>
