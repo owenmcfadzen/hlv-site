@@ -5,6 +5,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import Quote from '../components/Quote.astro';
 import A5cBar from '../components/A5cBar.astro';
 import PartnersMarquee from '../components/PartnersMarquee.astro';
+import FAQList from '../components/FAQList.astro';
 ---
 
 <Base title="Build Something Real" description="Two-week summer innovation programs for high school students in NYC, Lisbon, Porto, and Seoul. Work on real business challenges with experienced practitioners." navVariant="light">
@@ -162,6 +163,19 @@ import PartnersMarquee from '../components/PartnersMarquee.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQ — momentum builder, right after the process is explained -->
+  <FAQList
+    color="blue"
+    title="Common Questions"
+    items={[
+      { q: "Who's this designed for?", a: "<span class='lead'>High-school students ages 14–19.</span> Rising 9th graders through graduated seniors are welcome at NYC (Columbia). International programs take rising 10th graders and older." },
+      { q: "How competitive is admission?", a: "<span class='lead'>Selective, not competitive.</span> We're building a cohort, not ranking individuals. We read every application and look for curiosity and initiative, not test scores." },
+      { q: "What does it cost, and is financial aid available?", a: "<span class='lead'>Programs are priced to reflect what's involved — and yes, we offer real financial aid.</span> Full cost breakdown and aid options live on the <a href='/admissions'>admissions page</a>. We're transparent: ask us directly if something isn't clear." },
+      { q: "What if I'm not sure which specialty to pick?", a: "<span class='lead'>That's normal.</span> Tell us what interests you on the application. Final selection happens on day one, after you've met the cohort and the operator." },
+      { q: "Can I talk to someone before applying?", a: "<span class='lead'>Please do.</span> Email <strong>hello@hudsonlabventures.com</strong> — a real person replies within 24 hours, usually Cate or a team member who can answer your specific questions." },
+    ]}
+  />
 
   <!-- FOR PARENTS -->
   <section class="parents-section">
